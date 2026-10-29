@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, Suspense } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { ThreeErrorBoundary } from './ThreeErrorBoundary';
@@ -11,39 +11,39 @@ interface AuditLensProps {
   onLayerClick?: (stageKey: 'fairness' | 'explain' | 'stresstest' | 'lawcheck') => void;
 }
 
-// 3D Optical Elements
+// 3D Optical Elements for The Trust Observatory — Signal Edition
 function OpticalLensMesh({ stage, isAuditing }: { stage: number; isAuditing: boolean }) {
-  const outerBrassRingRef = useRef<THREE.Mesh>(null);
+  const outerBezelRef = useRef<THREE.Mesh>(null);
   const midFilterRef = useRef<THREE.Mesh>(null);
   const innerCoreRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
-    const rotSpeed = isAuditing ? 1.2 : 0.2;
-    if (outerBrassRingRef.current) {
-      outerBrassRingRef.current.rotation.z += delta * rotSpeed;
+    const rotSpeed = isAuditing ? 1.0 : 0.15;
+    if (outerBezelRef.current) {
+      outerBezelRef.current.rotation.z += delta * rotSpeed;
     }
     if (midFilterRef.current) {
-      midFilterRef.current.rotation.z -= delta * (rotSpeed * 0.7);
+      midFilterRef.current.rotation.z -= delta * (rotSpeed * 0.65);
     }
     if (innerCoreRef.current) {
-      innerCoreRef.current.rotation.z += delta * (rotSpeed * 0.4);
+      innerCoreRef.current.rotation.z += delta * (rotSpeed * 0.35);
     }
   });
 
-  // Dynamic brass & glass colors based on stages
-  const coreColor = stage >= 1 ? '#496F5A' : '#C9A66B';
-  const midColor = stage >= 2 ? '#496F5A' : '#C9A66B';
-  const outerColor = stage >= 4 ? '#496F5A' : '#C9A66B';
+  // Dynamic Signal Edition colors based on inspection stages
+  const coreColor = stage >= 1 ? '#D5F36A' : '#FF705D';
+  const midColor = stage >= 2 ? '#D5F36A' : '#C5B6C9';
+  const outerColor = stage >= 4 ? '#D5F36A' : '#332A37';
 
   return (
     <group position={[0, 0, 0]}>
-      {/* Outer Brass Bezel */}
-      <mesh ref={outerBrassRingRef}>
+      {/* Outer Deep Aubergine Bezel */}
+      <mesh ref={outerBezelRef}>
         <torusGeometry args={[2.2, 0.08, 16, 64]} />
         <meshStandardMaterial
-          color="#C9A66B"
-          metalness={0.85}
-          roughness={0.25}
+          color="#332A37"
+          metalness={0.9}
+          roughness={0.2}
         />
       </mesh>
 
@@ -60,10 +60,10 @@ function OpticalLensMesh({ stage, isAuditing }: { stage: number; isAuditing: boo
         />
       </mesh>
 
-      {/* Middle Brass Separator Ring */}
+      {/* Middle Neutral Separator Ring */}
       <mesh>
         <torusGeometry args={[1.5, 0.05, 16, 48]} />
-        <meshStandardMaterial color="#C9A66B" metalness={0.7} roughness={0.3} />
+        <meshStandardMaterial color="#DED3D8" metalness={0.7} roughness={0.3} />
       </mesh>
 
       {/* Middle Filter: Attribution & Stress Test Lens */}
@@ -79,10 +79,10 @@ function OpticalLensMesh({ stage, isAuditing }: { stage: number; isAuditing: boo
         />
       </mesh>
 
-      {/* Inner Brass Core Aperture Ring */}
+      {/* Inner Precision Aperture Ring */}
       <mesh>
         <torusGeometry args={[0.85, 0.04, 16, 36]} />
-        <meshStandardMaterial color="#C9A66B" metalness={0.8} roughness={0.25} />
+        <meshStandardMaterial color="#332A37" metalness={0.85} roughness={0.2} />
       </mesh>
 
       {/* Inner Core: Fairness Demographic Parity Focal Lens */}
@@ -91,7 +91,7 @@ function OpticalLensMesh({ stage, isAuditing }: { stage: number; isAuditing: boo
         <meshPhysicalMaterial
           color={coreColor}
           transmission={0.9}
-          opacity={0.8}
+          opacity={0.82}
           transparent
           roughness={0.1}
           ior={1.55}
@@ -101,7 +101,7 @@ function OpticalLensMesh({ stage, isAuditing }: { stage: number; isAuditing: boo
       {/* Optical Reticle Center Pin */}
       <mesh position={[0, 0, 0.22]}>
         <sphereGeometry args={[0.08, 16, 16]} />
-        <meshStandardMaterial color="#171A18" metalness={0.9} roughness={0.1} />
+        <meshStandardMaterial color="#201823" metalness={0.95} roughness={0.1} />
       </mesh>
     </group>
   );
@@ -124,7 +124,7 @@ export const AuditLens: React.FC<AuditLensProps> = ({ stage, isAuditing, onLayer
 
   return (
     <ThreeErrorBoundary fallback={<AuditLens2D stage={stage} isAuditing={isAuditing} onLayerClick={onLayerClick} />}>
-      <div className="w-full observatory-card p-6 border border-[#C9A66B]/30 bg-[#F2EEE5]/70 dark:bg-[#171A18]/90 overflow-hidden shadow-xs">
+      <div className="w-full observatory-card p-6 border border-[#DED3D8] dark:border-[#332A37] bg-[#FFFFFF] dark:bg-[#201823] overflow-hidden shadow-xs">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           
           {/* 3D Canvas Viewport */}
@@ -134,9 +134,10 @@ export const AuditLens: React.FC<AuditLensProps> = ({ stage, isAuditing, onLayer
               dpr={[1, 1.5]}
               gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
             >
-              <ambientLight intensity={0.9} />
-              <directionalLight position={[3, 5, 4]} intensity={1.5} color="#F2EEE5" />
-              <pointLight position={[-3, -3, 2]} intensity={0.8} color="#C9A66B" />
+              <ambientLight intensity={0.85} />
+              <directionalLight position={[3, 5, 4]} intensity={1.4} color="#FAF2E8" />
+              <pointLight position={[-3, -3, 2]} intensity={0.7} color="#D5F36A" />
+              <pointLight position={[3, -2, 2]} intensity={0.5} color="#FF705D" />
               <Suspense fallback={null}>
                 <OpticalLensMesh stage={stage} isAuditing={isAuditing} />
               </Suspense>
@@ -144,9 +145,9 @@ export const AuditLens: React.FC<AuditLensProps> = ({ stage, isAuditing, onLayer
 
             {/* Central Optical Label Overlay */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-20 h-20 rounded-full border border-[#C9A66B]/40 flex flex-col items-center justify-center bg-[#F2EEE5]/60 dark:bg-[#171A18]/60 backdrop-blur-xs text-center font-mono">
-                <span className="text-[9px] uppercase tracking-wider text-[#C9A66B] font-bold">Lens</span>
-                <span className="text-[11px] font-bold text-[#171A18] dark:text-[#F2EEE5]">
+              <div className="w-20 h-20 rounded-full border border-[#DED3D8] dark:border-[#332A37] flex flex-col items-center justify-center bg-[#FAF2E8]/80 dark:bg-[#201823]/80 backdrop-blur-xs text-center font-mono">
+                <span className="text-[9px] uppercase tracking-wider text-[#FF705D] font-bold">Lens</span>
+                <span className="text-[11px] font-bold text-[#201823] dark:text-[#FAF2E8]">
                   {stage === 5 ? 'DONE' : isAuditing ? `STEP ${stage}/4` : 'READY'}
                 </span>
               </div>
@@ -157,15 +158,15 @@ export const AuditLens: React.FC<AuditLensProps> = ({ stage, isAuditing, onLayer
           <div className="flex-1 space-y-4 w-full">
             <div>
               <div className="flex items-center gap-2">
-                <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#C9A66B]" />
-                <span className="font-mono text-xs font-bold text-[#C9A66B] uppercase tracking-widest">
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#D5F36A]" />
+                <span className="font-mono text-xs font-bold text-[#FF705D] uppercase tracking-widest">
                   The Audit Lens &bull; Precision Optical Inspection
                 </span>
               </div>
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-[#171A18] dark:text-[#F2EEE5] mt-1">
+              <h3 className="font-display font-bold text-xl sm:text-2xl text-[#201823] dark:text-[#FAF2E8] mt-1">
                 Multi-Stage Scientific Verification
               </h3>
-              <p className="text-xs sm:text-sm text-[#171A18]/70 dark:text-[#F2EEE5]/70 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#201823]/70 dark:text-[#FAF2E8]/70 max-w-xl">
                 The optical lens apparatus inspects model predictions through four progressive filters: demographic parity, feature attribution, adversarial perturbation stability, and statutory regulatory checklists.
               </p>
             </div>
@@ -184,29 +185,29 @@ export const AuditLens: React.FC<AuditLensProps> = ({ stage, isAuditing, onLayer
                     onClick={() => onLayerClick?.(st.key)}
                     className={`p-3 rounded border text-left transition-all flex items-start gap-3 ${
                       isCurrent
-                        ? 'border-[#C9A66B] bg-[#C9A66B]/15 shadow-xs'
+                        ? 'border-[#D5F36A] bg-[#D5F36A]/15 shadow-xs'
                         : isDone
-                        ? 'border-[#496F5A] bg-[#496F5A]/5'
-                        : 'border-[#171A18]/10 dark:border-[#F2EEE5]/10 hover:border-[#C9A66B]/50'
+                        ? 'border-[#D5F36A]/50 bg-[#D5F36A]/10'
+                        : 'border-[#DED3D8] dark:border-[#332A37] hover:border-[#FF705D]/50'
                     }`}
                   >
                     <div className={`p-2 rounded mt-0.5 shrink-0 ${
-                      isDone ? 'bg-[#496F5A]/20 text-[#496F5A]' : 'bg-[#C9A66B]/20 text-[#C9A66B]'
+                      isDone ? 'bg-[#D5F36A]/20 text-[#2D5A1E] dark:text-[#D5F36A]' : 'bg-[#332A37] text-[#C5B6C9]'
                     }`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center justify-between gap-1">
-                        <span className="font-mono text-xs font-bold text-[#171A18] dark:text-[#F2EEE5] truncate">
+                        <span className="font-mono text-xs font-bold text-[#201823] dark:text-[#FAF2E8] truncate">
                           {st.label}
                         </span>
                         {isDone ? (
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#496F5A] shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2D5A1E] dark:text-[#D5F36A] shrink-0" />
                         ) : isCurrent ? (
-                          <Clock className="w-3.5 h-3.5 text-[#C9A66B] animate-spin shrink-0" />
+                          <Clock className="w-3.5 h-3.5 text-[#FF705D] animate-spin shrink-0" />
                         ) : null}
                       </div>
-                      <p className="text-[11px] text-[#171A18]/60 dark:text-[#F2EEE5]/60 mt-0.5 truncate">
+                      <p className="text-[11px] text-[#201823]/60 dark:text-[#FAF2E8]/60 mt-0.5 truncate">
                         {st.desc}
                       </p>
                     </div>

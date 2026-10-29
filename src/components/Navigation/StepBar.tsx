@@ -172,7 +172,7 @@ export const StepBar: React.FC<StepBarProps> = ({
 
   return (
     <nav
-      className="bg-[#FFFFFF] dark:bg-[#1C201E] border-b border-[#C9A66B]/20 py-2.5 px-3 sm:px-6 shadow-xs overflow-x-auto"
+      className="bg-[#FFFFFF] dark:bg-[#201823] border-b border-[#DED3D8] dark:border-[#332A37] py-2.5 px-3 sm:px-6 shadow-xs overflow-x-auto"
       aria-label="Audit Navigation"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-start xl:justify-between gap-1.5 sm:gap-2 min-w-max">
@@ -191,10 +191,10 @@ export const StepBar: React.FC<StepBarProps> = ({
               onClick={() => onSelectStep(step.id)}
               className={`group flex items-center gap-2 px-3 py-2 rounded-md transition-all text-left select-none relative ${
                 isSelected
-                  ? 'bg-[#F2EEE5] dark:bg-[#171A18] border border-[#C9A66B] shadow-xs'
+                  ? 'bg-[#FAF2E8] dark:bg-[#332A37] border border-[#D5F36A] shadow-xs'
                   : isLocked
                   ? 'opacity-40 cursor-not-allowed hover:bg-transparent'
-                  : 'hover:bg-[#F2EEE5]/70 dark:hover:bg-[#252A27] border border-transparent'
+                  : 'hover:bg-[#FAF2E8]/70 dark:hover:bg-[#332A37]/50 border border-transparent'
               }`}
               title={isLocked ? 'Run or load an audit to inspect this stage' : step.formalSubtitle}
             >
@@ -202,13 +202,13 @@ export const StepBar: React.FC<StepBarProps> = ({
               <div
                 className={`w-7 h-7 rounded flex items-center justify-center shrink-0 text-xs font-mono font-bold transition-colors ${
                   isSelected
-                    ? 'bg-[#C9A66B] text-[#171A18]'
+                    ? 'bg-[#D5F36A] text-[#201823]'
                     : status === 'pass'
-                    ? 'bg-[#496F5A]/20 text-[#496F5A]'
+                    ? 'bg-[#D5F36A]/20 text-[#2D5A1E] dark:text-[#D5F36A]'
                     : status === 'warn'
-                    ? 'bg-[#C9A66B]/20 text-[#C9A66B]'
+                    ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400'
                     : status === 'fail'
-                    ? 'bg-[#B85D45]/20 text-[#B85D45]'
+                    ? 'bg-[#FF705D]/20 text-[#FF705D]'
                     : 'bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400'
                 }`}
               >
@@ -225,7 +225,7 @@ export const StepBar: React.FC<StepBarProps> = ({
                   <span
                     className={`font-display text-xs sm:text-sm font-bold tracking-tight truncate ${
                       isSelected
-                        ? 'text-[#171A18] dark:text-[#F2EEE5]'
+                        ? 'text-[#201823] dark:text-[#FAF2E8]'
                         : 'text-stone-700 dark:text-stone-300'
                     }`}
                   >
@@ -234,17 +234,17 @@ export const StepBar: React.FC<StepBarProps> = ({
 
                   {/* Status Indicator Pill */}
                   {status === 'pass' && (
-                    <CheckCircle2 className="w-3 h-3 text-[#496F5A] shrink-0" />
+                    <CheckCircle2 className="w-3 h-3 text-[#2D5A1E] dark:text-[#D5F36A] shrink-0" />
                   )}
                   {status === 'warn' && (
-                    <AlertTriangle className="w-3 h-3 text-[#C9A66B] shrink-0" />
+                    <AlertTriangle className="w-3 h-3 text-amber-600 dark:text-amber-400 shrink-0" />
                   )}
                   {status === 'fail' && (
-                    <XCircle className="w-3 h-3 text-[#B85D45] shrink-0" />
+                    <XCircle className="w-3 h-3 text-[#FF705D] shrink-0" />
                   )}
                 </div>
 
-                <span className="font-mono text-[10px] text-stone-500 dark:text-stone-400 truncate max-w-[150px]">
+                <span className="font-mono text-[10px] text-stone-500 dark:text-[#C5B6C9] truncate max-w-[150px]">
                   {step.formalSubtitle}
                 </span>
               </div>

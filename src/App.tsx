@@ -265,7 +265,7 @@ export default function App() {
   const isLearn = currentStep === 'learn';
 
   return (
-    <div className="min-h-screen bg-[#F2EEE5] dark:bg-[#171A18] text-[#171A18] dark:text-[#F2EEE5] font-body transition-colors flex flex-col">
+    <div className="min-h-screen bg-[#FAF2E8] dark:bg-[#201823] text-[#201823] dark:text-[#FAF2E8] font-body transition-colors flex flex-col">
       
       {/* Top Header */}
       <Header
@@ -300,14 +300,14 @@ export default function App() {
         <div className="fixed bottom-6 right-6 z-50 max-w-md animate-fade-in no-print">
           <div className={`p-4 rounded-md shadow-xl border flex items-center gap-3 ${
             toast.type === 'success'
-              ? 'bg-[#496F5A] text-white border-[#496F5A]'
+              ? 'bg-[#D5F36A] text-[#201823] border-[#B9DE40] font-semibold'
               : toast.type === 'error'
-              ? 'bg-[#B85D45] text-white border-[#B85D45]'
-              : 'bg-[#171A18] text-white dark:bg-[#F2EEE5] dark:text-[#171A18] border-[#C9A66B]'
+              ? 'bg-[#FF705D] text-white border-[#E0503D] font-semibold'
+              : 'bg-[#201823] text-[#FAF2E8] dark:bg-[#332A37] dark:text-[#FAF2E8] border-[#C5B6C9]/40'
           }`}>
-            {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0" />}
-            {toast.type === 'error' && <AlertCircle className="w-5 h-5 shrink-0" />}
-            {toast.type === 'info' && <span className="w-2.5 h-2.5 rounded-full bg-[#C9A66B] animate-ping shrink-0" />}
+            {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0 text-[#201823]" />}
+            {toast.type === 'error' && <AlertCircle className="w-5 h-5 shrink-0 text-white" />}
+            {toast.type === 'info' && <span className="w-2.5 h-2.5 rounded-full bg-[#D5F36A] animate-ping shrink-0" />}
             <span className="text-xs font-mono font-medium">{toast.message}</span>
           </div>
         </div>

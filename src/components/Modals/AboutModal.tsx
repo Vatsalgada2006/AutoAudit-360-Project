@@ -11,33 +11,33 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="bg-[#FFFFFF] dark:bg-[#1B1B1F] border border-[#1B1B1F]/20 dark:border-[#F6F1E7]/20 rounded-xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden">
+      <div className="bg-[#FAF2E8] dark:bg-[#201823] border border-[#DED3D8] dark:border-[#332A37] rounded-xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden">
         
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[#DED3D8] dark:border-[#332A37] flex items-center justify-between bg-[#FAF2E8] dark:bg-[#201823]">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-[#FF6B2C]" />
-            <h3 className="font-display font-extrabold text-lg sm:text-xl text-[#1B1B1F] dark:text-[#F6F1E7]">
+            <ShieldCheck className="w-5 h-5 text-[#FF705D]" />
+            <h3 className="font-display font-extrabold text-lg sm:text-xl text-[#201823] dark:text-[#FAF2E8]">
               About AutoAudit-360 Modular Architecture
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+            className="p-1 rounded text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-4 sm:p-6 overflow-y-auto space-y-5 text-xs font-mono">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-5 text-xs font-mono bg-[#FAF2E8]/40 dark:bg-[#201823]">
           
           <div className="space-y-2">
-            <h4 className="font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7] flex items-center gap-2">
-              <Layers className="w-4 h-4 text-[#FF6B2C]" />
+            <h4 className="font-display font-bold text-sm text-[#201823] dark:text-[#FAF2E8] flex items-center gap-2">
+              <Layers className="w-4 h-4 text-[#FF705D]" />
               <span>Diagnostic System Architecture</span>
             </h4>
-            <p className="font-body text-xs text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80 leading-relaxed">
+            <p className="font-body text-xs text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
               AutoAudit-360 evaluates AI and machine learning systems across four operational stages:
               (1) Algorithmic Fairness &amp; Disparate Impact on held-out test splits,
               (2) Interpretability &amp; Proxy Feature Screening via game-theoretic SHAP attributions,
@@ -46,12 +46,12 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             </p>
           </div>
 
-          <div className="p-3.5 rounded bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2">
-            <div className="font-bold text-[#FF6B2C]">PyTorch Compatibility Wrapper:</div>
-            <p className="font-body text-[11px] text-[#1B1B1F]/70 dark:text-[#F6F1E7]/70">
+          <div className="p-3.5 rounded-lg bg-[#FAF2E8] dark:bg-[#332A37]/50 border border-[#DED3D8] dark:border-[#332A37] space-y-2">
+            <div className="font-bold text-[#FF705D]">PyTorch Compatibility Wrapper:</div>
+            <p className="font-body text-[11px] text-[#201823]/70 dark:text-[#FAF2E8]/70">
               The engine seamlessly audits PyTorch models by accepting a fitted Scikit-Learn transformer pipeline alongside the PyTorch module:
             </p>
-            <pre className="p-2 rounded bg-white dark:bg-stone-950 overflow-x-auto text-[11px] border">
+            <pre className="p-2.5 rounded bg-[#FAF2E8] dark:bg-[#201823] overflow-x-auto text-[11px] border border-[#DED3D8] dark:border-[#332A37] text-[#201823] dark:text-[#FAF2E8]">
 {`from audit_model import PyTorchClassifierWrapper
 
 # Wrap torch neural net + fitted sklearn preprocessor
@@ -66,19 +66,19 @@ python audit_model.py --data dataset.csv --target Label --sensitive Sex,Age`}
             </pre>
           </div>
 
-          <div className="space-y-1 p-3 rounded bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-800 text-[#1B1B1F] dark:text-[#F6F1E7]">
-            <div className="font-bold text-[#D6334A]">Mandatory Regulatory &amp; Academic Notice:</div>
-            <p className="font-body text-[11px] text-stone-700 dark:text-stone-300">
+          <div className="space-y-1 p-3.5 rounded-lg bg-[#FAF2E8] dark:bg-[#332A37]/40 border-l-4 border-l-[#FF705D] border border-[#DED3D8] dark:border-[#332A37] text-[#201823] dark:text-[#FAF2E8]">
+            <div className="font-bold text-[#FF705D]">Mandatory Regulatory &amp; Academic Notice:</div>
+            <p className="font-body text-[11px] text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
               AutoAudit-360 is an academic prototype intended for diagnostic risk assessment, technical auditing, and research benchmarking. Its findings and readiness stamps do not constitute formal legal certification, attorney-client privileged advice, or statutory conformity seals.
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="p-3 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 bg-[#F6F1E7]/30 dark:bg-[#16161A]/30 text-right">
+        <div className="p-3 border-t border-[#DED3D8] dark:border-[#332A37] bg-[#FAF2E8] dark:bg-[#201823] text-right">
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-[#1B1B1F] text-white dark:bg-[#F6F1E7] dark:text-[#1B1B1F] rounded font-mono text-xs font-bold"
+            className="px-4 py-1.5 bg-[#332A37] hover:bg-[#201823] text-[#FAF2E8] rounded-lg font-mono text-xs font-bold transition-colors cursor-pointer border border-[#FF705D]/30"
           >
             Close
           </button>

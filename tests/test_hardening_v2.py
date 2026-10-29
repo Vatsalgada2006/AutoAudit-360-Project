@@ -230,7 +230,7 @@ def test_zero_personal_identifiers_in_repo():
     ]
 
     extensions_to_check = {".py", ".ts", ".tsx", ".html", ".json", ".md", ".yml", ".yaml"}
-    ignore_dirs = {".git", "node_modules", ".pytest_cache", "__pycache__", ".vscode", "dist"}
+    ignore_dirs = {".git", "node_modules", ".pytest_cache", "__pycache__", ".vscode", "dist", ".venv", "venv"}
 
     offending_files = []
 

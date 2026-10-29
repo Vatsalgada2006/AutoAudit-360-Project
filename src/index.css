@@ -1,13 +1,14 @@
 /*
   AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite
-  Visual Identity: The Trust Observatory
-  Palette:
-    Ink Charcoal: #171A18
-    Warm Paper:   #F2EEE5
-    Muted Brass:  #C9A66B
-    Sage Green:   #496F5A (Pass)
-    Restrained Rust: #B85D45 (Problem)
-    Observatory Amber: #C9A66B / #D48824 (Warning / Needs Review)
+  Visual Identity: The Trust Observatory — Signal Edition
+  Design System Palette:
+    Obsidian Plum:   #201823 (Dark navigation shell, deep surfaces, high-contrast framing)
+    Deep Aubergine:  #332A37 (Elevated dark panels, instrumental housings)
+    Warm Ivory:      #FAF2E8 (Analytical readable workspace, reports, data tables)
+    Signal Coral:    #FF705D (Important highlights, risk warnings, critical deficiencies)
+    Acid Lime:       #D5F36A (Selected controls, active inspection states, verified passes)
+    Muted Lavender:  #C5B6C9 (Technical secondary labels, calm structural outlines)
+    Neutral Border:  #DED3D8 (Crisp, restrained analytical division lines)
 */
 
 @import "tailwindcss";
@@ -18,11 +19,13 @@
     --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'IBM Plex Mono', Menlo, monospace;
     
-    --color-paper: #F2EEE5;
-    --color-charcoal: #171A18;
-    --color-brass: #C9A66B;
-    --color-sage: #496F5A;
-    --color-rust: #B85D45;
+    --color-obsidian: #201823;
+    --color-aubergine: #332A37;
+    --color-ivory: #FAF2E8;
+    --color-coral: #FF705D;
+    --color-lime: #D5F36A;
+    --color-lavender: #C5B6C9;
+    --color-neutral-border: #DED3D8;
   }
   
   html {
@@ -32,15 +35,15 @@
 
   body {
     font-family: var(--font-body);
-    color: #171A18;
-    background-color: #F2EEE5;
+    color: #201823;
+    background-color: #FAF2E8;
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
 
   .dark body {
-    color: #F2EEE5;
-    background-color: #171A18;
+    color: #FAF2E8;
+    background-color: #201823;
   }
 }
 
@@ -59,24 +62,36 @@
 /* Observatory Precision Card Style */
 .observatory-card {
   background-color: #FFFFFF;
-  border: 1px solid rgba(23, 26, 24, 0.12);
+  border: 1px solid #DED3D8;
   border-radius: 6px;
-  box-shadow: 0 2px 12px rgba(23, 26, 24, 0.04);
+  box-shadow: 0 2px 8px rgba(32, 24, 35, 0.04);
   position: relative;
 }
 
 .dark .observatory-card {
-  background-color: #212523;
-  border-color: rgba(201, 166, 107, 0.20);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  background-color: #332A37;
+  border-color: rgba(197, 182, 201, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
 
-/* Brass Optical Accent Borders */
-.brass-border {
-  border-color: #C9A66B;
+/* Neutral & Signal Accent Borders */
+.signal-border-coral {
+  border-color: #FF705D;
 }
 
-/* Rubber Stamp / Official Diagnostic Seal */
+.signal-border-lime {
+  border-color: #D5F36A;
+}
+
+.border-observatory {
+  border-color: #DED3D8;
+}
+
+.dark .border-observatory {
+  border-color: rgba(197, 182, 201, 0.25);
+}
+
+/* Official Diagnostic Seal / Rubber Stamp */
 .stamp-badge {
   display: inline-flex;
   align-items: center;
@@ -85,35 +100,49 @@
   text-transform: uppercase;
   font-family: var(--font-mono);
   font-weight: 700;
-  letter-spacing: 0.1em;
-  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
   border-width: 2px;
   border-style: solid;
   border-radius: 4px;
-  transform: rotate(-1deg);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+  transform: rotate(-0.75deg);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
 }
 
 .stamp-pass {
-  border-color: #496F5A;
-  color: #496F5A;
-  background-color: rgba(73, 111, 90, 0.10);
+  border-color: #3B7A27;
+  color: #204E15;
+  background-color: rgba(213, 243, 106, 0.28);
+}
+
+.dark .stamp-pass {
+  border-color: #D5F36A;
+  color: #D5F36A;
+  background-color: rgba(213, 243, 106, 0.12);
 }
 
 .stamp-warn {
-  border-color: #C9A66B;
-  color: #9E7A38;
-  background-color: rgba(201, 166, 107, 0.14);
+  border-color: #D97706;
+  color: #92400E;
+  background-color: rgba(254, 243, 199, 0.85);
 }
 
 .dark .stamp-warn {
-  color: #E2BF84;
+  border-color: #F59E0B;
+  color: #FCD34D;
+  background-color: rgba(245, 158, 11, 0.15);
 }
 
 .stamp-fail {
-  border-color: #B85D45;
-  color: #B85D45;
-  background-color: rgba(184, 93, 69, 0.10);
+  border-color: #FF705D;
+  color: #9F1239;
+  background-color: rgba(255, 112, 93, 0.15);
+}
+
+.dark .stamp-fail {
+  border-color: #FF705D;
+  color: #FFA599;
+  background-color: rgba(255, 112, 93, 0.20);
 }
 
 /* Technical Term Dotted Underline with Tooltip Support */
@@ -136,7 +165,7 @@
 }
 
 .animate-optical-rotate {
-  animation: slow-rotate 40s linear infinite;
+  animation: slow-rotate 45s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

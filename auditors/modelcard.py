@@ -18,27 +18,27 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
     * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #0f172a;
+      color: #201823;
       line-height: 1.45;
       font-size: 12px;
-      background: #f8fafc;
+      background: #FAF2E8;
       margin: 0;
       padding: 20px;
     }
     .container {
       max-width: 960px;
       margin: 0 auto;
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
+      background: #FFFFFF;
+      border: 1px solid #DED3D8;
       border-radius: 8px;
       padding: 28px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(32, 24, 35, 0.06);
     }
     .header-bar {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      border-bottom: 2px solid #0f172a;
+      border-bottom: 2px solid #201823;
       padding-bottom: 14px;
       margin-bottom: 20px;
     }
@@ -46,7 +46,7 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       margin: 0 0 4px 0;
       font-size: 22px;
       font-weight: 800;
-      color: #0f172a;
+      color: #201823;
       letter-spacing: -0.02em;
     }
     .badge {
@@ -58,11 +58,11 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .badge-green { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
-    .badge-amber { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-green { background: #D5F36A; color: #201823; border: 1px solid #c0e050; }
+    .badge-amber { background: #fff3ed; color: #c44030; border: 1px solid #FF705D; }
     .badge-red { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
     .stamp {
-      border: 2px dashed #0f172a;
+      border: 2px dashed #201823;
       padding: 6px 14px;
       font-size: 13px;
       font-weight: 800;
@@ -71,29 +71,29 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .stamp-green { border-color: #166534; color: #166534; background: #f0fdf4; }
-    .stamp-amber { border-color: #92400e; color: #92400e; background: #fffbeb; }
-    .stamp-red { border-color: #991b1b; color: #991b1b; background: #fef2f2; }
+    .stamp-green { border-color: #201823; color: #201823; background: #D5F36A; }
+    .stamp-amber { border-color: #FF705D; color: #c44030; background: #fff3ed; }
+    .stamp-red { border-color: #e11d48; color: #991b1b; background: #fee2e2; }
 
     .cap-alert {
       background: #fff1f2;
-      border-left: 4px solid #e11d48;
+      border-left: 4px solid #FF705D;
       padding: 10px 14px;
       margin-bottom: 18px;
       font-size: 12px;
       color: #9f1239;
     }
     .disclaimer-banner {
-      background: #eff6ff;
-      border-left: 4px solid #3b82f6;
+      background: #FAF2E8;
+      border-left: 4px solid #332A37;
       padding: 10px 14px;
       margin-bottom: 20px;
       font-size: 12px;
-      color: #1e40af;
+      color: #201823;
     }
     .exec-summary {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      background: #FAF2E8;
+      border: 1px solid #DED3D8;
       border-radius: 6px;
       padding: 14px 18px;
       margin-bottom: 20px;
@@ -102,7 +102,7 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       margin: 0 0 6px 0;
       font-size: 13px;
       font-weight: 700;
-      color: #0f172a;
+      color: #201823;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -125,16 +125,16 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       margin-bottom: 16px;
     }
     .card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid #DED3D8;
       border-radius: 6px;
       padding: 12px;
-      background: #f8fafc;
+      background: #FAF2E8;
     }
     .card h3 {
       margin: 0 0 6px 0;
       font-size: 11px;
       font-weight: 700;
-      color: #475569;
+      color: #332A37;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -142,11 +142,11 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       font-size: 18px;
       font-weight: 800;
       font-family: monospace;
-      color: #0f172a;
+      color: #201823;
     }
     .metric-sub {
       font-size: 11px;
-      color: #64748b;
+      color: #332A37;
       margin-top: 2px;
     }
     table {
@@ -158,11 +158,11 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
     th, td {
       padding: 6px 8px;
       text-align: left;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #DED3D8;
     }
     th {
-      background: #f1f5f9;
-      color: #334155;
+      background: #FAF2E8;
+      color: #201823;
       font-weight: 700;
     }
     section {
@@ -171,8 +171,8 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
     h2 {
       font-size: 14px;
       font-weight: 800;
-      color: #0f172a;
-      border-bottom: 1px solid #e2e8f0;
+      color: #201823;
+      border-bottom: 1px solid #DED3D8;
       padding-bottom: 4px;
       margin-top: 18px;
       margin-bottom: 10px;
@@ -180,11 +180,11 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       letter-spacing: 0.03em;
     }
     .footer {
-      border-top: 2px solid #0f172a;
+      border-top: 2px solid #201823;
       padding-top: 12px;
       margin-top: 24px;
       font-size: 11px;
-      color: #64748b;
+      color: #332A37;
       display: flex;
       justify-content: space-between;
     }
@@ -194,16 +194,16 @@ MODEL_CARD_HTML_TEMPLATE = """<!DOCTYPE html>
       gap: 10px;
     }
     button {
-      background: #0f172a;
-      color: #ffffff;
-      border: none;
+      background: #332A37;
+      color: #FAF2E8;
+      border: 1px solid #FF705D;
       padding: 6px 14px;
       font-size: 12px;
       font-weight: 600;
       border-radius: 4px;
       cursor: pointer;
     }
-    button:hover { background: #334155; }
+    button:hover { background: #201823; }
 
     @media print {
       body {

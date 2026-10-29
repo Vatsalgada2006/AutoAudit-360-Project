@@ -13,16 +13,16 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenComparison,
 }) => {
   return (
-    <footer className="border-t border-[#C9A66B]/25 bg-[#171A18] text-[#F2EEE5]/75 py-8 px-4 lg:px-8 mt-16 font-body transition-colors">
+    <footer className="border-t border-[#DED3D8] dark:border-[#332A37] bg-[#201823] text-[#FAF2E8]/75 py-8 px-4 lg:px-8 mt-16 font-body transition-colors">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs">
         
         {/* Left: Project Branding & Academic Domain Scope */}
         <div className="text-center md:text-left space-y-1">
-          <div className="flex items-center justify-center md:justify-start gap-2 font-display font-bold text-sm text-[#F2EEE5]">
-            <Compass size={18} className="text-[#C9A66B]" />
+          <div className="flex items-center justify-center md:justify-start gap-2 font-display font-bold text-sm text-[#FAF2E8]">
+            <Compass size={18} className="text-[#FF705D]" />
             <span>AutoAudit-360: End-to-End Trustworthy AI Audit &amp; Regulatory Compliance Suite</span>
           </div>
-          <p className="text-xs text-[#C9A66B]/80 font-mono">
+          <p className="text-xs text-[#C5B6C9] font-mono">
             Domain: AI Governance, Policy &amp; Risk Management | Modules 1-4: Trustworthy AI pipeline, AI Model Card, EU AI Act, India DPDP Act 2023
           </p>
         </div>
@@ -32,9 +32,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenAbout && (
             <button
               onClick={onOpenAbout}
-              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
+              className="flex items-center gap-1 text-[#FAF2E8] hover:text-[#D5F36A] transition-colors cursor-pointer"
             >
-              <Info className="w-3.5 h-3.5 text-[#C9A66B]" />
+              <Info className="w-3.5 h-3.5 text-[#FF705D]" />
               <span>About Architecture</span>
             </button>
           )}
@@ -42,9 +42,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenGlossary && (
             <button
               onClick={onOpenGlossary}
-              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
+              className="flex items-center gap-1 text-[#FAF2E8] hover:text-[#D5F36A] transition-colors cursor-pointer"
             >
-              <BookOpen className="w-3.5 h-3.5 text-[#C9A66B]" />
+              <BookOpen className="w-3.5 h-3.5 text-[#FF705D]" />
               <span>Glossary</span>
             </button>
           )}
@@ -52,9 +52,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenComparison && (
             <button
               onClick={onOpenComparison}
-              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
+              className="flex items-center gap-1 text-[#FAF2E8] hover:text-[#D5F36A] transition-colors cursor-pointer"
             >
-              <BarChart3 className="w-3.5 h-3.5 text-[#C9A66B]" />
+              <BarChart3 className="w-3.5 h-3.5 text-[#FF705D]" />
               <span>Benchmarks</span>
             </button>
           )}
@@ -63,8 +63,8 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Mandatory Neutral Footer Line */}
-      <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-[#C9A66B]/20 text-center text-xs font-mono text-[#F2EEE5]/60">
-        AutoAudit-360 | Academic prototype | Diagnostic findings, not legal certification.
+      <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-[#332A37] text-center text-xs font-mono text-[#C5B6C9]/70">
+        AutoAudit-360 — The Trust Observatory (Signal Edition) | Academic prototype | Diagnostic findings, not legal certification.
       </div>
     </footer>
   );

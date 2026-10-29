@@ -14,9 +14,20 @@ const FLASK_PORT = 5000;
 
 let pythonProcess: ChildProcess | null = null;
 
+function getPythonBinary(): string {
+  if (process.env.PYTHON_BIN) return process.env.PYTHON_BIN;
+  const isWin = process.platform === 'win32';
+  const venvPy = isWin
+    ? path.join(__dirname, '.venv', 'Scripts', 'python.exe')
+    : path.join(__dirname, '.venv', 'bin', 'python');
+  if (fs.existsSync(venvPy)) return venvPy;
+  return isWin ? 'python' : 'python3';
+}
+
 function startPythonBackend() {
-  console.log('[server] Starting Python Flask engine on port ' + FLASK_PORT + '...');
-  pythonProcess = spawn('python3', ['app.py'], {
+  const pyBin = getPythonBinary();
+  console.log(`[server] Starting Python Flask engine using '${pyBin}' on port ${FLASK_PORT}...`);
+  pythonProcess = spawn(pyBin, ['app.py'], {
     cwd: __dirname,
     stdio: 'inherit',
     env: {

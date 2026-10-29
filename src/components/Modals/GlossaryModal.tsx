@@ -97,51 +97,51 @@ export const GlossaryModal: React.FC<GlossaryModalProps> = ({ isOpen, onClose })
       <div className="bg-[#FFFFFF] dark:bg-[#1B1B1F] border border-[#1B1B1F]/20 dark:border-[#F6F1E7]/20 rounded-xl shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col overflow-hidden">
         
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[#DED3D8] dark:border-[#332A37] flex items-center justify-between bg-[#FAF2E8] dark:bg-[#201823]">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-[#FF6B2C]" />
-            <h3 className="font-display font-extrabold text-lg sm:text-xl text-[#1B1B1F] dark:text-[#F6F1E7]">
-              Glossary of Regulatory &amp; Technical Terms
+            <BookOpen className="w-5 h-5 text-[#FF705D]" />
+            <h3 className="font-display font-extrabold text-lg sm:text-xl text-[#201823] dark:text-[#FAF2E8]">
+              Glossary of Regulatory &amp; Technical Standards
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
+            className="p-1 rounded text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Search Input */}
-        <div className="p-4 border-b border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 bg-[#F6F1E7]/40 dark:bg-[#16161A]/40">
+        <div className="p-4 border-b border-[#DED3D8] dark:border-[#332A37] bg-[#FAF2E8]/60 dark:bg-[#332A37]/40">
           <div className="relative">
             <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search terms (e.g. disparate impact, SHAP, DPDP, weakest-link)..."
+              placeholder="Search standards (e.g. disparate impact, SHAP, DPDP, weakest-link)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs font-mono rounded bg-white dark:bg-stone-800 border border-stone-300 dark:border-stone-700 text-[#1B1B1F] dark:text-[#F6F1E7] focus:outline-none focus:border-[#FF6B2C]"
+              className="w-full pl-9 pr-3 py-2 text-xs font-mono rounded-lg bg-[#FAF2E8] dark:bg-[#201823] border border-[#DED3D8] dark:border-[#332A37] text-[#201823] dark:text-[#FAF2E8] focus:outline-none focus:border-[#FF705D]"
             />
           </div>
         </div>
 
         {/* Terms List */}
-        <div className="p-4 sm:p-6 overflow-y-auto space-y-4">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 bg-[#FAF2E8]/20 dark:bg-[#201823]/90">
           {filtered.map((item) => (
-            <div key={item.term} className="p-3.5 rounded bg-[#F6F1E7]/50 dark:bg-[#16161A]/50 border border-stone-200 dark:border-stone-800 space-y-1.5">
+            <div key={item.term} className="p-4 rounded-lg bg-[#FAF2E8] dark:bg-[#332A37]/50 border border-[#DED3D8] dark:border-[#332A37] space-y-1.5 shadow-xs">
               <div className="flex items-center justify-between">
-                <span className="font-display font-bold text-sm sm:text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
+                <span className="font-display font-bold text-sm sm:text-base text-[#201823] dark:text-[#FAF2E8]">
                   {item.term}
                 </span>
-                <span className="font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[#FF6B2C]/10 text-[#FF6B2C]">
+                <span className="font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[#FF705D]/15 text-[#FF705D]">
                   {item.category}
                 </span>
               </div>
-              <p className="text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+              <p className="text-xs font-body text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
                 {item.definition}
               </p>
-              <div className="font-mono text-[11px] text-[#FF6B2C] pt-1 border-t border-stone-200 dark:border-stone-800">
+              <div className="font-mono text-[11px] text-[#FF705D] pt-1.5 border-t border-[#DED3D8] dark:border-[#332A37]">
                 Formula / Standard: {item.formula}
               </div>
             </div>
@@ -154,10 +154,10 @@ export const GlossaryModal: React.FC<GlossaryModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* Footer */}
-        <div className="p-3 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 bg-[#F6F1E7]/30 dark:bg-[#16161A]/30 text-right">
+        <div className="p-3 border-t border-[#DED3D8] dark:border-[#332A37] bg-[#FAF2E8] dark:bg-[#201823] text-right">
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-[#1B1B1F] text-white dark:bg-[#F6F1E7] dark:text-[#1B1B1F] rounded font-mono text-xs font-bold"
+            className="px-4 py-1.5 bg-[#332A37] hover:bg-[#201823] text-[#FAF2E8] rounded-lg font-mono text-xs font-bold transition-colors cursor-pointer border border-[#FF705D]/30"
           >
             Close
           </button>

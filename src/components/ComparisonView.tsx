@@ -81,34 +81,34 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
   if (isOpen !== undefined && !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-700 max-w-4xl w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative font-sans text-slate-200 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-[#201823]/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="bg-[#FAF2E8] dark:bg-[#201823] border border-[#DED3D8] dark:border-[#332A37] max-w-4xl w-full rounded-2xl p-6 sm:p-8 shadow-2xl relative font-sans text-[#201823] dark:text-[#FAF2E8] max-h-[90vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg bg-slate-800/60 hover:bg-slate-800 transition-colors"
+          className="absolute top-5 right-5 text-[#201823]/60 dark:text-[#FAF2E8]/60 hover:text-[#201823] dark:hover:text-[#FAF2E8] p-1.5 rounded-lg bg-[#FAF2E8] dark:bg-[#332A37] hover:bg-[#DED3D8] dark:hover:bg-[#332A37]/80 transition-colors cursor-pointer"
         >
           <X size={20} />
         </button>
 
         {/* Title */}
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+          <div className="p-2.5 rounded-xl bg-[#332A37] text-[#D5F36A]">
             <GitCompare size={24} />
           </div>
           <div>
-            <h3 className="text-xl font-bold font-display text-white">
+            <h3 className="text-xl font-bold font-display text-[#201823] dark:text-[#FAF2E8]">
               Side-by-Side Audit Benchmark Comparison
             </h3>
-            <p className="text-xs text-slate-400">
-              Legacy Unconstrained Scoring vs. Hardened Weakest-Link v2.0 Assurance
+            <p className="text-xs text-[#201823]/60 dark:text-[#FAF2E8]/60">
+              Legacy Unconstrained Scoring vs. Hardened Weakest-Link Assurance
             </p>
           </div>
         </div>
 
         {loading ? (
-          <div className="py-12 text-center text-xs font-mono text-slate-400">Loading benchmark telemetry...</div>
+          <div className="py-12 text-center text-xs font-mono text-stone-400">Loading benchmark telemetry...</div>
         ) : (
           <div className="space-y-6 mt-6">
             
@@ -116,62 +116,62 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               
               {/* German Credit Case */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-4 rounded-xl bg-[#FAF2E8] dark:bg-[#332A37]/50 border border-[#DED3D8] dark:border-[#332A37]">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-sm font-bold text-amber-400">German Credit Case Study</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">
+                  <span className="font-mono text-sm font-bold text-[#FF705D]">German Credit Case Study</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-950/80 dark:text-red-300 border border-red-200 dark:border-red-900 font-bold">
                     STATUS RECLASSIFIED
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-slate-800/80">
-                  <span className="text-slate-400">Legacy Unchecked Score:</span>
-                  <span className="text-emerald-400 font-bold">81.4 / 100 (GREEN PASS)</span>
+                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-[#DED3D8] dark:border-[#332A37]">
+                  <span className="text-[#201823]/70 dark:text-[#FAF2E8]/70">Legacy Unchecked Score:</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">81.4 / 100 (GREEN PASS)</span>
                 </div>
-                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-slate-800/80">
-                  <span className="text-slate-400">Hardened v2.0 Score:</span>
-                  <span className="text-rose-400 font-bold">48.0 / 100 (RED ACTION REQUIRED)</span>
+                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-[#DED3D8] dark:border-[#332A37]">
+                  <span className="text-[#201823]/70 dark:text-[#FAF2E8]/70">Hardened Observatory Score:</span>
+                  <span className="text-[#FF705D] font-bold">48.0 / 100 (RED ACTION REQUIRED)</span>
                 </div>
 
-                <p className="text-[11px] text-slate-400 mt-2.5">
-                  <strong className="text-amber-300">Why it dropped:</strong> Under strict test-split auditing, younger &amp; female credit cohorts breached the four-fifths rule (Fairness = 29.8). High-risk capping ceiling enforced.
+                <p className="text-[11px] text-[#201823]/80 dark:text-[#FAF2E8]/80 mt-2.5">
+                  <strong className="text-[#FF705D]">Why it dropped:</strong> Under strict test-split auditing, younger &amp; female credit cohorts breached the four-fifths rule (Fairness = 29.8). High-risk capping ceiling enforced.
                 </p>
               </div>
 
               {/* COMPAS Case */}
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-4 rounded-xl bg-[#FAF2E8] dark:bg-[#332A37]/50 border border-[#DED3D8] dark:border-[#332A37]">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-sm font-bold text-cyan-400">COMPAS Recidivism Case Study</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">
+                  <span className="font-mono text-sm font-bold text-[#FF705D]">COMPAS Recidivism Case Study</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-950/80 dark:text-red-300 border border-red-200 dark:border-red-900 font-bold">
                     STATUS RECLASSIFIED
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-slate-800/80">
-                  <span className="text-slate-400">Legacy Unchecked Score:</span>
-                  <span className="text-emerald-400 font-bold">84.9 / 100 (GREEN PASS)</span>
+                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-[#DED3D8] dark:border-[#332A37]">
+                  <span className="text-[#201823]/70 dark:text-[#FAF2E8]/70">Legacy Unchecked Score:</span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">84.9 / 100 (GREEN PASS)</span>
                 </div>
-                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-slate-800/80">
-                  <span className="text-slate-400">Hardened v2.0 Score:</span>
-                  <span className="text-rose-400 font-bold">49.9 / 100 (RED ACTION REQUIRED)</span>
+                <div className="flex items-center justify-between text-xs font-mono py-2 border-b border-[#DED3D8] dark:border-[#332A37]">
+                  <span className="text-[#201823]/70 dark:text-[#FAF2E8]/70">Hardened Observatory Score:</span>
+                  <span className="text-[#FF705D] font-bold">49.9 / 100 (RED ACTION REQUIRED)</span>
                 </div>
 
-                <p className="text-[11px] text-slate-400 mt-2.5">
-                  <strong className="text-cyan-300">Why it dropped:</strong> Removed artificial 100% documentation scores. Unanswered self-declarations now score 0 credit, triggering the multi-axis deficiency cap.
+                <p className="text-[11px] text-[#201823]/80 dark:text-[#FAF2E8]/80 mt-2.5">
+                  <strong className="text-[#FF705D]">Why it dropped:</strong> Removed artificial 100% documentation scores. Unanswered self-declarations score 0 credit, triggering the multi-axis deficiency cap.
                 </p>
               </div>
 
             </div>
 
             {/* Side-by-Side Dimension Breakdown Table */}
-            <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
-              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">
+            <div className="bg-[#FAF2E8] dark:bg-[#201823] border border-[#DED3D8] dark:border-[#332A37] rounded-xl p-4">
+              <h4 className="font-mono text-xs font-bold uppercase tracking-wider text-[#201823] dark:text-[#FAF2E8] mb-3">
                 Hardened Dimension Scores Comparison Table
               </h4>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs font-mono">
-                  <thead className="bg-slate-900 text-slate-400 border-b border-slate-800">
+                  <thead className="bg-[#FAF2E8]/80 dark:bg-[#332A37] text-[#201823]/70 dark:text-[#FAF2E8]/70 border-b border-[#DED3D8] dark:border-[#332A37]">
                     <tr>
                       <th className="p-2.5">Audit Dimension</th>
                       <th className="p-2.5">German Credit (Surrogate)</th>
@@ -179,7 +179,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
                       <th className="p-2.5">COMPAS (decile_score Mode)</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800">
+                  <tbody className="divide-y divide-[#DED3D8] dark:divide-[#332A37]">
                     {[
                       'Fairness',
                       'Explainability',
@@ -193,29 +193,29 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
                       const dVal = data.hardened_results.compas_decile_score_mode?.axes?.[axis];
 
                       return (
-                        <tr key={axis} className="hover:bg-slate-900/40">
-                          <td className="p-2.5 text-white font-bold">{axis}</td>
-                          <td className={`p-2.5 font-bold ${gVal < 50 ? 'text-rose-400' : 'text-emerald-400'}`}>
+                        <tr key={axis} className="hover:bg-[#FAF2E8]/40 dark:hover:bg-[#332A37]/30">
+                          <td className="p-2.5 text-[#201823] dark:text-[#FAF2E8] font-bold">{axis}</td>
+                          <td className={`p-2.5 font-bold ${gVal < 50 ? 'text-[#FF705D]' : 'text-emerald-600 dark:text-[#D5F36A]'}`}>
                             {gVal !== undefined ? `${gVal}` : 'N/A'}
                           </td>
-                          <td className={`p-2.5 font-bold ${cVal < 50 ? 'text-rose-400' : 'text-emerald-400'}`}>
+                          <td className={`p-2.5 font-bold ${cVal < 50 ? 'text-[#FF705D]' : 'text-emerald-600 dark:text-[#D5F36A]'}`}>
                             {cVal !== undefined ? `${cVal}` : 'N/A'}
                           </td>
-                          <td className={`p-2.5 font-bold ${dVal < 50 ? 'text-rose-400' : 'text-emerald-400'}`}>
+                          <td className={`p-2.5 font-bold ${dVal < 50 ? 'text-[#FF705D]' : 'text-emerald-600 dark:text-[#D5F36A]'}`}>
                             {dVal !== undefined ? `${dVal}` : 'N/A'}
                           </td>
                         </tr>
                       );
                     })}
-                    <tr className="bg-slate-900 font-bold border-t-2 border-slate-700">
-                      <td className="p-2.5 text-amber-300 uppercase">Overall Enforced Trust Score</td>
-                      <td className="p-2.5 text-rose-400 text-sm">
+                    <tr className="bg-[#FAF2E8]/60 dark:bg-[#332A37] font-bold border-t-2 border-[#DED3D8] dark:border-[#332A37]">
+                      <td className="p-2.5 text-[#FF705D] uppercase">Overall Enforced Trust Score</td>
+                      <td className="p-2.5 text-[#FF705D] text-sm">
                         {data.hardened_results.german_credit_surrogate?.overall_score} / 100
                       </td>
-                      <td className="p-2.5 text-rose-400 text-sm">
+                      <td className="p-2.5 text-[#FF705D] text-sm">
                         {data.hardened_results.compas_surrogate?.overall_score} / 100
                       </td>
-                      <td className="p-2.5 text-rose-400 text-sm">
+                      <td className="p-2.5 text-[#FF705D] text-sm">
                         {data.hardened_results.compas_decile_score_mode?.overall_score} / 100
                       </td>
                     </tr>
@@ -225,7 +225,7 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
             </div>
 
             {/* Methodology Note */}
-            <div className="p-3 bg-slate-950/70 border border-slate-800 rounded-lg text-[11px] text-slate-400 font-mono">
+            <div className="p-3 bg-[#FAF2E8] dark:bg-[#332A37]/40 border border-[#DED3D8] dark:border-[#332A37] rounded-lg text-[11px] text-[#201823]/80 dark:text-[#FAF2E8]/80 font-mono">
               <strong>Forensic Scanner Integrity:</strong> Scores reflect pure empirical indicators on held-out test splits. No artificial score smoothing or fallback inflation is permitted.
             </div>
 
