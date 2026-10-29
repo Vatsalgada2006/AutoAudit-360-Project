@@ -3,15 +3,23 @@
  * SPDX-License-Identifier: Apache-2.0
  * 
  * AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite
- * CONCEPT: AI Inspection Checkpoint - The AI model is inspected like a vehicle at a fitness-check station.
- * It passes through 4 checkpoints, then receives an official diagnostic report card.
+ * Visual Identity: The Trust Observatory
+ * Information Architecture:
+ * - Overview
+ * - New Audit
+ * - Fairness
+ * - Explainability
+ * - Robustness
+ * - Regulatory Readiness
+ * - Model Cards
+ * - Learn / Glossary
  */
 
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { StepBar, CheckpointStep } from './components/Navigation/StepBar';
-import { InspectionTunnel3D } from './components/Three/InspectionTunnel3D';
-import { StartCheckpoint } from './components/Checkpoints/StartCheckpoint';
+import { OverviewView } from './components/Checkpoints/OverviewView';
+import { NewAuditWorkflow } from './components/Checkpoints/NewAuditWorkflow';
 import { FairnessCheckpoint } from './components/Checkpoints/FairnessCheckpoint';
 import { ExplainCheckpoint } from './components/Checkpoints/ExplainCheckpoint';
 import { StressTestCheckpoint } from './components/Checkpoints/StressTestCheckpoint';
@@ -27,7 +35,7 @@ import { GERMAN_CREDIT_AUDIT, COMPAS_AUDIT } from './data/preloadedAudits';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function App() {
-  const [currentStep, setCurrentStep] = useState<CheckpointStep>('start');
+  const [currentStep, setCurrentStep] = useState<CheckpointStep>('overview');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isExpertMode, setIsExpertMode] = useState(false);
 
@@ -75,7 +83,7 @@ export default function App() {
             setTimeout(fetchHealth, 1000);
           }
         });
-    };
+      };
     fetchHealth();
   }, []);
 
@@ -87,7 +95,7 @@ export default function App() {
     }
   }, [toast]);
 
-  // Handle Demo One-Click Loading (precomputed authentic data)
+  // Handle Demo One-Click Loading (authentic precomputed benchmarks)
   const handleLoadDemo = async (demoName: 'german_credit' | 'compas') => {
     setIsAuditing(true);
     setAuditStage(0);
@@ -97,7 +105,7 @@ export default function App() {
     });
 
     try {
-      // Simulate gate progression animation
+      // Simulate gate progression animation through the Audit Lens
       const stageTimer = setInterval(() => {
         setAuditStage(prev => {
           if (prev < 4) return prev + 1;
@@ -125,7 +133,7 @@ export default function App() {
           type: 'success',
           message: `Inspection complete! Verdict: ${demoData.scores.readiness_verdict}`,
         });
-        setCurrentStep('reportcard');
+        setCurrentStep('modelcard');
       }, 2000);
 
     } catch (err: any) {
@@ -134,7 +142,7 @@ export default function App() {
       setAuditResult(fallback);
       setHasAuditRun(true);
       setAuditStage(5);
-      setCurrentStep('reportcard');
+      setCurrentStep('modelcard');
     }
   };
 
@@ -153,7 +161,7 @@ export default function App() {
     setAuditStage(0);
     setToast({
       type: 'info',
-      message: 'Dispatching AI model through inspection checkpoint gates...',
+      message: 'Evaluating model through diagnostic inspection checkpoints...',
     });
 
     try {
@@ -202,7 +210,7 @@ export default function App() {
               type: 'success',
               message: `Inspection complete! Verdict: ${jobStatus.result.scores.readiness_verdict}`,
             });
-            setCurrentStep('reportcard');
+            setCurrentStep('modelcard');
           } else if (jobStatus.status === 'failed') {
             clearInterval(pollInterval);
             setIsAuditing(false);
@@ -217,8 +225,7 @@ export default function App() {
       }, 1000);
 
     } catch (err: any) {
-      console.warn('Backend live audit fell back to demo loader:', err.message);
-      // Seamlessly fall back to loading authentic benchmark data
+      console.warn('Backend live audit fell back to benchmark loader:', err.message);
       handleLoadDemo(params.datasetId?.includes('compas') ? 'compas' : 'german_credit');
     }
   };
@@ -247,8 +254,18 @@ export default function App() {
     window.print();
   };
 
+  // Canonical step normalization
+  const isOverview = currentStep === 'overview' || currentStep === 'start';
+  const isNewAudit = currentStep === 'newaudit';
+  const isFairness = currentStep === 'fairness';
+  const isExplain = currentStep === 'explain';
+  const isRobustness = currentStep === 'robustness' || currentStep === 'stresstest';
+  const isRegulatory = currentStep === 'regulatory' || currentStep === 'lawcheck';
+  const isModelCard = currentStep === 'modelcard' || currentStep === 'reportcard';
+  const isLearn = currentStep === 'learn';
+
   return (
-    <div className="min-h-screen bg-[#F6F1E7] dark:bg-[#16161A] text-[#1B1B1F] dark:text-[#F6F1E7] font-body transition-colors flex flex-col">
+    <div className="min-h-screen bg-[#F2EEE5] dark:bg-[#171A18] text-[#171A18] dark:text-[#F2EEE5] font-body transition-colors flex flex-col">
       
       {/* Top Header */}
       <Header
@@ -266,7 +283,13 @@ export default function App() {
       {/* Persistent Step Bar */}
       <StepBar
         currentStep={currentStep}
-        onSelectStep={setCurrentStep}
+        onSelectStep={(step) => {
+          if (step === 'learn') {
+            setShowGlossary(true);
+          } else {
+            setCurrentStep(step);
+          }
+        }}
         auditResult={auditResult}
         isAuditing={isAuditing}
         auditStage={auditStage}
@@ -275,16 +298,16 @@ export default function App() {
       {/* Toast Alert */}
       {toast && (
         <div className="fixed bottom-6 right-6 z-50 max-w-md animate-fade-in no-print">
-          <div className={`p-4 rounded-lg shadow-xl border flex items-center gap-3 ${
+          <div className={`p-4 rounded-md shadow-xl border flex items-center gap-3 ${
             toast.type === 'success'
-              ? 'bg-[#1F9D6B] text-white border-[#1F9D6B]'
+              ? 'bg-[#496F5A] text-white border-[#496F5A]'
               : toast.type === 'error'
-              ? 'bg-[#D6334A] text-white border-[#D6334A]'
-              : 'bg-[#1B1B1F] text-white dark:bg-[#F6F1E7] dark:text-[#1B1B1F] border-[#FF6B2C]'
+              ? 'bg-[#B85D45] text-white border-[#B85D45]'
+              : 'bg-[#171A18] text-white dark:bg-[#F2EEE5] dark:text-[#171A18] border-[#C9A66B]'
           }`}>
             {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0" />}
             {toast.type === 'error' && <AlertCircle className="w-5 h-5 shrink-0" />}
-            {toast.type === 'info' && <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B2C] animate-ping shrink-0" />}
+            {toast.type === 'info' && <span className="w-2.5 h-2.5 rounded-full bg-[#C9A66B] animate-ping shrink-0" />}
             <span className="text-xs font-mono font-medium">{toast.message}</span>
           </div>
         </div>
@@ -293,27 +316,34 @@ export default function App() {
       {/* Main Content Viewport */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         
-        {/* 3D Inspection Conveyor Tunnel (visible on Start step or during an ongoing audit) */}
-        {(currentStep === 'start' || isAuditing) && (
-          <InspectionTunnel3D
-            stage={auditStage}
+        {/* VIEW 1: OVERVIEW LANDING */}
+        {isOverview && (
+          <OverviewView
+            onStartNewAudit={() => setCurrentStep('newaudit')}
+            onExploreSample={handleLoadDemo}
+            onOpenGlossary={() => setShowGlossary(true)}
             isAuditing={isAuditing}
-            auditResult={auditResult}
-            onGateClick={(gateKey) => setCurrentStep(gateKey)}
+            auditStage={auditStage}
           />
         )}
 
-        {/* Checkpoint Views */}
-        {currentStep === 'start' && (
-          <StartCheckpoint
+        {/* VIEW 2: NEW AUDIT GUIDED WORKFLOW */}
+        {isNewAudit && (
+          <NewAuditWorkflow
             onRunAudit={handleRunAudit}
             onLoadDemo={handleLoadDemo}
             isAuditing={isAuditing}
+            auditStage={auditStage}
             allowModelUpload={allowModelUpload}
+            onCancelAudit={() => {
+              setIsAuditing(false);
+              setCurrentStep('overview');
+            }}
           />
         )}
 
-        {currentStep === 'fairness' && auditResult && (
+        {/* VIEW 3: FAIRNESS CHECKPOINT */}
+        {isFairness && auditResult && (
           <FairnessCheckpoint
             items={auditResult.fairness}
             mitigation={auditResult.mitigation}
@@ -321,28 +351,32 @@ export default function App() {
           />
         )}
 
-        {currentStep === 'explain' && auditResult && (
+        {/* VIEW 4: EXPLAINABILITY CHECKPOINT */}
+        {isExplain && auditResult && (
           <ExplainCheckpoint
             explain={auditResult.explain}
             isExpertMode={isExpertMode}
           />
         )}
 
-        {currentStep === 'stresstest' && auditResult && (
+        {/* VIEW 5: ROBUSTNESS STRESS TEST */}
+        {isRobustness && auditResult && (
           <StressTestCheckpoint
             robustness={auditResult.robustness}
             isExpertMode={isExpertMode}
           />
         )}
 
-        {currentStep === 'lawcheck' && auditResult && (
+        {/* VIEW 6: REGULATORY LAW CHECK */}
+        {isRegulatory && auditResult && (
           <LawCheckCheckpoint
             compliance={auditResult.compliance}
             isExpertMode={isExpertMode}
           />
         )}
 
-        {currentStep === 'reportcard' && (
+        {/* VIEW 7: MODEL CARDS & REPORT CARD */}
+        {isModelCard && (
           <ReportCardCheckpoint
             auditResult={auditResult}
             onDownloadHtml={handleDownloadHtml}

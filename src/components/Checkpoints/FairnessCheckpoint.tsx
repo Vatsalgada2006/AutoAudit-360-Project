@@ -21,7 +21,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
 
   if (!items || items.length === 0) {
     return (
-      <div className="ticket-card p-8 text-center space-y-3">
+      <div className="observatory-card p-8 text-center space-y-3">
         <Scale className="w-10 h-10 text-stone-400 mx-auto" />
         <h3 className="font-display font-bold text-lg">No Fairness Inspection Data</h3>
         <p className="text-sm text-stone-500">Run an inspection from the Start checkpoint to analyze fairness metrics.</p>
@@ -57,7 +57,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
           <span className="w-6 h-6 rounded-full bg-[#1B1B1F] dark:bg-[#F6F1E7] text-white dark:text-[#1B1B1F] font-mono font-bold text-xs flex items-center justify-center">
             1
           </span>
-          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#FF6B2C]">
+          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#C9A66B]">
             Checkpoint 1: Fairness Station
           </span>
         </div>
@@ -67,7 +67,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
       </div>
 
       {/* 2. One-sentence answer with Status Badge */}
-      <div className="ticket-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#FF6B2C]">
+      <div className="observatory-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#C9A66B]">
         <div className="space-y-1">
           <div className="text-sm sm:text-base font-body font-semibold text-[#1B1B1F] dark:text-[#F6F1E7]">
             {answerText}
@@ -92,7 +92,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
             className={`px-3 py-1.5 rounded font-mono text-xs font-bold transition-colors shrink-0 flex items-center gap-1.5 border ${
               selectedAttrIndex === idx
                 ? 'bg-[#1B1B1F] text-white dark:bg-[#F6F1E7] dark:text-[#1B1B1F] border-transparent shadow-xs'
-                : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:border-[#FF6B2C]'
+                : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:border-[#C9A66B]'
             }`}
           >
             <span>{item.is_intersectional ? `Intersectional (${item.attribute})` : item.attribute}</span>
@@ -107,7 +107,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
       <div className="space-y-6">
         
         {/* Chart 1: Subgroup Selection Rates with EEOC 80% line */}
-        <div className="ticket-card p-5 space-y-4">
+        <div className="observatory-card p-5 space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
               Subgroup Selection Rates (%) & EEOC Reference Line
@@ -174,14 +174,14 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
           </div>
 
           {/* "What this means" Box */}
-          <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+          <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
             <strong>What this means:</strong> The red vertical line shows the 80% four-fifths rule threshold. Any group bar ending to the left of this line receives substantially lower favourable outcomes, indicating systemic selection disparity.
           </div>
         </div>
 
         {/* Chart 2: Intersectional Fairness Cohort Matrix (Sex x Age / Race x Age) */}
         {intersectionalItem && (
-          <div className="ticket-card p-5 space-y-3">
+          <div className="observatory-card p-5 space-y-3">
             <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
               Intersectional Cohort Analysis ({intersectionalItem.attribute})
             </h4>
@@ -211,7 +211,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
             </div>
 
             {/* "What this means" Box */}
-            <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+            <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
               <strong>What this means:</strong> Intersectional analysis prevents compound bias from hiding behind broad group averages. Subgroups flagged in red fail the four-fifths rule when both demographic traits interact.
             </div>
           </div>
@@ -219,7 +219,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
 
         {/* Mitigation Demo Panel (Reweighing & Threshold Curve) */}
         {mitigation && (
-          <div className="ticket-card p-5 space-y-4 border-2 border-emerald-600/30">
+          <div className="observatory-card p-5 space-y-4 border-2 border-emerald-600/30">
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
@@ -255,7 +255,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
             </div>
 
             {/* "What this means" Box */}
-            <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+            <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
               <strong>What this means:</strong> Reweighing balances training weights without modifying ground truth labels. It closes disparate impact gaps while preserving operational accuracy within a 1-2% tolerance.
             </div>
           </div>
@@ -263,7 +263,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
       </div>
 
       {/* 4. Collapsible "Expert Details" Section */}
-      <div className="ticket-card p-4 space-y-3">
+      <div className="observatory-card p-4 space-y-3">
         <button
           onClick={() => setShowExpertDetails(!showExpertDetails)}
           className="w-full flex items-center justify-between text-left font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]"
@@ -275,7 +275,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
         {showExpertDetails && (
           <div className="pt-3 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 space-y-4 font-mono text-xs">
             <div className="space-y-2">
-              <div className="font-bold text-[#FF6B2C]">Governing Fairness Formulas:</div>
+              <div className="font-bold text-[#C9A66B]">Governing Fairness Formulas:</div>
               <div className="p-2.5 bg-stone-100 dark:bg-stone-900 rounded space-y-1">
                 <div>• <Tooltip term="Disparate Impact" definition="Ratio of favorable outcome rate of unprivileged group to privileged group (EEOC four-fifths rule: >= 0.80)." />: DI = P(Ŷ=1 | A=unprivileged) / P(Ŷ=1 | A=privileged)</div>
                 <div>• <Tooltip term="Demographic Parity Difference" definition="Absolute difference in favorable selection rates between groups (Tolerance: <= 0.10)." />: DPD = |P(Ŷ=1 | A=privileged) - P(Ŷ=1 | A=unprivileged)|</div>
@@ -285,7 +285,7 @@ export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-[#FF6B2C]">Point Estimates &amp; Bootstrap 95% CIs (n=500):</div>
+              <div className="font-bold text-[#C9A66B]">Point Estimates &amp; Bootstrap 95% CIs (n=500):</div>
               <div className="overflow-x-auto">
                 <table className="w-full border border-stone-200 dark:border-stone-800 text-left">
                   <thead className="bg-stone-100 dark:bg-stone-900">

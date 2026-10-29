@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, BookOpen, Info, BarChart3 } from 'lucide-react';
+import { Compass, BookOpen, Info, BarChart3 } from 'lucide-react';
 
 interface FooterProps {
   onOpenAbout?: () => void;
@@ -13,16 +13,16 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenComparison,
 }) => {
   return (
-    <footer className="border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 bg-[#FFFFFF] dark:bg-[#1B1B1F] py-8 px-4 lg:px-8 mt-16 text-[#1B1B1F]/70 dark:text-[#F6F1E7]/70 font-body transition-colors">
+    <footer className="border-t border-[#C9A66B]/25 bg-[#171A18] text-[#F2EEE5]/75 py-8 px-4 lg:px-8 mt-16 font-body transition-colors">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs">
         
-        {/* Left: Project Branding & Required Neutral Notice */}
+        {/* Left: Project Branding & Academic Domain Scope */}
         <div className="text-center md:text-left space-y-1">
-          <div className="flex items-center justify-center md:justify-start gap-2 font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]">
-            <ShieldCheck size={18} className="text-[#FF6B2C]" />
+          <div className="flex items-center justify-center md:justify-start gap-2 font-display font-bold text-sm text-[#F2EEE5]">
+            <Compass size={18} className="text-[#C9A66B]" />
             <span>AutoAudit-360: End-to-End Trustworthy AI Audit &amp; Regulatory Compliance Suite</span>
           </div>
-          <p className="text-xs text-[#1B1B1F]/60 dark:text-[#F6F1E7]/60">
+          <p className="text-xs text-[#C9A66B]/80 font-mono">
             Domain: AI Governance, Policy &amp; Risk Management | Modules 1-4: Trustworthy AI pipeline, AI Model Card, EU AI Act, India DPDP Act 2023
           </p>
         </div>
@@ -32,9 +32,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenAbout && (
             <button
               onClick={onOpenAbout}
-              className="flex items-center gap-1 hover:text-[#FF6B2C] transition-colors"
+              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
             >
-              <Info className="w-3.5 h-3.5" />
+              <Info className="w-3.5 h-3.5 text-[#C9A66B]" />
               <span>About Architecture</span>
             </button>
           )}
@@ -42,9 +42,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenGlossary && (
             <button
               onClick={onOpenGlossary}
-              className="flex items-center gap-1 hover:text-[#FF6B2C] transition-colors"
+              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
             >
-              <BookOpen className="w-3.5 h-3.5" />
+              <BookOpen className="w-3.5 h-3.5 text-[#C9A66B]" />
               <span>Glossary</span>
             </button>
           )}
@@ -52,9 +52,9 @@ export const Footer: React.FC<FooterProps> = ({
           {onOpenComparison && (
             <button
               onClick={onOpenComparison}
-              className="flex items-center gap-1 hover:text-[#FF6B2C] transition-colors"
+              className="flex items-center gap-1 hover:text-[#C9A66B] transition-colors"
             >
-              <BarChart3 className="w-3.5 h-3.5" />
+              <BarChart3 className="w-3.5 h-3.5 text-[#C9A66B]" />
               <span>Benchmarks</span>
             </button>
           )}
@@ -63,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Mandatory Neutral Footer Line */}
-      <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 text-center text-xs font-mono text-[#1B1B1F]/60 dark:text-[#F6F1E7]/60">
+      <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-[#C9A66B]/20 text-center text-xs font-mono text-[#F2EEE5]/60">
         AutoAudit-360 | Academic prototype | Diagnostic findings, not legal certification.
       </div>
     </footer>

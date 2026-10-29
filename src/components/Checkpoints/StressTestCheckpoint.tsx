@@ -17,7 +17,7 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
 
   if (!robustness || robustness.robustness_score === null) {
     return (
-      <div className="ticket-card p-8 text-center space-y-3">
+      <div className="observatory-card p-8 text-center space-y-3">
         <ShieldAlert className="w-10 h-10 text-stone-400 mx-auto" />
         <h3 className="font-display font-bold text-lg">No Adversarial Stress Test Data</h3>
         <p className="text-sm text-stone-500">
@@ -51,7 +51,7 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
           <span className="w-6 h-6 rounded-full bg-[#1B1B1F] dark:bg-[#F6F1E7] text-white dark:text-[#1B1B1F] font-mono font-bold text-xs flex items-center justify-center">
             3
           </span>
-          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#FF6B2C]">
+          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#C9A66B]">
             Checkpoint 3: Stress Test Station
           </span>
         </div>
@@ -61,7 +61,7 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
       </div>
 
       {/* 2. One-sentence answer with Status Badge */}
-      <div className="ticket-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#FF6B2C]">
+      <div className="observatory-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#C9A66B]">
         <div className="space-y-1">
           <div className="text-sm sm:text-base font-body font-semibold text-[#1B1B1F] dark:text-[#F6F1E7]">
             {answerText}
@@ -84,7 +84,7 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           {/* Card A: Counterfactual Identity Swap Test */}
-          <div className="ticket-card p-5 space-y-3">
+          <div className="observatory-card p-5 space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
                 Counterfactual Identity Flip Test
@@ -113,13 +113,13 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
             </div>
 
             {/* "What this means" Box */}
-            <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+            <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
               <strong>What this means:</strong> If an individual's loan approval or risk score changes simply by altering their demographic group label, the decision boundary directly penalizes protected identity.
             </div>
           </div>
 
           {/* Card B: Bounded Worst-Case Perturbation Attacks (ε = 0.05, 0.10, 0.20) */}
-          <div className="ticket-card p-5 space-y-3">
+          <div className="observatory-card p-5 space-y-3">
             <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
               Worst-Case Bounded Attacks (Greedy Search)
             </h4>
@@ -140,14 +140,14 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
             </div>
 
             {/* "What this means" Box */}
-            <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+            <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
               <strong>What this means:</strong> Measures how easily small realistic changes in user data (e.g. minor income shift) can trigger unintended prediction flips.
             </div>
           </div>
         </div>
 
         {/* Evidence 2: Label Corruption & Gaussian Noise Degradation */}
-        <div className="ticket-card p-5 space-y-4">
+        <div className="observatory-card p-5 space-y-4">
           <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
             Model Degradation Under Data Corruption
           </h4>
@@ -163,14 +163,14 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
           </div>
 
           {/* "What this means" Box */}
-          <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+          <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
             <strong>What this means:</strong> Even if historical training data contains mislabelled training examples or data drift, resilient models maintain graceful performance degradation.
           </div>
         </div>
       </div>
 
       {/* 4. Collapsible "Expert Details" Section */}
-      <div className="ticket-card p-4 space-y-3">
+      <div className="observatory-card p-4 space-y-3">
         <button
           onClick={() => setShowExpertDetails(!showExpertDetails)}
           className="w-full flex items-center justify-between text-left font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]"
@@ -182,7 +182,7 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
         {showExpertDetails && (
           <div className="pt-3 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 space-y-4 font-mono text-xs">
             <div className="space-y-2">
-              <div className="font-bold text-[#FF6B2C]">Adversarial Attack Specification:</div>
+              <div className="font-bold text-[#C9A66B]">Adversarial Attack Specification:</div>
               <div className="p-2.5 bg-stone-100 dark:bg-stone-900 rounded space-y-1">
                 <div>• Greedy coordinate search: x_adv = x + argmax_δ L(f(x + δ), y) subject to ||δ||_∞ &le; ε·σ_feat</div>
                 <div>• Evaluated at ε ∈ &#123;0.05, 0.10, 0.20&#125; across all continuous numerical coordinates.</div>

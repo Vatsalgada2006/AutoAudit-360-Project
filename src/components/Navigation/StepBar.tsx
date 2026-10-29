@@ -1,8 +1,34 @@
 import React from 'react';
-import { PlayCircle, Scale, Search, ShieldAlert, FileText, CheckCircle2, AlertTriangle, XCircle, Clock } from 'lucide-react';
+import {
+  Compass,
+  PlayCircle,
+  Scale,
+  Search,
+  ShieldAlert,
+  FileCheck2,
+  FileText,
+  BookOpen,
+  CheckCircle2,
+  AlertTriangle,
+  XCircle,
+  Clock
+} from 'lucide-react';
 import { FullAuditResult } from '../../types';
 
-export type CheckpointStep = 'start' | 'fairness' | 'explain' | 'stresstest' | 'lawcheck' | 'reportcard';
+export type CheckpointStep =
+  | 'overview'
+  | 'newaudit'
+  | 'fairness'
+  | 'explain'
+  | 'robustness'
+  | 'regulatory'
+  | 'modelcard'
+  | 'learn'
+  // Legacy alias compatibility
+  | 'start'
+  | 'stresstest'
+  | 'lawcheck'
+  | 'reportcard';
 
 interface StepBarProps {
   currentStep: CheckpointStep;
@@ -14,52 +40,73 @@ interface StepBarProps {
 
 interface StepConfig {
   id: CheckpointStep;
+  canonicalId: 'overview' | 'newaudit' | 'fairness' | 'explain' | 'robustness' | 'regulatory' | 'modelcard' | 'learn';
   number?: string;
   name: string;
   formalSubtitle: string;
   icon: React.ElementType;
 }
 
-const STEPS: StepConfig[] = [
+const NAV_STEPS: StepConfig[] = [
   {
-    id: 'start',
-    name: 'Start',
-    formalSubtitle: 'Dataset & Setup',
+    id: 'overview',
+    canonicalId: 'overview',
+    name: 'Overview',
+    formalSubtitle: 'The Trust Observatory',
+    icon: Compass,
+  },
+  {
+    id: 'newaudit',
+    canonicalId: 'newaudit',
+    name: 'New Audit',
+    formalSubtitle: 'Guided Inspection Workflow',
     icon: PlayCircle,
   },
   {
     id: 'fairness',
+    canonicalId: 'fairness',
     number: '1',
     name: 'Fairness',
-    formalSubtitle: 'Demographic parity & disparate impact',
+    formalSubtitle: 'Demographic Parity & 4/5ths Rule',
     icon: Scale,
   },
   {
     id: 'explain',
+    canonicalId: 'explain',
     number: '2',
-    name: 'Explain',
-    formalSubtitle: 'Global SHAP & proxy detection',
+    name: 'Explainability',
+    formalSubtitle: 'Global SHAP & Proxy Screening',
     icon: Search,
   },
   {
-    id: 'stresstest',
+    id: 'robustness',
+    canonicalId: 'robustness',
     number: '3',
-    name: 'Stress Test',
-    formalSubtitle: 'Label flips & perturbation attacks',
+    name: 'Robustness',
+    formalSubtitle: 'Label Corruption & Perturbation',
     icon: ShieldAlert,
   },
   {
-    id: 'lawcheck',
+    id: 'regulatory',
+    canonicalId: 'regulatory',
     number: '4',
-    name: 'Law Check',
-    formalSubtitle: 'EU AI Act high-risk & India DPDP Act 2023',
+    name: 'Regulatory Readiness',
+    formalSubtitle: 'EU AI Act & India DPDP Act 2023',
+    icon: FileCheck2,
+  },
+  {
+    id: 'modelcard',
+    canonicalId: 'modelcard',
+    name: 'Model Cards',
+    formalSubtitle: 'AI Model Card & Diagnostic Findings',
     icon: FileText,
   },
   {
-    id: 'reportcard',
-    name: 'Report Card',
-    formalSubtitle: 'AI Model Card & Official Readiness',
-    icon: CheckCircle2,
+    id: 'learn',
+    canonicalId: 'learn',
+    name: 'Learn / Glossary',
+    formalSubtitle: 'Terminology & Methodologies',
+    icon: BookOpen,
   },
 ];
 
@@ -70,24 +117,38 @@ export const StepBar: React.FC<StepBarProps> = ({
   isAuditing,
   auditStage,
 }) => {
-  const getStepStatus = (stepId: CheckpointStep): 'pass' | 'warn' | 'fail' | 'pending' | 'running' => {
+  // Normalize step for highlight
+  const normalizedStep = (step: CheckpointStep): string => {
+    if (step === 'start') return 'overview';
+    if (step === 'stresstest') return 'robustness';
+    if (step === 'lawcheck') return 'regulatory';
+    if (step === 'reportcard') return 'modelcard';
+    return step;
+  };
+
+  const activeCanonical = normalizedStep(currentStep);
+
+  const getStepStatus = (canonicalId: string): 'pass' | 'warn' | 'fail' | 'pending' | 'running' => {
     if (isAuditing) {
-      const stageMap: Record<CheckpointStep, number> = {
-        start: 0,
+      const stageMap: Record<string, number> = {
+        overview: 0,
+        newaudit: 0,
         fairness: 1,
         explain: 2,
-        stresstest: 3,
-        lawcheck: 4,
-        reportcard: 5,
+        robustness: 3,
+        regulatory: 4,
+        modelcard: 5,
+        learn: 0,
       };
-      if (stageMap[stepId] === auditStage) return 'running';
-      if (stageMap[stepId] < auditStage) return 'pass';
+      const targetStage = stageMap[canonicalId] ?? 0;
+      if (targetStage > 0 && targetStage === auditStage) return 'running';
+      if (targetStage > 0 && targetStage < auditStage) return 'pass';
       return 'pending';
     }
 
     if (!auditResult) return 'pending';
 
-    switch (stepId) {
+    switch (canonicalId) {
       case 'fairness': {
         const anyFail = auditResult.fairness.some(f => f.status === 'fail');
         const anyWarn = auditResult.fairness.some(f => f.status === 'warn');
@@ -95,84 +156,101 @@ export const StepBar: React.FC<StepBarProps> = ({
       }
       case 'explain':
         return auditResult.explain.status;
-      case 'stresstest':
+      case 'robustness':
         return auditResult.robustness.status;
-      case 'lawcheck': {
-        const eu = auditResult.compliance.eu_ai_act.score;
-        const dpdp = auditResult.compliance.dpdp_act_2023.score;
-        return (eu < 50 || dpdp < 50) ? 'fail' : (eu < 75 || dpdp < 75) ? 'warn' : 'pass';
+      case 'regulatory': {
+        const euStatus = auditResult.compliance.eu_ai_act.score >= 70 ? 'pass' : auditResult.compliance.eu_ai_act.score >= 50 ? 'warn' : 'fail';
+        const dpdpStatus = auditResult.compliance.dpdp_act_2023.score >= 70 ? 'pass' : auditResult.compliance.dpdp_act_2023.score >= 50 ? 'warn' : 'fail';
+        return (euStatus === 'fail' || dpdpStatus === 'fail') ? 'fail' : (euStatus === 'warn' || dpdpStatus === 'warn') ? 'warn' : 'pass';
       }
-      case 'reportcard': {
-        const rag = auditResult.scores.rag_status;
-        return rag === 'green' ? 'pass' : rag === 'amber' ? 'warn' : 'fail';
-      }
+      case 'modelcard':
+        return auditResult.scores.rag_status === 'green' ? 'pass' : auditResult.scores.rag_status === 'amber' ? 'warn' : 'fail';
       default:
-        return 'pass';
+        return 'pending';
     }
   };
 
   return (
-    <nav className="w-full bg-[#FFFFFF] dark:bg-[#1B1B1F] border-b border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 sticky top-[73px] z-30 shadow-xs" aria-label="Inspection Checkpoints">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="flex overflow-x-auto py-2 sm:py-2.5 gap-1.5 sm:gap-2 no-scrollbar scroll-smooth">
-          {STEPS.map((step) => {
-            const isActive = currentStep === step.id;
-            const status = getStepStatus(step.id);
-            const Icon = step.icon;
+    <nav
+      className="bg-[#FFFFFF] dark:bg-[#1C201E] border-b border-[#C9A66B]/20 py-2.5 px-3 sm:px-6 shadow-xs overflow-x-auto"
+      aria-label="Audit Navigation"
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-start xl:justify-between gap-1.5 sm:gap-2 min-w-max">
+        {NAV_STEPS.map((step) => {
+          const isSelected = activeCanonical === step.canonicalId;
+          const status = getStepStatus(step.canonicalId);
+          const Icon = step.icon;
+          const isAuditMetricStep = ['fairness', 'explain', 'robustness', 'regulatory', 'modelcard'].includes(step.canonicalId);
+          const isLocked = isAuditMetricStep && !auditResult && !isAuditing;
 
-            return (
-              <button
-                key={step.id}
-                onClick={() => onSelectStep(step.id)}
-                className={`flex-1 min-w-[150px] sm:min-w-[180px] p-2 sm:p-2.5 text-left rounded-md transition-all relative border ${
-                  isActive
-                    ? 'bg-[#FF6B2C]/10 border-[#FF6B2C] dark:bg-[#FF6B2C]/15 shadow-xs'
-                    : 'bg-[#F6F1E7]/50 dark:bg-[#16161A]/50 border-transparent hover:border-[#1B1B1F]/20 dark:hover:border-[#F6F1E7]/20'
+          return (
+            <button
+              key={step.id}
+              type="button"
+              disabled={isLocked}
+              onClick={() => onSelectStep(step.id)}
+              className={`group flex items-center gap-2 px-3 py-2 rounded-md transition-all text-left select-none relative ${
+                isSelected
+                  ? 'bg-[#F2EEE5] dark:bg-[#171A18] border border-[#C9A66B] shadow-xs'
+                  : isLocked
+                  ? 'opacity-40 cursor-not-allowed hover:bg-transparent'
+                  : 'hover:bg-[#F2EEE5]/70 dark:hover:bg-[#252A27] border border-transparent'
+              }`}
+              title={isLocked ? 'Run or load an audit to inspect this stage' : step.formalSubtitle}
+            >
+              {/* Step Icon or Stage Number */}
+              <div
+                className={`w-7 h-7 rounded flex items-center justify-center shrink-0 text-xs font-mono font-bold transition-colors ${
+                  isSelected
+                    ? 'bg-[#C9A66B] text-[#171A18]'
+                    : status === 'pass'
+                    ? 'bg-[#496F5A]/20 text-[#496F5A]'
+                    : status === 'warn'
+                    ? 'bg-[#C9A66B]/20 text-[#C9A66B]'
+                    : status === 'fail'
+                    ? 'bg-[#B85D45]/20 text-[#B85D45]'
+                    : 'bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-stone-400'
                 }`}
               >
-                {/* Active Indicator Top Notch */}
-                {isActive && (
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#FF6B2C] rounded-b" />
+                {status === 'running' ? (
+                  <Clock className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Icon className="w-3.5 h-3.5" />
                 )}
+              </div>
 
-                <div className="flex items-center justify-between gap-1 mb-1">
-                  <div className="flex items-center gap-1.5">
-                    {step.number && (
-                      <span className="w-5 h-5 rounded-full bg-[#1B1B1F] dark:bg-[#F6F1E7] text-[#FFFFFF] dark:text-[#1B1B1F] font-mono font-bold text-xs flex items-center justify-center">
-                        {step.number}
-                      </span>
-                    )}
-                    <span className="font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]">
-                      {step.name}
-                    </span>
-                  </div>
+              {/* Title & Subtitle */}
+              <div className="flex flex-col min-w-0 pr-1">
+                <div className="flex items-center gap-1.5">
+                  <span
+                    className={`font-display text-xs sm:text-sm font-bold tracking-tight truncate ${
+                      isSelected
+                        ? 'text-[#171A18] dark:text-[#F2EEE5]'
+                        : 'text-stone-700 dark:text-stone-300'
+                    }`}
+                  >
+                    {step.name}
+                  </span>
 
-                  {/* Status Indicator Icon */}
-                  {status === 'running' && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B2C] animate-ping" />
-                  )}
-                  {status === 'pass' && step.id !== 'start' && (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#1F9D6B]" />
+                  {/* Status Indicator Pill */}
+                  {status === 'pass' && (
+                    <CheckCircle2 className="w-3 h-3 text-[#496F5A] shrink-0" />
                   )}
                   {status === 'warn' && (
-                    <AlertTriangle className="w-3.5 h-3.5 text-[#F2B01E]" />
+                    <AlertTriangle className="w-3 h-3 text-[#C9A66B] shrink-0" />
                   )}
                   {status === 'fail' && (
-                    <XCircle className="w-3.5 h-3.5 text-[#D6334A]" />
-                  )}
-                  {status === 'pending' && step.id !== 'start' && (
-                    <Clock className="w-3.5 h-3.5 text-stone-400" />
+                    <XCircle className="w-3 h-3 text-[#B85D45] shrink-0" />
                   )}
                 </div>
 
-                {/* Plain Formal Subtitle */}
-                <p className="text-[11px] leading-tight text-[#1B1B1F]/65 dark:text-[#F6F1E7]/65 truncate font-body">
+                <span className="font-mono text-[10px] text-stone-500 dark:text-stone-400 truncate max-w-[150px]">
                   {step.formalSubtitle}
-                </p>
-              </button>
-            );
-          })}
-        </div>
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

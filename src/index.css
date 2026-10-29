@@ -1,41 +1,46 @@
 /*
-  Theme: AI Inspection Checkpoint
-  Concept: AI model inspected like a vehicle at a fitness-check station passing through 4 checkpoints, then receives a report card.
-  Palette: paper #F6F1E7, ink #1B1B1F, inspection orange #FF6B2C, pass #1F9D6B, warn #F2B01E, fail #D6334A, charcoal #16161A.
+  AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite
+  Visual Identity: The Trust Observatory
+  Palette:
+    Ink Charcoal: #171A18
+    Warm Paper:   #F2EEE5
+    Muted Brass:  #C9A66B
+    Sage Green:   #496F5A (Pass)
+    Restrained Rust: #B85D45 (Problem)
+    Observatory Amber: #C9A66B / #D48824 (Warning / Needs Review)
 */
 
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --font-display: 'Bricolage Grotesque', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', Menlo, monospace;
     
-    --color-paper: #F6F1E7;
-    --color-ink: #1B1B1F;
-    --color-orange: #FF6B2C;
-    --color-pass: #1F9D6B;
-    --color-warn: #F2B01E;
-    --color-fail: #D6334A;
-    --color-charcoal: #16161A;
+    --color-paper: #F2EEE5;
+    --color-charcoal: #171A18;
+    --color-brass: #C9A66B;
+    --color-sage: #496F5A;
+    --color-rust: #B85D45;
   }
   
   html {
-    font-size: 17px;
+    font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   body {
     font-family: var(--font-body);
-    color: var(--color-ink);
-    background-color: var(--color-paper);
+    color: #171A18;
+    background-color: #F2EEE5;
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
 
   .dark body {
-    color: #F6F1E7;
-    background-color: var(--color-charcoal);
+    color: #F2EEE5;
+    background-color: #171A18;
   }
 }
 
@@ -51,59 +56,64 @@
   font-family: var(--font-mono);
 }
 
-/* Inspection Perforated Ticket Card Style */
-.ticket-card {
+/* Observatory Precision Card Style */
+.observatory-card {
   background-color: #FFFFFF;
-  border: 1.5px solid rgba(27, 27, 31, 0.12);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(27, 27, 31, 0.05);
+  border: 1px solid rgba(23, 26, 24, 0.12);
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(23, 26, 24, 0.04);
   position: relative;
 }
 
-.dark .ticket-card {
-  background-color: #202026;
-  border-color: rgba(246, 241, 231, 0.12);
+.dark .observatory-card {
+  background-color: #212523;
+  border-color: rgba(201, 166, 107, 0.20);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Rubber Stamp for Official Inspection Findings */
+/* Brass Optical Accent Borders */
+.brass-border {
+  border-color: #C9A66B;
+}
+
+/* Rubber Stamp / Official Diagnostic Seal */
 .stamp-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 16px;
+  padding: 6px 14px;
   text-transform: uppercase;
   font-family: var(--font-mono);
   font-weight: 700;
-  letter-spacing: 0.12em;
-  font-size: 0.85rem;
-  border-width: 2.5px;
+  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  border-width: 2px;
   border-style: solid;
   border-radius: 4px;
-  transform: rotate(-1.5deg);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
+  transform: rotate(-1deg);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
 }
 
 .stamp-pass {
-  border-color: #1F9D6B;
-  color: #1F9D6B;
-  background-color: rgba(31, 157, 107, 0.08);
+  border-color: #496F5A;
+  color: #496F5A;
+  background-color: rgba(73, 111, 90, 0.10);
 }
 
 .stamp-warn {
-  border-color: #F2B01E;
-  color: #B27B0A;
-  background-color: rgba(242, 176, 30, 0.10);
+  border-color: #C9A66B;
+  color: #9E7A38;
+  background-color: rgba(201, 166, 107, 0.14);
 }
 
 .dark .stamp-warn {
-  color: #F2B01E;
+  color: #E2BF84;
 }
 
 .stamp-fail {
-  border-color: #D6334A;
-  color: #D6334A;
-  background-color: rgba(214, 51, 74, 0.08);
+  border-color: #B85D45;
+  color: #B85D45;
+  background-color: rgba(184, 93, 69, 0.10);
 }
 
 /* Technical Term Dotted Underline with Tooltip Support */
@@ -115,35 +125,24 @@
   cursor: help;
 }
 
-/* Inspection Conveyor Animation */
-@keyframes conveyor-slide {
+/* Rotating Optical Reticle Animation */
+@keyframes slow-rotate {
   from {
-    background-position: 0 0;
+    transform: rotate(0deg);
   }
   to {
-    background-position: 40px 0;
+    transform: rotate(360deg);
   }
 }
 
-.conveyor-belt {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(27, 27, 31, 0.08) 0,
-    rgba(27, 27, 31, 0.08) 10px,
-    transparent 10px,
-    transparent 20px
-  );
-  animation: conveyor-slide 2s linear infinite;
+.animate-optical-rotate {
+  animation: slow-rotate 40s linear infinite;
 }
 
-.dark .conveyor-belt {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(246, 241, 231, 0.06) 0,
-    rgba(246, 241, 231, 0.06) 10px,
-    transparent 10px,
-    transparent 20px
-  );
+@media (prefers-reduced-motion: reduce) {
+  .animate-optical-rotate {
+    animation: none;
+  }
 }
 
 /* Clean Print Styling for Model Card Report */
@@ -151,12 +150,12 @@
   body {
     background: #FFFFFF !important;
     color: #000000 !important;
-    font-size: 11pt !important;
+    font-size: 10pt !important;
   }
   header, nav, footer, .no-print, button {
     display: none !important;
   }
-  .ticket-card {
+  .observatory-card {
     border: 1px solid #333333 !important;
     box-shadow: none !important;
     break-inside: avoid;

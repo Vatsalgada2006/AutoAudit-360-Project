@@ -18,7 +18,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
 
   if (!compliance) {
     return (
-      <div className="ticket-card p-8 text-center space-y-3">
+      <div className="observatory-card p-8 text-center space-y-3">
         <FileText className="w-10 h-10 text-stone-400 mx-auto" />
         <h3 className="font-display font-bold text-lg">No Regulatory Assessment Data</h3>
         <p className="text-sm text-stone-500">Run an inspection to audit against EU AI Act and India DPDP Act 2023.</p>
@@ -52,7 +52,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
           <span className="w-6 h-6 rounded-full bg-[#1B1B1F] dark:bg-[#F6F1E7] text-white dark:text-[#1B1B1F] font-mono font-bold text-xs flex items-center justify-center">
             4
           </span>
-          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#FF6B2C]">
+          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#C9A66B]">
             Checkpoint 4: Regulatory Law Check Station
           </span>
         </div>
@@ -62,7 +62,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
       </div>
 
       {/* 2. One-sentence answer with Status Badge */}
-      <div className="ticket-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#FF6B2C]">
+      <div className="observatory-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#C9A66B]">
         <div className="space-y-1">
           <div className="text-sm sm:text-base font-body font-semibold text-[#1B1B1F] dark:text-[#F6F1E7]">
             {answerText}
@@ -109,7 +109,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
       <div className="space-y-6">
         
         {/* Checklist */}
-        <div className="ticket-card p-5 space-y-4">
+        <div className="observatory-card p-5 space-y-4">
           <div className="flex items-center justify-between">
             <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7]">
               {activeLawTab === 'eu' ? 'EU AI Act Compliance Checklist (Articles 9–15)' : 'India DPDP Act 2023 Principles Checklist'}
@@ -131,7 +131,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-bold text-[#FF6B2C]">
+                      <span className="font-mono text-xs font-bold text-[#C9A66B]">
                         {item.article || item.section}
                       </span>
                       <span className="font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]">
@@ -163,14 +163,14 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
           </div>
 
           {/* "What this means" Box */}
-          <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+          <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
             <strong>What this means:</strong> High-risk systems must meet mandatory EU AI Act articles before deployment. Auto-verified items inspect mathematical test split metrics; self-declared policies count 0 points if left unanswered.
           </div>
         </div>
 
         {/* Gap List & Remediation Plan */}
         {activeGaps && activeGaps.length > 0 && (
-          <div className="ticket-card p-5 space-y-3 border-amber-300 dark:border-amber-800">
+          <div className="observatory-card p-5 space-y-3 border-amber-300 dark:border-amber-800">
             <h4 className="font-display font-bold text-base text-[#1B1B1F] dark:text-[#F6F1E7] flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 text-[#F2B01E]" />
               <span>Identified Regulatory Gaps &amp; Required Remediation</span>
@@ -190,7 +190,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
             </div>
 
             {/* "What this means" Box */}
-            <div className="p-3 bg-[#FF6B2C]/5 rounded border border-[#FF6B2C]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
+            <div className="p-3 bg-[#C9A66B]/5 rounded border border-[#C9A66B]/20 text-xs font-body text-[#1B1B1F]/80 dark:text-[#F6F1E7]/80">
               <strong>What this means:</strong> Addressing these top deficiencies closes operational liabilities before submission to external auditing boards.
             </div>
           </div>
@@ -198,7 +198,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
       </div>
 
       {/* 4. Collapsible "Expert Details" Section */}
-      <div className="ticket-card p-4 space-y-3">
+      <div className="observatory-card p-4 space-y-3">
         <button
           onClick={() => setShowExpertDetails(!showExpertDetails)}
           className="w-full flex items-center justify-between text-left font-display font-bold text-sm text-[#1B1B1F] dark:text-[#F6F1E7]"
@@ -210,7 +210,7 @@ export const LawCheckCheckpoint: React.FC<LawCheckCheckpointProps> = ({
         {showExpertDetails && (
           <div className="pt-3 border-t border-[#1B1B1F]/10 dark:border-[#F6F1E7]/10 space-y-4 font-mono text-xs">
             <div className="space-y-2">
-              <div className="font-bold text-[#FF6B2C]">Statutory Scoring Methodology:</div>
+              <div className="font-bold text-[#C9A66B]">Statutory Scoring Methodology:</div>
               <div className="p-2.5 bg-stone-100 dark:bg-stone-900 rounded space-y-1">
                 <div>• Score = 100 * [∑ (W_i * M_i)] / ∑ W_i</div>
                 <div>• Weights: Auto-verified items (W=2.0); Self-declared questionnaire items (W=1.0).</div>
