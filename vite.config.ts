@@ -8,24 +8,12 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     server: {
-      proxy: {
-        '/api': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-          configure: (proxy) => {
-            proxy.on('error', (err, _req, res) => {
-              if (res && 'writeHead' in res && !(res as any).headersSent) {
-                (res as any).writeHead(503, { 'Content-Type': 'application/json' });
-                (res as any).end(JSON.stringify({ error: 'Backend engine starting, retrying...', detail: err.message }));
-              }
-            });
-          },
-        },
-      },
+      host: '0.0.0.0',
+      port: 3000,
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',

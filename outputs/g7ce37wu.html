@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Model Card: Model_german_credit | AutoAudit-360</title>
+  <style>
+    @page { size: A4; margin: 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #201823;
+      line-height: 1.45;
+      font-size: 12px;
+      background: #FAF2E8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #DED3D8;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 12px rgba(32, 24, 35, 0.06);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #201823;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+    .title-area h1 {
+      margin: 0 0 4px 0;
+      font-size: 22px;
+      font-weight: 800;
+      color: #201823;
+      letter-spacing: -0.02em;
+    }
+    .meta-subtitle {
+      font-size: 12px;
+      color: #665c69;
+    }
+    .stamp {
+      border: 2px dashed #201823;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stamp-green { border-color: #201823; color: #201823; background: #D5F36A; }
+    .stamp-amber { border-color: #FF705D; color: #c44030; background: #fff3ed; }
+    .stamp-red { border-color: #e11d48; color: #991b1b; background: #fee2e2; }
+    .cap-alert {
+      background: #fff1f2;
+      border-left: 4px solid #FF705D;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: #9f1239;
+    }
+    .disclaimer-banner {
+      background: #FAF2E8;
+      border-left: 4px solid #332A37;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #201823;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #FAF2E8;
+      border: 1px solid #DED3D8;
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid #DED3D8;
+      padding-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+    th, td {
+      border: 1px solid #DED3D8;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background: #f0e6da;
+      font-weight: 700;
+    }
+    .footer {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #DED3D8;
+      text-align: center;
+      font-size: 11px;
+      color: #776e7a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <div class="title-area">
+        <h1>AI Model Card: Model_german_credit</h1>
+        <div class="meta-subtitle">
+          Audit Reference ID: <code>dto9wch0</code> | Timestamp (UTC): 2026-10-29T16:47:10.968Z
+        </div>
+        <div class="meta-subtitle">
+          Algorithm: RandomForestClassifier (Auto-trained baseline) | Dataset Hash: <code>b131337be558d082...</code>
+        </div>
+      </div>
+      <div>
+        <div class="stamp stamp-red">
+          READINESS: ACTION REQUIRED
+        </div>
+      </div>
+    </div>
+
+    
+      <div class="cap-alert">
+        <strong>Governance Cap Applied:</strong> Weakest-Link Cap applied (Red / <=49.9): Fairness (29.8) is below 50.0 on a High-Risk AI system (Credit Scoring & Financial Eligibility).
+      </div>
+    
+
+    <div class="disclaimer-banner">
+      <strong>Regulatory Disclaimer:</strong> AutoAudit-360 is an academic diagnostic testing framework. This report provides empirical measurements and readiness assessments under simulated regulatory criteria (EU AI Act & India DPDP Act 2023), not formal legal certification.
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Composite Trust Radar Scores</h3>
+        <table>
+          <tr><th>Axis</th><th>Score</th><th>Status</th></tr>
+          
+            <tr>
+              <td><strong>Fairness</strong></td>
+              <td>29.8/100</td>
+              <td><span style="color:#b91c1c">Action Required</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>Explainability</strong></td>
+              <td>90/100</td>
+              <td><span style="color:#204e15">Pass</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>Robustness</strong></td>
+              <td>91.8/100</td>
+              <td><span style="color:#204e15">Pass</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>EU AI Act Readiness</strong></td>
+              <td>36.4/100</td>
+              <td><span style="color:#b91c1c">Action Required</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>DPDP Act 2023 Readiness</strong></td>
+              <td>25/100</td>
+              <td><span style="color:#b91c1c">Action Required</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>Governance Disclosure</strong></td>
+              <td>0/100</td>
+              <td><span style="color:#b91c1c">Action Required</span></td>
+            </tr>
+          
+        </table>
+        <div style="margin-top: 10px; font-weight: 700;">
+          Overall Capped Score: 45.5/100 (Raw Mean: 45.5/100)
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Dataset & Performance Baseline</h3>
+        <table>
+          <tr><td>Target Column</td><td><code>Creditability</code> (Positive: 1)</td></tr>
+          <tr><td>Total Samples</td><td>1000 (200 held-out test split)</td></tr>
+          <tr><td>Total Features</td><td>11</td></tr>
+          <tr><td>Accuracy</td><td>62.0%</td></tr>
+          <tr><td>Balanced Accuracy</td><td>60.9%</td></tr>
+          <tr><td>ROC AUC</td><td>67.0%</td></tr>
+          <tr><td>Repeated 5-Fold Cross-Validation</td><td>0.617 ± 0.018</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px;">
+      <h3>Fairness & Disparate Impact (Four-Fifths Rule)</h3>
+      <table>
+        <tr>
+          <th>Attribute</th>
+          <th>Privileged Group</th>
+          <th>Disparate Impact Ratio</th>
+          <th>Demographic Parity Diff</th>
+          <th>Equal Opportunity Diff</th>
+          <th>Status</th>
+        </tr>
+        
+          <tr>
+            <td><strong>Sex</strong></td>
+            <td>Male</td>
+            <td>0.662 <strong style="color:#b91c1c">(<0.8)</strong></td>
+            <td>0.135</td>
+            <td>0.179</td>
+            <td>FAIL</td>
+          </tr>
+        
+          <tr>
+            <td><strong>Age</strong></td>
+            <td>Senior (>60)</td>
+            <td>0.070 <strong style="color:#b91c1c">(<0.8)</strong></td>
+            <td>0.713</td>
+            <td>0.617</td>
+            <td>FAIL</td>
+          </tr>
+        
+          <tr>
+            <td><strong>Foreign_Worker</strong></td>
+            <td>Yes</td>
+            <td>0.951 </td>
+            <td>0.017</td>
+            <td>0.544</td>
+            <td>FAIL</td>
+          </tr>
+        
+          <tr>
+            <td><strong>Sex x Age</strong></td>
+            <td>Male / Senior (>60)</td>
+            <td>0.000 <strong style="color:#b91c1c">(<0.8)</strong></td>
+            <td>0.875</td>
+            <td>0.900</td>
+            <td>FAIL</td>
+          </tr>
+        
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Explainability (Top Global Feature Attribution)</h3>
+        <table>
+          <tr><th>Feature</th><th>Importance</th><th>Proxy Alert</th></tr>
+          
+            <tr>
+              <td><code>num__Age</code></td>
+              <td>0.059</td>
+              <td><span style="color:#b91c1c">Protected Feature</span></td>
+            </tr>
+          
+            <tr>
+              <td><code>num__Credit_Amount</code></td>
+              <td>0.046</td>
+              <td>Clean</td>
+            </tr>
+          
+            <tr>
+              <td><code>cat__Account_Status_No checking</code></td>
+              <td>0.019</td>
+              <td>Clean</td>
+            </tr>
+          
+            <tr>
+              <td><code>cat__Credit_History_Existing paid</code></td>
+              <td>0.014</td>
+              <td>Clean</td>
+            </tr>
+          
+            <tr>
+              <td><code>cat__Savings_Account_<100 DM</code></td>
+              <td>0.013</td>
+              <td>Clean</td>
+            </tr>
+          
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Robustness Stress Testing</h3>
+        <table>
+          <tr><td>Gaussian Noise Perturbation (5%)</td><td>2.5% flip rate</td></tr>
+          <tr><td>Counterfactual Sensitive Flip Attack</td><td>8.5% outcome flip</td></tr>
+          <tr><td>Worst-Case Bounded Attack (eps=0.1)</td><td>Evaluated</td></tr>
+          <tr><td>Overall Robustness Status</td><td><strong>WARN</strong></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h3>Regulatory Conformity Checklist</h3>
+      <p style="margin: 0 0 8px 0;"><strong>EU AI Act Readiness:</strong> 36.4% | <strong>DPDP Act 2023 Readiness:</strong> 25% | <strong>Governance Inquiries Answered:</strong> 0/15</p>
+      <table>
+        <tr><th>Framework</th><th>Article / Section</th><th>Requirement</th><th>Status</th></tr>
+        
+          <tr>
+            <td>EU AI Act</td>
+            <td>Art. 9</td>
+            <td>Risk Management System</td>
+            <td><strong>UNANSWERED</strong></td>
+          </tr>
+        
+          <tr>
+            <td>EU AI Act</td>
+            <td>Art. 10</td>
+            <td>Data Governance & Bias Examination</td>
+            <td><strong>NO</strong></td>
+          </tr>
+        
+          <tr>
+            <td>EU AI Act</td>
+            <td>Art. 11</td>
+            <td>Technical Documentation</td>
+            <td><strong>YES</strong></td>
+          </tr>
+        
+          <tr>
+            <td>EU AI Act</td>
+            <td>Art. 12</td>
+            <td>Automatic Logging & Audit Trails</td>
+            <td><strong>UNANSWERED</strong></td>
+          </tr>
+        
+        
+          <tr>
+            <td>India DPDP 2023</td>
+            <td>Sec 5</td>
+            <td>Requirement</td>
+            <td><strong>UNANSWERED</strong></td>
+          </tr>
+        
+          <tr>
+            <td>India DPDP 2023</td>
+            <td>Sec 6</td>
+            <td>Requirement</td>
+            <td><strong>UNANSWERED</strong></td>
+          </tr>
+        
+          <tr>
+            <td>India DPDP 2023</td>
+            <td>Sec 8(3)</td>
+            <td>Requirement</td>
+            <td><strong>YES</strong></td>
+          </tr>
+        
+      </table>
+    </div>
+
+    <div class="footer">
+      AutoAudit-360 | Trustworthy AI Audit & Regulatory Compliance Suite | Academic diagnostic prototype.
+    </div>
+  </div>
+</body>
+</html>

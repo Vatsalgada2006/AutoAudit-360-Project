@@ -1,4 +1,4 @@
-import { FullAuditResult } from "../types";
+import { FullAuditResult } from "../types.ts";
 
 export const GERMAN_CREDIT_AUDIT: FullAuditResult = {
   "meta": {
