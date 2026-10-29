@@ -10,9 +10,8 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  if (isOpen !== undefined && !isOpen) return null;
-
   useEffect(() => {
+    if (isOpen === false) return;
     fetch('/api/comparison')
       .then(r => r.json())
       .then(d => {
@@ -77,7 +76,9 @@ export const ComparisonView: React.FC<ComparisonViewProps> = ({ onClose, isOpen 
         });
         setLoading(false);
       });
-  }, []);
+  }, [isOpen]);
+
+  if (isOpen !== undefined && !isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
