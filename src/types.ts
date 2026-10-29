@@ -119,6 +119,8 @@ export interface RobustnessAudit {
   metric_drop_10pct?: number | null;
   prediction_flip_rate_5pct?: number | null;
   counterfactual_flip_rate?: number | null;
+  counterfactual_results?: Record<string, { total_tested: number; flips: number; flip_rate: number }>;
+  categorical_swap_flips?: number | null;
   worst_case_drop_eps10?: number | null;
   fairness_stability_delta?: number | null;
   multi_attribute_stability?: Record<string, number>;
@@ -224,6 +226,7 @@ export interface AuditMeta {
   audit_id: string;
   timestamp: string;
   model_name: string;
+  system?: string;
   algorithm: string;
   is_default_trained: boolean;
   framework: string;

@@ -101,12 +101,15 @@ export const StressTestCheckpoint: React.FC<StressTestCheckpointProps> = ({
             </p>
 
             <div className="space-y-2 pt-1 font-mono text-xs">
-              {Object.entries(cfResults).map(([attr, rate]) => (
-                <div key={attr} className="flex items-center justify-between p-2 rounded bg-stone-100 dark:bg-stone-800">
-                  <span>{attr}:</span>
-                  <strong>{((rate as number) * 100).toFixed(1)}% flips</strong>
-                </div>
-              ))}
+              {Object.entries(cfResults).map(([attr, val]) => {
+                const flipVal = typeof val === 'number' ? val : (val as { flip_rate?: number })?.flip_rate ?? 0;
+                return (
+                  <div key={attr} className="flex items-center justify-between p-2 rounded bg-stone-100 dark:bg-stone-800">
+                    <span>{attr}:</span>
+                    <strong>{(flipVal * 100).toFixed(1)}% flips</strong>
+                  </div>
+                );
+              })}
             </div>
 
             {/* "What this means" Box */}

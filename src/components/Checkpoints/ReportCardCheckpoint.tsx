@@ -95,7 +95,7 @@ export const ReportCardCheckpoint: React.FC<ReportCardCheckpointProps> = ({
             AI Model Card &amp; Diagnostic Findings
           </h2>
           <p className="text-xs text-[#1B1B1F]/70 dark:text-[#F6F1E7]/70 mt-1">
-            System: {auditResult.meta.system} | Audit ID: {auditResult.meta.audit_id} | UTC: {auditResult.meta.timestamp}
+            System: {auditResult.meta.system || auditResult.meta.author?.system || 'AutoAudit-360'} | Audit ID: {auditResult.meta.audit_id} | UTC: {auditResult.meta.timestamp}
           </p>
         </div>
 
