@@ -34,11 +34,9 @@ pyProc.on('error', (err) => {
   console.error('[dev] Failed to spawn Python backend:', err.message);
 });
 
-// Start Vite dev server
-const isWin = process.platform === 'win32';
-const npxCmd = isWin ? 'npx.cmd' : 'npx';
-
-const viteProc = spawn(npxCmd, ['vite', '--port=3000', '--host=0.0.0.0'], {
+// Start Vite dev server directly via node
+const viteBin = path.join(rootDir, 'node_modules', 'vite', 'bin', 'vite.js');
+const viteProc = spawn(process.execPath, [viteBin, '--port=3000', '--host=0.0.0.0'], {
   cwd: rootDir,
   stdio: 'inherit',
   env: process.env,
