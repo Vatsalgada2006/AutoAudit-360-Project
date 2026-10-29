@@ -1,0 +1,6 @@
+{
+  "name": "AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite",
+  "description": "Domain: AI Governance, Policy & Risk Management | Modules 1-4: Trustworthy AI pipeline, AI Model Card, EU AI Act, India DPDP Act 2023",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

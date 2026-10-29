@@ -1,0 +1,63 @@
+{
+  "title": "AutoAudit-360 Hardened Benchmark Comparison",
+  "benchmark_timestamp": "2026-10-29T14:29:22.426273+00:00",
+  "baseline_legacy_results": {
+    "german_credit": {
+      "overall_score": 81.4,
+      "rag_status": "green",
+      "verdict": "CERTIFIED TRUSTWORTHY - PASS"
+    },
+    "compas": {
+      "overall_score": 84.9,
+      "rag_status": "green",
+      "verdict": "CERTIFIED TRUSTWORTHY - PASS"
+    }
+  },
+  "hardened_results": {
+    "german_credit_surrogate": {
+      "overall_score": 48.0,
+      "raw_mean": 48.0,
+      "rag_status": "red",
+      "verdict": "READINESS: ACTION REQUIRED",
+      "cap_reason": "Weakest-Link Cap applied (Red / <=49.9): Fairness (29.8) is below 50.0 on a High-Risk AI system (credit_scoring).",
+      "axes": {
+        "Fairness": 29.8,
+        "Explainability": 90.0,
+        "Robustness": 91.8,
+        "EU AI Act Readiness": 36.4,
+        "DPDP Act 2023 Readiness": 40.0,
+        "Governance Disclosure": 0.0
+      }
+    },
+    "compas_surrogate": {
+      "overall_score": 49.9,
+      "raw_mean": 50.4,
+      "rag_status": "red",
+      "verdict": "READINESS: ACTION REQUIRED",
+      "cap_reason": "Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).",
+      "axes": {
+        "Fairness": 67.2,
+        "Explainability": 50.0,
+        "Robustness": 99.5,
+        "EU AI Act Readiness": 45.5,
+        "DPDP Act 2023 Readiness": 40.0,
+        "Governance Disclosure": 0.0
+      }
+    },
+    "compas_decile_score_mode": {
+      "overall_score": 49.9,
+      "raw_mean": 50.4,
+      "rag_status": "red",
+      "verdict": "READINESS: ACTION REQUIRED",
+      "cap_reason": "Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).",
+      "axes": {
+        "Fairness": 67.2,
+        "Explainability": 50.0,
+        "Robustness": 99.5,
+        "EU AI Act Readiness": 45.5,
+        "DPDP Act 2023 Readiness": 40.0,
+        "Governance Disclosure": 0.0
+      }
+    }
+  }
+}

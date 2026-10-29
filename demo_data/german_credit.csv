@@ -1,0 +1,1001 @@
+Creditability,Age,Sex,Foreign_Worker,Duration_Months,Credit_Amount,Account_Status,Savings_Account,Employment_Duration,Housing,Job,Credit_History
+1,64,Male,Yes,18,748,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Delay in past
+0,43,Male,Yes,24,643,<0 DM,<100 DM,>=7 yrs,Rent,Unskilled Resident,Existing paid
+0,37,Male,Yes,12,338,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,58,Female,Yes,18,2622,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,62,Male,Yes,18,1037,No checking,<100 DM,4-7 yrs,Rent,Unskilled Resident,Delay in past
+0,43,Male,Yes,12,14809,No checking,100-500 DM,1-4 yrs,Rent,Unskilled Resident,Critical/Other
+1,62,Male,No,12,2983,No checking,>=1000 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,29,Male,Yes,30,724,No checking,<100 DM,1-4 yrs,Own,Skilled,All paid
+1,60,Female,Yes,18,3985,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,22,Female,Yes,6,7546,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Critical/Other
+0,45,Male,Yes,30,4625,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,22,Female,Yes,60,504,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,40,Male,Yes,24,7489,No checking,>=1000 DM,4-7 yrs,Own,Skilled,Existing paid
+1,43,Male,Yes,18,5304,<0 DM,>=1000 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,32,Male,Yes,36,801,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,47,Male,Yes,48,420,<0 DM,>=1000 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+1,31,Male,Yes,30,2857,>=200 DM,500-1000 DM,1-4 yrs,Free,Skilled,Existing paid
+0,46,Female,Yes,18,792,No checking,<100 DM,>=7 yrs,Free,Unskilled Resident,Existing paid
+1,29,Male,Yes,24,6007,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,60,Female,Yes,24,1669,<0 DM,<100 DM,<1 yr,Own,Skilled,Delay in past
+1,41,Male,Yes,12,8059,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,65,Male,Yes,18,2918,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+1,35,Male,Yes,30,895,No checking,<100 DM,1-4 yrs,Rent,Skilled,No credit
+0,21,Male,Yes,24,731,No checking,Unknown/None,<1 yr,Own,Unskilled Resident,Critical/Other
+0,35,Male,Yes,18,2999,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,19,Female,Yes,24,4841,0-200 DM,<100 DM,Unemployed,Own,Unskilled Non-resident,No credit
+0,27,Male,Yes,12,5117,No checking,Unknown/None,1-4 yrs,Free,Skilled,Existing paid
+0,21,Male,No,18,1282,No checking,<100 DM,4-7 yrs,Rent,Skilled,Existing paid
+0,26,Male,Yes,30,981,0-200 DM,<100 DM,<1 yr,Rent,Skilled,Critical/Other
+0,33,Male,Yes,12,304,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,21,Male,Yes,12,3888,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+1,42,Male,Yes,48,504,No checking,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,57,Male,Yes,12,1997,0-200 DM,<100 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,33,Male,Yes,12,3195,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,44,Male,Yes,48,9102,<0 DM,500-1000 DM,4-7 yrs,Own,Skilled,Existing paid
+1,22,Male,Yes,24,1445,No checking,500-1000 DM,<1 yr,Own,Unskilled Non-resident,Existing paid
+0,42,Male,Yes,24,1169,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,68,Male,Yes,36,3647,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,33,Female,Yes,12,3339,<0 DM,Unknown/None,<1 yr,Own,Unskilled Resident,Critical/Other
+1,21,Male,No,24,1541,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+0,68,Male,Yes,18,8674,No checking,<100 DM,Unemployed,Own,Management/Self-employed,Existing paid
+0,36,Male,Yes,30,6213,<0 DM,<100 DM,>=7 yrs,Rent,Skilled,No credit
+0,58,Female,Yes,18,1061,0-200 DM,Unknown/None,<1 yr,Rent,Unskilled Resident,Existing paid
+0,19,Male,Yes,24,1124,>=200 DM,<100 DM,4-7 yrs,Free,Skilled,Existing paid
+1,62,Male,Yes,18,2547,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,49,Female,Yes,18,5003,0-200 DM,100-500 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,22,Male,No,30,394,<0 DM,100-500 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,24,Male,Yes,24,4032,No checking,<100 DM,<1 yr,Free,Skilled,Critical/Other
+1,42,Male,Yes,24,3593,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+1,65,Male,Yes,18,1092,0-200 DM,500-1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,31,Female,Yes,18,3909,>=200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,31,Female,Yes,24,9262,<0 DM,100-500 DM,>=7 yrs,Rent,Unskilled Resident,Existing paid
+0,42,Male,Yes,30,403,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,21,Male,Yes,24,1482,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,20,Male,Yes,36,2095,No checking,Unknown/None,Unemployed,Own,Skilled,Critical/Other
+0,21,Male,Yes,30,7594,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,26,Female,Yes,24,10736,0-200 DM,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+0,29,Male,Yes,24,2129,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,28,Male,Yes,36,4686,0-200 DM,500-1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,68,Female,Yes,24,2677,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,41,Male,Yes,30,2719,>=200 DM,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+0,24,Male,Yes,24,1292,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,42,Male,Yes,24,1032,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,42,Female,Yes,12,1336,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,42,Male,Yes,18,2850,<0 DM,500-1000 DM,>=7 yrs,Own,Skilled,No credit
+1,48,Male,Yes,48,344,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,No credit
+1,59,Male,Yes,24,7859,<0 DM,<100 DM,4-7 yrs,Rent,Management/Self-employed,Existing paid
+1,40,Male,Yes,24,793,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,69,Female,Yes,48,1045,0-200 DM,<100 DM,Unemployed,Own,Unskilled Resident,Critical/Other
+0,69,Female,Yes,24,2587,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,27,Male,Yes,18,4212,<0 DM,<100 DM,<1 yr,Own,Management/Self-employed,Existing paid
+1,33,Male,Yes,30,572,No checking,500-1000 DM,1-4 yrs,Own,Unskilled Resident,No credit
+1,40,Male,Yes,24,1473,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,49,Male,Yes,12,11332,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,46,Male,Yes,18,1223,0-200 DM,<100 DM,<1 yr,Own,Management/Self-employed,Existing paid
+1,55,Female,Yes,18,1451,0-200 DM,<100 DM,1-4 yrs,Free,Management/Self-employed,Existing paid
+1,23,Male,Yes,18,6044,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+0,35,Male,Yes,18,414,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,58,Male,Yes,18,2249,No checking,Unknown/None,4-7 yrs,Own,Unskilled Non-resident,Existing paid
+0,41,Female,Yes,12,1777,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,30,Female,Yes,18,1468,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,24,Female,Yes,6,1326,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,27,Male,Yes,24,556,No checking,100-500 DM,4-7 yrs,Own,Unskilled Resident,Critical/Other
+0,21,Male,Yes,36,1459,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,63,Female,Yes,24,390,0-200 DM,<100 DM,1-4 yrs,Free,Unskilled Resident,Existing paid
+1,64,Male,Yes,18,5109,<0 DM,Unknown/None,<1 yr,Own,Skilled,Existing paid
+0,42,Male,Yes,6,1875,No checking,500-1000 DM,4-7 yrs,Own,Skilled,Existing paid
+1,44,Female,Yes,12,2127,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,62,Female,Yes,18,7419,No checking,<100 DM,>=7 yrs,Free,Skilled,Delay in past
+0,30,Male,Yes,12,3683,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,63,Male,Yes,18,275,<0 DM,>=1000 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+0,54,Male,Yes,12,9426,<0 DM,<100 DM,1-4 yrs,Own,Skilled,All paid
+0,39,Male,Yes,30,1116,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,20,Male,Yes,18,614,<0 DM,100-500 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,69,Female,Yes,12,4927,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+1,63,Female,Yes,30,2471,<0 DM,100-500 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,20,Female,Yes,12,2070,No checking,>=1000 DM,1-4 yrs,Free,Skilled,Existing paid
+0,38,Male,Yes,12,1168,0-200 DM,>=1000 DM,Unemployed,Own,Skilled,Delay in past
+0,59,Female,Yes,24,2787,<0 DM,<100 DM,1-4 yrs,Free,Management/Self-employed,Critical/Other
+0,44,Female,Yes,24,1276,No checking,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,30,Male,Yes,24,7669,No checking,>=1000 DM,>=7 yrs,Own,Unskilled Resident,All paid
+1,41,Female,Yes,12,1025,No checking,<100 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+0,33,Female,Yes,18,7153,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,24,Male,Yes,12,2872,0-200 DM,<100 DM,4-7 yrs,Rent,Unskilled Resident,Existing paid
+0,67,Male,Yes,6,5891,0-200 DM,<100 DM,4-7 yrs,Rent,Unskilled Resident,Existing paid
+0,23,Male,Yes,36,4242,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,Delay in past
+1,54,Male,Yes,24,4067,No checking,100-500 DM,4-7 yrs,Own,Unskilled Non-resident,Critical/Other
+1,43,Male,Yes,12,1504,No checking,<100 DM,4-7 yrs,Rent,Skilled,Existing paid
+1,54,Female,Yes,24,1102,No checking,500-1000 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,28,Male,Yes,12,1007,0-200 DM,100-500 DM,1-4 yrs,Free,Management/Self-employed,Critical/Other
+0,38,Male,Yes,36,6478,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,38,Male,Yes,12,5744,<0 DM,<100 DM,4-7 yrs,Free,Skilled,Existing paid
+0,41,Male,Yes,6,2108,0-200 DM,Unknown/None,<1 yr,Own,Unskilled Resident,Existing paid
+0,22,Male,Yes,18,704,<0 DM,Unknown/None,1-4 yrs,Own,Management/Self-employed,No credit
+1,60,Male,Yes,24,1791,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,37,Male,Yes,24,3340,>=200 DM,Unknown/None,Unemployed,Own,Skilled,Critical/Other
+1,46,Male,Yes,6,2188,>=200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,44,Male,Yes,12,5097,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,45,Male,No,18,19583,<0 DM,100-500 DM,4-7 yrs,Own,Unskilled Non-resident,Critical/Other
+1,38,Female,Yes,12,928,>=200 DM,<100 DM,<1 yr,Own,Skilled,All paid
+0,71,Male,Yes,36,2219,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+0,45,Female,Yes,6,2054,<0 DM,500-1000 DM,<1 yr,Own,Skilled,Critical/Other
+1,40,Male,Yes,18,1411,No checking,Unknown/None,<1 yr,Own,Unskilled Resident,Critical/Other
+0,65,Male,Yes,24,956,<0 DM,100-500 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,30,Female,Yes,12,467,No checking,<100 DM,1-4 yrs,Free,Skilled,Delay in past
+0,38,Male,Yes,24,7230,<0 DM,<100 DM,>=7 yrs,Free,Unskilled Resident,Existing paid
+0,24,Male,Yes,30,1992,No checking,<100 DM,Unemployed,Free,Unskilled Resident,Existing paid
+1,35,Male,Yes,12,2448,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,No credit
+0,44,Male,Yes,36,8212,>=200 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+0,26,Male,Yes,24,5041,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,35,Male,Yes,12,697,0-200 DM,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+0,21,Male,Yes,18,2916,<0 DM,500-1000 DM,>=7 yrs,Own,Skilled,Existing paid
+0,30,Male,Yes,12,2118,No checking,<100 DM,Unemployed,Own,Skilled,Critical/Other
+1,36,Female,Yes,24,5355,No checking,<100 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+1,25,Female,Yes,30,4372,0-200 DM,<100 DM,4-7 yrs,Rent,Unskilled Resident,Delay in past
+1,60,Female,Yes,30,4001,No checking,<100 DM,<1 yr,Own,Skilled,No credit
+0,40,Male,Yes,60,1582,No checking,<100 DM,<1 yr,Rent,Skilled,All paid
+1,63,Female,Yes,30,5480,0-200 DM,<100 DM,>=7 yrs,Rent,Skilled,All paid
+1,27,Male,Yes,24,422,No checking,Unknown/None,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,44,Male,Yes,12,806,No checking,<100 DM,>=7 yrs,Rent,Skilled,Delay in past
+1,22,Male,Yes,18,1558,>=200 DM,500-1000 DM,>=7 yrs,Free,Management/Self-employed,Existing paid
+1,27,Female,No,6,505,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,No credit
+1,40,Male,Yes,24,1107,<0 DM,>=1000 DM,1-4 yrs,Own,Skilled,Delay in past
+0,34,Male,Yes,18,5923,>=200 DM,<100 DM,<1 yr,Free,Skilled,Critical/Other
+1,40,Male,Yes,6,9726,<0 DM,Unknown/None,<1 yr,Own,Unskilled Resident,Existing paid
+1,59,Female,Yes,6,1412,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,23,Female,Yes,18,1233,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,32,Female,Yes,24,1300,No checking,Unknown/None,>=7 yrs,Own,Management/Self-employed,All paid
+1,22,Male,Yes,18,1291,<0 DM,100-500 DM,>=7 yrs,Own,Unskilled Resident,All paid
+1,55,Male,Yes,24,367,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,33,Male,Yes,18,8621,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,69,Male,Yes,24,1019,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,51,Male,Yes,12,1993,No checking,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+1,47,Male,Yes,12,281,0-200 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,35,Female,Yes,24,6495,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,53,Female,Yes,18,4453,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,59,Female,Yes,6,9635,No checking,Unknown/None,>=7 yrs,Rent,Management/Self-employed,All paid
+0,31,Female,Yes,18,5118,No checking,<100 DM,<1 yr,Own,Skilled,Delay in past
+1,53,Male,Yes,12,1454,0-200 DM,100-500 DM,Unemployed,Own,Skilled,Critical/Other
+1,19,Male,Yes,18,1161,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,All paid
+0,42,Female,Yes,18,4078,No checking,Unknown/None,4-7 yrs,Rent,Unskilled Resident,Critical/Other
+1,32,Male,Yes,24,1698,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,61,Female,Yes,30,2922,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,21,Male,Yes,12,270,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,21,Male,Yes,48,454,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,33,Female,Yes,18,2702,>=200 DM,100-500 DM,Unemployed,Free,Skilled,Critical/Other
+0,57,Female,Yes,24,2921,No checking,Unknown/None,Unemployed,Own,Skilled,All paid
+0,23,Female,Yes,24,4704,>=200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,66,Male,Yes,24,702,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,57,Female,Yes,18,2553,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,18,941,No checking,<100 DM,Unemployed,Own,Skilled,Delay in past
+0,25,Male,Yes,6,563,>=200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,25,Male,Yes,6,1941,No checking,100-500 DM,>=7 yrs,Rent,Skilled,Critical/Other
+1,32,Male,Yes,18,820,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,30,Male,Yes,12,1052,>=200 DM,500-1000 DM,>=7 yrs,Own,Skilled,Existing paid
+0,33,Female,Yes,18,1472,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,45,Female,Yes,12,1210,<0 DM,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,28,Male,Yes,24,543,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,63,Male,Yes,36,551,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,31,Female,Yes,48,937,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,31,Female,Yes,18,416,No checking,>=1000 DM,1-4 yrs,Own,Skilled,Existing paid
+1,59,Female,Yes,24,3401,<0 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,43,Male,Yes,36,1333,No checking,Unknown/None,<1 yr,Rent,Skilled,Existing paid
+0,36,Male,No,18,1300,>=200 DM,>=1000 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,47,Male,Yes,12,1541,0-200 DM,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+0,24,Male,Yes,48,3728,0-200 DM,100-500 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,27,Male,Yes,18,6794,0-200 DM,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,46,Female,Yes,18,4804,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,39,Male,Yes,12,4410,No checking,<100 DM,4-7 yrs,Rent,Management/Self-employed,Existing paid
+0,34,Male,Yes,12,2369,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,54,Male,Yes,30,4037,No checking,500-1000 DM,1-4 yrs,Own,Skilled,Existing paid
+1,41,Male,Yes,24,2824,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+1,36,Male,Yes,12,1029,0-200 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,63,Male,Yes,12,998,<0 DM,100-500 DM,1-4 yrs,Own,Unskilled Resident,All paid
+0,54,Male,Yes,24,1374,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,42,Female,Yes,24,7984,No checking,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+1,48,Female,Yes,12,2786,<0 DM,100-500 DM,<1 yr,Own,Management/Self-employed,Critical/Other
+1,20,Male,Yes,36,4486,No checking,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,41,Male,No,6,1611,<0 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+0,25,Female,Yes,18,1926,0-200 DM,Unknown/None,>=7 yrs,Free,Skilled,Existing paid
+0,33,Male,Yes,24,679,<0 DM,<100 DM,<1 yr,Own,Unskilled Resident,Existing paid
+0,58,Male,Yes,12,851,No checking,100-500 DM,4-7 yrs,Rent,Unskilled Resident,No credit
+1,36,Female,Yes,30,5870,No checking,<100 DM,Unemployed,Own,Skilled,Critical/Other
+0,44,Male,Yes,24,3063,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+0,20,Male,Yes,30,1567,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,71,Male,Yes,12,5446,0-200 DM,100-500 DM,1-4 yrs,Own,Skilled,Existing paid
+0,65,Male,Yes,12,1155,No checking,500-1000 DM,1-4 yrs,Rent,Management/Self-employed,Existing paid
+0,28,Male,Yes,12,12189,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,24,Female,Yes,18,1603,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,26,Male,Yes,24,1566,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,54,Male,Yes,30,1446,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,36,Female,Yes,24,666,0-200 DM,Unknown/None,4-7 yrs,Free,Skilled,Critical/Other
+1,70,Male,Yes,36,626,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,46,Male,Yes,24,3592,No checking,500-1000 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,24,Female,Yes,12,6907,No checking,<100 DM,1-4 yrs,Free,Unskilled Resident,Existing paid
+0,37,Male,Yes,12,5252,>=200 DM,Unknown/None,4-7 yrs,Own,Skilled,Critical/Other
+1,29,Female,Yes,24,736,0-200 DM,500-1000 DM,1-4 yrs,Rent,Unskilled Resident,Existing paid
+0,50,Female,Yes,12,2773,0-200 DM,<100 DM,>=7 yrs,Rent,Management/Self-employed,Critical/Other
+0,34,Male,Yes,6,607,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,60,Male,No,18,398,<0 DM,500-1000 DM,Unemployed,Own,Skilled,Existing paid
+0,21,Female,Yes,30,3668,No checking,100-500 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,39,Male,Yes,12,2701,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,35,Female,Yes,30,523,<0 DM,<100 DM,Unemployed,Own,Unskilled Resident,Existing paid
+0,60,Male,Yes,30,363,>=200 DM,>=1000 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,39,Male,Yes,18,14909,0-200 DM,<100 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,27,Male,Yes,6,347,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+1,63,Female,No,12,2131,No checking,<100 DM,>=7 yrs,Free,Unskilled Resident,Critical/Other
+1,63,Female,Yes,24,2497,No checking,Unknown/None,>=7 yrs,Free,Skilled,Critical/Other
+1,59,Male,Yes,24,649,No checking,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,32,Male,Yes,36,842,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,51,Female,Yes,24,1637,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,61,Male,Yes,12,4839,No checking,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+1,40,Male,No,12,2513,<0 DM,<100 DM,Unemployed,Own,Management/Self-employed,No credit
+0,33,Male,Yes,24,3500,No checking,<100 DM,1-4 yrs,Free,Unskilled Resident,Existing paid
+0,20,Male,Yes,12,13726,No checking,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+0,43,Female,No,12,4925,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,37,Male,Yes,18,2073,No checking,Unknown/None,<1 yr,Own,Skilled,All paid
+0,23,Male,Yes,6,2142,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,25,Male,Yes,12,3335,0-200 DM,100-500 DM,>=7 yrs,Rent,Skilled,Delay in past
+0,24,Female,Yes,18,3753,<0 DM,>=1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,12,2472,No checking,>=1000 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,31,Male,Yes,12,3562,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+1,41,Male,Yes,24,326,<0 DM,<100 DM,1-4 yrs,Free,Management/Self-employed,Existing paid
+0,23,Female,Yes,30,2046,No checking,Unknown/None,<1 yr,Own,Skilled,Existing paid
+1,69,Male,Yes,12,1296,No checking,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,21,Male,Yes,30,692,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,35,Male,Yes,18,585,<0 DM,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+0,30,Male,Yes,18,3207,0-200 DM,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,22,Male,Yes,36,2622,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,45,Female,Yes,24,1185,0-200 DM,<100 DM,<1 yr,Own,Management/Self-employed,Existing paid
+1,41,Male,Yes,30,2287,No checking,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,29,Female,Yes,12,2418,No checking,<100 DM,1-4 yrs,Free,Skilled,Delay in past
+0,37,Male,Yes,6,944,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,44,Female,Yes,36,3628,<0 DM,<100 DM,<1 yr,Own,Management/Self-employed,Critical/Other
+1,27,Male,Yes,18,5108,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Critical/Other
+1,61,Male,Yes,12,5266,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,27,Female,Yes,24,3201,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,58,Female,Yes,30,2543,0-200 DM,<100 DM,<1 yr,Own,Unskilled Resident,Existing paid
+0,31,Male,Yes,36,451,<0 DM,<100 DM,Unemployed,Own,Skilled,Critical/Other
+1,38,Male,Yes,12,1336,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,37,Female,Yes,36,563,<0 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Delay in past
+0,22,Male,Yes,6,10871,>=200 DM,Unknown/None,<1 yr,Free,Skilled,Critical/Other
+0,20,Female,Yes,6,714,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,43,Female,Yes,24,776,No checking,<100 DM,<1 yr,Free,Skilled,Delay in past
+0,23,Male,Yes,6,7300,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,No credit
+1,50,Male,Yes,12,9469,No checking,Unknown/None,<1 yr,Rent,Unskilled Resident,No credit
+0,30,Male,Yes,24,4895,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,25,Male,Yes,12,267,No checking,>=1000 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,59,Male,Yes,12,254,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,43,Female,Yes,12,1769,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+1,44,Male,Yes,18,745,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,59,Female,Yes,18,309,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,23,Male,Yes,30,2245,No checking,<100 DM,>=7 yrs,Free,Skilled,Critical/Other
+0,33,Male,Yes,30,9420,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Critical/Other
+1,38,Male,Yes,18,1502,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,69,Male,Yes,30,3712,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,33,Male,Yes,12,3629,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,36,Male,Yes,12,1175,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,56,Female,Yes,30,3613,No checking,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,32,Male,Yes,18,1013,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,64,Male,Yes,60,666,No checking,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+1,55,Male,Yes,18,4117,<0 DM,<100 DM,<1 yr,Rent,Unskilled Resident,Existing paid
+0,24,Male,Yes,30,635,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,31,Male,Yes,18,18743,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,23,Male,Yes,18,898,No checking,500-1000 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,25,Male,Yes,18,3135,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,18,Male,Yes,24,1945,>=200 DM,<100 DM,<1 yr,Free,Management/Self-employed,Critical/Other
+0,49,Male,Yes,18,682,0-200 DM,<100 DM,1-4 yrs,Free,Unskilled Resident,Existing paid
+0,35,Female,Yes,48,340,<0 DM,<100 DM,>=7 yrs,Own,Skilled,All paid
+1,42,Male,Yes,12,3369,<0 DM,Unknown/None,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,50,Male,Yes,12,5510,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,21,Male,Yes,18,6154,0-200 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,23,Male,Yes,24,2359,No checking,Unknown/None,1-4 yrs,Own,Skilled,No credit
+1,59,Female,Yes,36,5058,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,23,Male,Yes,12,3825,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,36,Male,Yes,24,4372,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Delay in past
+1,25,Male,Yes,18,2421,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,No credit
+0,36,Male,Yes,24,3461,No checking,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,30,Male,Yes,36,5489,<0 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+0,54,Male,Yes,12,1873,No checking,100-500 DM,1-4 yrs,Own,Skilled,Existing paid
+0,48,Female,No,18,5497,No checking,<100 DM,<1 yr,Own,Skilled,Critical/Other
+0,27,Male,Yes,60,3118,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,49,Male,Yes,36,830,<0 DM,500-1000 DM,4-7 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,24,329,0-200 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,34,Male,Yes,18,1691,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,37,Male,Yes,12,2781,No checking,100-500 DM,Unemployed,Rent,Skilled,All paid
+0,43,Female,Yes,18,6110,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,38,Female,Yes,30,686,0-200 DM,>=1000 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,74,Male,Yes,24,5403,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,31,Female,Yes,12,6611,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,69,Female,Yes,12,772,No checking,<100 DM,>=7 yrs,Free,Skilled,All paid
+0,60,Female,Yes,12,6354,0-200 DM,500-1000 DM,4-7 yrs,Free,Skilled,All paid
+0,34,Male,Yes,12,15489,<0 DM,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+1,62,Female,Yes,6,4402,No checking,>=1000 DM,>=7 yrs,Free,Skilled,All paid
+0,65,Male,Yes,18,5165,No checking,<100 DM,4-7 yrs,Own,Skilled,Delay in past
+1,66,Female,Yes,12,16850,No checking,>=1000 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,23,Male,Yes,12,3226,0-200 DM,<100 DM,Unemployed,Rent,Management/Self-employed,Critical/Other
+0,20,Male,Yes,18,1427,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,36,Female,Yes,12,6065,<0 DM,>=1000 DM,<1 yr,Rent,Skilled,Existing paid
+1,52,Male,Yes,6,3300,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,29,Female,Yes,12,3035,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,21,Female,Yes,12,1186,<0 DM,<100 DM,Unemployed,Own,Management/Self-employed,Existing paid
+0,42,Male,Yes,18,4768,<0 DM,500-1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,12,522,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,42,Male,Yes,30,8508,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,30,Male,Yes,36,1511,No checking,<100 DM,1-4 yrs,Own,Skilled,All paid
+0,64,Male,Yes,24,687,No checking,>=1000 DM,>=7 yrs,Rent,Skilled,All paid
+0,38,Female,Yes,18,2118,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,68,Male,Yes,36,388,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,26,Male,Yes,24,3942,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,69,Female,No,6,7706,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,44,Male,Yes,18,6059,0-200 DM,500-1000 DM,1-4 yrs,Rent,Skilled,Delay in past
+1,39,Male,Yes,36,685,<0 DM,>=1000 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+0,21,Female,Yes,12,681,<0 DM,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,43,Male,Yes,6,5622,>=200 DM,<100 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,21,Female,Yes,24,8507,0-200 DM,<100 DM,Unemployed,Own,Unskilled Resident,Critical/Other
+1,35,Female,Yes,30,2225,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+1,39,Female,Yes,12,2461,0-200 DM,100-500 DM,4-7 yrs,Rent,Skilled,Existing paid
+1,39,Male,Yes,18,1475,No checking,100-500 DM,<1 yr,Free,Skilled,Critical/Other
+0,41,Male,Yes,12,7439,No checking,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+0,44,Male,Yes,24,3563,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,20,Female,Yes,12,1338,>=200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,51,Female,Yes,12,1385,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,62,Male,Yes,30,7348,0-200 DM,100-500 DM,4-7 yrs,Rent,Unskilled Resident,Critical/Other
+0,54,Male,Yes,18,293,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,49,Male,Yes,24,1496,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,31,Male,Yes,18,2836,<0 DM,Unknown/None,<1 yr,Own,Skilled,Critical/Other
+1,22,Female,Yes,12,763,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,31,Male,Yes,24,559,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,25,Female,Yes,12,5654,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,28,Female,Yes,18,7444,>=200 DM,500-1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,21,Male,Yes,12,5802,<0 DM,<100 DM,4-7 yrs,Rent,Skilled,All paid
+0,42,Male,Yes,24,7579,<0 DM,500-1000 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,30,Male,Yes,48,2827,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,40,Male,Yes,60,5602,No checking,Unknown/None,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,24,Female,Yes,18,1800,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,38,Female,Yes,12,3761,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,58,Female,Yes,18,14634,No checking,100-500 DM,<1 yr,Rent,Skilled,Delay in past
+1,43,Male,Yes,30,1068,<0 DM,100-500 DM,Unemployed,Own,Skilled,Existing paid
+1,37,Male,Yes,12,1831,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,35,Female,Yes,48,2342,<0 DM,500-1000 DM,<1 yr,Own,Skilled,Critical/Other
+1,33,Male,Yes,12,725,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,69,Male,Yes,60,520,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+1,33,Male,Yes,30,5915,<0 DM,Unknown/None,4-7 yrs,Rent,Skilled,Existing paid
+0,44,Male,Yes,30,12292,No checking,<100 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+1,39,Male,Yes,12,1909,No checking,>=1000 DM,1-4 yrs,Own,Skilled,Delay in past
+0,58,Male,Yes,6,543,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,24,Female,Yes,18,467,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,24,Male,Yes,12,7351,No checking,Unknown/None,>=7 yrs,Own,Skilled,Delay in past
+1,39,Male,Yes,6,2244,0-200 DM,100-500 DM,<1 yr,Own,Skilled,Critical/Other
+0,19,Male,Yes,18,1484,<0 DM,<100 DM,<1 yr,Own,Management/Self-employed,Critical/Other
+0,65,Female,Yes,18,2320,No checking,<100 DM,Unemployed,Own,Unskilled Non-resident,Critical/Other
+1,61,Male,Yes,24,1476,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Delay in past
+0,59,Male,Yes,24,2398,<0 DM,Unknown/None,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,41,Male,Yes,12,6531,<0 DM,<100 DM,Unemployed,Own,Unskilled Resident,Existing paid
+0,25,Female,Yes,48,3121,No checking,<100 DM,<1 yr,Own,Unskilled Resident,Existing paid
+1,50,Male,Yes,12,4046,No checking,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+0,37,Female,Yes,18,1701,No checking,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,41,Female,Yes,18,4542,No checking,<100 DM,1-4 yrs,Rent,Management/Self-employed,Critical/Other
+0,29,Male,Yes,30,3765,No checking,<100 DM,<1 yr,Rent,Skilled,Existing paid
+0,36,Female,Yes,6,657,No checking,<100 DM,1-4 yrs,Rent,Skilled,All paid
+1,59,Male,Yes,18,2970,No checking,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,22,Female,Yes,24,1199,No checking,Unknown/None,Unemployed,Own,Skilled,Existing paid
+1,56,Male,Yes,12,5466,No checking,<100 DM,<1 yr,Rent,Skilled,Existing paid
+1,51,Female,Yes,24,2026,No checking,500-1000 DM,4-7 yrs,Own,Skilled,Delay in past
+1,63,Male,Yes,36,17008,>=200 DM,500-1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,71,Male,Yes,60,560,No checking,>=1000 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,41,Male,Yes,6,5100,<0 DM,Unknown/None,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,58,Male,Yes,12,3833,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,65,Male,Yes,12,4918,0-200 DM,<100 DM,4-7 yrs,Free,Skilled,Existing paid
+1,68,Male,Yes,18,1425,No checking,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,66,Male,Yes,12,2417,>=200 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,32,Male,Yes,12,5344,<0 DM,500-1000 DM,4-7 yrs,Own,Skilled,Existing paid
+0,24,Female,Yes,48,1096,No checking,100-500 DM,Unemployed,Own,Management/Self-employed,Existing paid
+1,21,Male,Yes,36,1069,0-200 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,27,Male,Yes,6,2812,<0 DM,<100 DM,<1 yr,Own,Management/Self-employed,Existing paid
+0,44,Male,Yes,12,2622,No checking,Unknown/None,1-4 yrs,Own,Skilled,No credit
+0,54,Male,Yes,18,1311,0-200 DM,<100 DM,>=7 yrs,Free,Skilled,Critical/Other
+0,29,Female,Yes,12,1382,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,42,Male,Yes,24,1291,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,58,Female,Yes,24,4974,No checking,>=1000 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+0,38,Female,Yes,36,3626,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,All paid
+0,56,Female,Yes,24,5966,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,No credit
+0,23,Female,Yes,18,12115,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,32,Female,Yes,24,2306,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+0,22,Female,Yes,12,470,No checking,<100 DM,>=7 yrs,Free,Unskilled Non-resident,Critical/Other
+0,20,Male,Yes,24,407,0-200 DM,Unknown/None,4-7 yrs,Free,Skilled,Existing paid
+1,58,Male,Yes,18,1371,No checking,>=1000 DM,1-4 yrs,Free,Skilled,Delay in past
+1,42,Male,Yes,12,8878,No checking,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,33,Male,Yes,12,2620,<0 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,59,Male,Yes,12,1264,<0 DM,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+0,43,Male,Yes,36,1880,No checking,<100 DM,4-7 yrs,Own,Skilled,All paid
+1,46,Male,Yes,12,3170,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,41,Male,Yes,12,3636,No checking,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,22,Male,Yes,18,784,<0 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,61,Male,Yes,24,12325,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,39,Male,Yes,12,2768,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,28,Male,Yes,48,716,No checking,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,62,Male,Yes,36,7420,No checking,Unknown/None,4-7 yrs,Own,Skilled,Delay in past
+1,36,Female,Yes,24,498,>=200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,41,Male,Yes,24,7875,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,66,Male,Yes,6,18406,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,30,Female,Yes,12,4107,<0 DM,<100 DM,Unemployed,Own,Unskilled Resident,Existing paid
+0,25,Male,Yes,30,4959,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Delay in past
+1,29,Male,Yes,6,1566,No checking,>=1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,41,Female,Yes,12,9338,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,36,Female,Yes,24,2664,No checking,Unknown/None,<1 yr,Own,Unskilled Resident,Existing paid
+1,67,Male,Yes,12,4468,>=200 DM,<100 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,22,Male,Yes,48,8501,No checking,<100 DM,1-4 yrs,Rent,Unskilled Resident,Existing paid
+0,20,Female,Yes,12,12077,No checking,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+0,37,Male,Yes,30,5981,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,40,Male,No,18,1405,No checking,500-1000 DM,Unemployed,Rent,Unskilled Resident,Existing paid
+1,59,Female,Yes,30,11122,<0 DM,Unknown/None,Unemployed,Own,Skilled,Critical/Other
+0,37,Male,Yes,12,3415,No checking,>=1000 DM,1-4 yrs,Own,Unskilled Non-resident,Existing paid
+1,23,Male,Yes,18,8789,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+0,41,Male,Yes,36,3857,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Delay in past
+1,54,Female,Yes,18,1424,<0 DM,100-500 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,37,Male,Yes,18,1728,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Critical/Other
+0,23,Male,Yes,18,2808,No checking,<100 DM,1-4 yrs,Rent,Skilled,Delay in past
+1,33,Male,Yes,24,5244,No checking,<100 DM,4-7 yrs,Own,Unskilled Resident,No credit
+0,44,Male,Yes,18,1474,No checking,<100 DM,Unemployed,Rent,Skilled,Delay in past
+1,59,Male,Yes,48,3023,No checking,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,32,Female,Yes,12,1607,<0 DM,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+0,67,Male,Yes,18,5663,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,No credit
+1,65,Male,Yes,30,2261,No checking,Unknown/None,4-7 yrs,Free,Skilled,No credit
+1,49,Female,Yes,24,505,No checking,Unknown/None,<1 yr,Own,Management/Self-employed,Existing paid
+1,35,Male,Yes,36,831,No checking,100-500 DM,1-4 yrs,Free,Unskilled Resident,Critical/Other
+0,31,Female,Yes,60,451,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,46,Male,No,18,2463,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,18,Female,Yes,12,609,0-200 DM,Unknown/None,<1 yr,Free,Skilled,Delay in past
+0,30,Male,Yes,6,637,0-200 DM,Unknown/None,<1 yr,Own,Management/Self-employed,Existing paid
+0,21,Female,Yes,24,9309,>=200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,36,Male,Yes,36,6844,0-200 DM,>=1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,37,Male,Yes,12,2175,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,12,13865,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,23,Male,Yes,6,250,No checking,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,38,Male,Yes,30,3295,<0 DM,<100 DM,Unemployed,Free,Unskilled Resident,Critical/Other
+1,46,Female,Yes,12,3316,0-200 DM,500-1000 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,37,Male,Yes,18,2206,No checking,<100 DM,4-7 yrs,Free,Skilled,Critical/Other
+1,22,Female,Yes,18,1868,0-200 DM,<100 DM,4-7 yrs,Free,Skilled,Delay in past
+0,71,Male,Yes,30,2194,No checking,<100 DM,1-4 yrs,Rent,Management/Self-employed,Existing paid
+0,44,Male,Yes,24,1965,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,25,Male,Yes,24,4445,>=200 DM,Unknown/None,<1 yr,Own,Unskilled Resident,Existing paid
+1,24,Male,Yes,12,715,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,34,Female,Yes,18,954,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,36,Female,Yes,24,887,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,33,Male,Yes,48,1224,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,18,Male,Yes,12,2633,>=200 DM,<100 DM,4-7 yrs,Rent,Skilled,Existing paid
+0,40,Male,Yes,6,627,0-200 DM,100-500 DM,<1 yr,Own,Management/Self-employed,Existing paid
+0,23,Female,Yes,6,6733,<0 DM,<100 DM,Unemployed,Rent,Skilled,Critical/Other
+0,39,Male,Yes,18,1379,<0 DM,>=1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,20,Male,Yes,30,817,0-200 DM,Unknown/None,4-7 yrs,Own,Management/Self-employed,Existing paid
+0,65,Female,Yes,6,3852,<0 DM,100-500 DM,<1 yr,Own,Management/Self-employed,Critical/Other
+1,20,Male,Yes,18,374,0-200 DM,<100 DM,<1 yr,Free,Skilled,Critical/Other
+0,43,Male,Yes,12,3346,<0 DM,<100 DM,Unemployed,Own,Skilled,Existing paid
+1,64,Male,Yes,6,4083,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,46,Female,Yes,18,1024,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,31,Male,Yes,12,387,<0 DM,Unknown/None,>=7 yrs,Free,Skilled,Critical/Other
+1,65,Male,Yes,18,1696,No checking,Unknown/None,<1 yr,Own,Skilled,Critical/Other
+0,27,Male,Yes,24,582,No checking,Unknown/None,>=7 yrs,Rent,Skilled,Existing paid
+1,40,Male,Yes,18,646,<0 DM,Unknown/None,4-7 yrs,Free,Skilled,Critical/Other
+1,63,Male,Yes,12,1188,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,20,Male,Yes,48,1370,No checking,<100 DM,1-4 yrs,Rent,Skilled,Critical/Other
+1,21,Male,Yes,24,2665,0-200 DM,Unknown/None,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,45,Male,Yes,30,3880,>=200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,71,Male,Yes,6,3124,0-200 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,42,Male,Yes,6,763,>=200 DM,100-500 DM,1-4 yrs,Own,Skilled,Existing paid
+0,69,Female,Yes,6,854,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,31,Male,Yes,12,7002,No checking,Unknown/None,>=7 yrs,Own,Skilled,Delay in past
+0,21,Female,No,18,2865,0-200 DM,100-500 DM,>=7 yrs,Own,Unskilled Non-resident,Existing paid
+0,31,Female,Yes,48,6777,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Delay in past
+0,28,Male,Yes,18,1736,No checking,Unknown/None,<1 yr,Own,Unskilled Resident,Existing paid
+1,50,Male,No,12,3299,No checking,>=1000 DM,Unemployed,Own,Unskilled Resident,Delay in past
+1,41,Male,Yes,24,2623,0-200 DM,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,66,Male,Yes,12,1479,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,23,Male,Yes,24,2281,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,64,Male,Yes,24,2484,No checking,100-500 DM,<1 yr,Rent,Unskilled Resident,Existing paid
+0,62,Male,Yes,30,967,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Critical/Other
+0,20,Female,Yes,60,1460,<0 DM,<100 DM,>=7 yrs,Rent,Skilled,Delay in past
+1,39,Male,Yes,12,5265,No checking,500-1000 DM,>=7 yrs,Rent,Skilled,All paid
+0,36,Female,Yes,18,8168,No checking,<100 DM,>=7 yrs,Rent,Management/Self-employed,No credit
+0,38,Male,Yes,36,1677,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,62,Female,Yes,30,1423,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,18,944,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,24,Male,Yes,48,3881,<0 DM,>=1000 DM,4-7 yrs,Free,Skilled,Delay in past
+0,41,Male,Yes,6,1498,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,24,Male,Yes,48,14337,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,61,Male,Yes,6,1510,No checking,100-500 DM,>=7 yrs,Free,Skilled,Existing paid
+1,39,Female,Yes,18,1853,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,36,Male,Yes,36,3208,<0 DM,100-500 DM,<1 yr,Own,Skilled,Existing paid
+0,44,Male,Yes,12,5427,No checking,<100 DM,<1 yr,Rent,Management/Self-employed,Critical/Other
+0,28,Female,Yes,18,2278,No checking,<100 DM,Unemployed,Own,Skilled,Existing paid
+0,56,Female,Yes,12,2007,0-200 DM,Unknown/None,<1 yr,Own,Skilled,Existing paid
+0,23,Male,Yes,48,17641,0-200 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,37,Male,Yes,30,283,No checking,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,23,Male,Yes,24,7464,No checking,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,23,Male,Yes,24,766,<0 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,59,Female,Yes,30,5182,<0 DM,Unknown/None,<1 yr,Free,Unskilled Resident,Existing paid
+1,33,Female,Yes,18,3328,<0 DM,500-1000 DM,4-7 yrs,Rent,Management/Self-employed,Existing paid
+1,47,Female,Yes,18,1588,No checking,100-500 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,19,Female,Yes,24,6875,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,33,Male,Yes,18,291,0-200 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,43,Female,Yes,6,1072,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,37,Female,Yes,6,2927,>=200 DM,<100 DM,<1 yr,Own,Skilled,Critical/Other
+1,24,Male,Yes,12,1636,No checking,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,24,Female,Yes,36,3266,No checking,<100 DM,<1 yr,Own,Skilled,All paid
+1,42,Male,Yes,18,328,<0 DM,<100 DM,1-4 yrs,Rent,Unskilled Resident,Delay in past
+1,57,Male,Yes,24,646,No checking,Unknown/None,1-4 yrs,Rent,Skilled,Existing paid
+0,24,Female,Yes,18,684,No checking,>=1000 DM,1-4 yrs,Free,Skilled,Existing paid
+1,61,Male,Yes,12,921,<0 DM,Unknown/None,<1 yr,Free,Unskilled Resident,Critical/Other
+0,31,Male,Yes,12,2217,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,54,Male,Yes,30,4713,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,60,Male,Yes,24,7800,<0 DM,<100 DM,4-7 yrs,Own,Skilled,All paid
+0,24,Female,Yes,48,6023,No checking,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,37,Male,Yes,24,951,0-200 DM,Unknown/None,<1 yr,Free,Management/Self-employed,Existing paid
+0,40,Male,Yes,24,2112,<0 DM,<100 DM,Unemployed,Own,Skilled,Existing paid
+0,36,Female,Yes,24,961,0-200 DM,<100 DM,Unemployed,Own,Skilled,Existing paid
+1,40,Male,Yes,48,1232,0-200 DM,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+0,25,Male,Yes,30,2490,0-200 DM,<100 DM,Unemployed,Own,Skilled,Critical/Other
+1,23,Male,Yes,6,475,<0 DM,100-500 DM,4-7 yrs,Own,Management/Self-employed,Existing paid
+1,46,Female,Yes,18,1037,0-200 DM,100-500 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,35,Male,Yes,24,9015,No checking,>=1000 DM,<1 yr,Own,Skilled,Existing paid
+0,24,Male,Yes,24,2258,>=200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,33,Male,Yes,12,2136,No checking,100-500 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,59,Male,Yes,36,296,No checking,<100 DM,>=7 yrs,Own,Skilled,No credit
+0,33,Male,Yes,48,1159,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,21,Male,Yes,12,6688,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+1,59,Male,Yes,36,825,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,58,Female,Yes,6,1966,<0 DM,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,47,Male,Yes,6,296,>=200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,66,Female,Yes,12,2332,0-200 DM,500-1000 DM,1-4 yrs,Own,Unskilled Resident,No credit
+1,33,Female,Yes,6,317,No checking,500-1000 DM,1-4 yrs,Rent,Skilled,Delay in past
+0,24,Female,Yes,30,5730,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,32,Female,Yes,6,5824,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Delay in past
+1,43,Male,Yes,12,5209,0-200 DM,100-500 DM,1-4 yrs,Rent,Skilled,Critical/Other
+1,61,Male,Yes,12,1316,<0 DM,<100 DM,Unemployed,Own,Skilled,Critical/Other
+1,31,Male,Yes,12,6059,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,23,Male,Yes,6,2755,No checking,500-1000 DM,4-7 yrs,Own,Unskilled Resident,All paid
+1,38,Female,Yes,24,1747,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,41,Female,Yes,12,3391,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+1,46,Male,Yes,36,289,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,67,Male,Yes,30,743,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,52,Female,Yes,6,4588,0-200 DM,100-500 DM,<1 yr,Rent,Skilled,Critical/Other
+0,36,Male,Yes,36,1145,<0 DM,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+0,62,Male,Yes,6,3166,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+0,18,Female,Yes,12,1806,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,35,Male,Yes,6,6424,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Critical/Other
+0,37,Male,Yes,12,9994,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,61,Male,Yes,18,7131,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,40,Female,No,30,1259,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,45,Male,Yes,12,940,>=200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,44,Male,Yes,24,2308,No checking,100-500 DM,<1 yr,Own,Unskilled Resident,Existing paid
+1,24,Male,Yes,12,273,No checking,100-500 DM,1-4 yrs,Rent,Unskilled Resident,Existing paid
+0,56,Male,Yes,30,333,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Delay in past
+1,30,Male,Yes,12,2828,0-200 DM,>=1000 DM,4-7 yrs,Own,Management/Self-employed,Existing paid
+1,33,Female,Yes,12,2601,<0 DM,Unknown/None,<1 yr,Own,Skilled,Critical/Other
+0,59,Male,Yes,12,16947,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,34,Female,Yes,12,971,0-200 DM,100-500 DM,1-4 yrs,Rent,Unskilled Resident,Delay in past
+1,36,Male,Yes,18,1205,<0 DM,<100 DM,4-7 yrs,Own,Management/Self-employed,Delay in past
+0,33,Male,Yes,30,635,>=200 DM,Unknown/None,4-7 yrs,Rent,Skilled,Existing paid
+0,43,Male,Yes,6,8235,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,47,Male,Yes,24,5063,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,No credit
+0,36,Male,Yes,24,5779,<0 DM,500-1000 DM,>=7 yrs,Own,Unskilled Resident,Delay in past
+0,22,Male,Yes,36,7707,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,40,Male,Yes,12,2631,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,42,Male,Yes,18,2170,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,No credit
+1,24,Male,Yes,36,1533,No checking,<100 DM,<1 yr,Free,Skilled,Existing paid
+0,31,Female,Yes,24,3096,<0 DM,500-1000 DM,<1 yr,Own,Skilled,Existing paid
+0,20,Female,Yes,18,2188,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Critical/Other
+0,38,Male,Yes,12,2172,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,23,Male,Yes,12,9093,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+1,44,Male,Yes,24,13488,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+0,31,Male,Yes,24,5344,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,68,Male,No,12,4773,<0 DM,100-500 DM,1-4 yrs,Free,Unskilled Resident,No credit
+0,22,Female,Yes,24,3901,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,37,Male,Yes,24,831,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Non-resident,Existing paid
+1,44,Male,Yes,18,444,>=200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,66,Female,Yes,24,4005,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Non-resident,Existing paid
+1,21,Male,Yes,30,4425,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,43,Female,Yes,12,403,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,59,Male,Yes,36,8671,<0 DM,<100 DM,<1 yr,Rent,Unskilled Resident,Existing paid
+1,52,Male,Yes,12,555,No checking,<100 DM,Unemployed,Rent,Skilled,Existing paid
+1,39,Male,Yes,12,1327,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Delay in past
+0,40,Male,Yes,12,3820,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,59,Female,No,12,845,No checking,<100 DM,>=7 yrs,Free,Unskilled Resident,Critical/Other
+1,51,Male,Yes,12,432,No checking,<100 DM,>=7 yrs,Rent,Unskilled Resident,Existing paid
+1,67,Female,Yes,12,1537,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,42,Male,Yes,30,4897,No checking,100-500 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,43,Male,Yes,12,1958,0-200 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,46,Male,Yes,24,3636,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,24,Male,Yes,6,3023,0-200 DM,<100 DM,<1 yr,Rent,Unskilled Resident,Existing paid
+0,24,Female,Yes,48,321,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,25,Male,Yes,24,14550,No checking,100-500 DM,1-4 yrs,Own,Unskilled Non-resident,Critical/Other
+0,43,Male,Yes,6,385,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,37,Male,Yes,30,11244,No checking,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,54,Male,Yes,18,2804,No checking,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+0,22,Male,Yes,30,10813,<0 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,59,Male,Yes,18,640,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,31,Female,Yes,24,2407,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,22,Male,Yes,30,844,No checking,500-1000 DM,4-7 yrs,Own,Skilled,Existing paid
+1,41,Male,Yes,18,417,0-200 DM,<100 DM,Unemployed,Own,Skilled,Existing paid
+0,39,Male,Yes,6,3325,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Delay in past
+1,57,Male,Yes,30,995,No checking,500-1000 DM,Unemployed,Own,Skilled,Existing paid
+1,21,Female,Yes,18,3085,0-200 DM,<100 DM,4-7 yrs,Own,Management/Self-employed,Delay in past
+1,38,Male,Yes,18,631,No checking,<100 DM,Unemployed,Free,Skilled,Existing paid
+0,21,Male,Yes,6,1541,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,52,Male,Yes,18,5119,No checking,Unknown/None,1-4 yrs,Free,Management/Self-employed,No credit
+0,28,Male,Yes,60,2088,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,42,Male,Yes,12,3412,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,62,Female,Yes,18,3586,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,36,Female,Yes,24,6190,>=200 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Delay in past
+1,35,Female,Yes,30,1507,0-200 DM,<100 DM,4-7 yrs,Rent,Unskilled Resident,Existing paid
+1,43,Male,Yes,18,3969,0-200 DM,Unknown/None,<1 yr,Own,Skilled,Critical/Other
+1,23,Male,Yes,12,10682,0-200 DM,>=1000 DM,>=7 yrs,Free,Skilled,Critical/Other
+0,29,Male,Yes,48,4442,No checking,<100 DM,Unemployed,Own,Skilled,Delay in past
+1,33,Male,Yes,24,2403,<0 DM,500-1000 DM,1-4 yrs,Own,Unskilled Resident,All paid
+0,59,Female,Yes,12,3437,No checking,Unknown/None,1-4 yrs,Rent,Management/Self-employed,Existing paid
+1,37,Male,Yes,6,4556,No checking,>=1000 DM,4-7 yrs,Own,Unskilled Non-resident,Existing paid
+0,36,Female,Yes,18,3281,>=200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,30,Female,Yes,12,303,<0 DM,>=1000 DM,>=7 yrs,Own,Skilled,Existing paid
+1,62,Male,Yes,12,943,<0 DM,<100 DM,1-4 yrs,Free,Unskilled Resident,Existing paid
+0,42,Male,Yes,36,5572,No checking,Unknown/None,1-4 yrs,Rent,Unskilled Resident,Existing paid
+0,36,Male,Yes,6,1268,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,43,Male,Yes,24,4458,No checking,Unknown/None,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,36,Female,Yes,12,1739,No checking,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,42,Male,Yes,30,2611,No checking,100-500 DM,4-7 yrs,Own,Skilled,Existing paid
+0,43,Male,Yes,24,475,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,43,Male,Yes,6,889,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,46,Female,Yes,18,10333,No checking,<100 DM,4-7 yrs,Own,Skilled,Delay in past
+1,36,Male,Yes,12,7317,0-200 DM,Unknown/None,<1 yr,Rent,Skilled,Critical/Other
+0,25,Female,Yes,36,3630,No checking,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,63,Male,No,36,2219,0-200 DM,<100 DM,<1 yr,Rent,Management/Self-employed,Existing paid
+0,22,Female,Yes,18,3854,>=200 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,38,Female,Yes,18,3334,0-200 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,47,Male,Yes,12,2939,0-200 DM,100-500 DM,>=7 yrs,Rent,Skilled,Delay in past
+1,65,Male,Yes,24,445,>=200 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,37,Female,Yes,18,3455,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Critical/Other
+1,65,Male,Yes,12,4937,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,All paid
+0,33,Female,Yes,18,16665,0-200 DM,Unknown/None,<1 yr,Free,Skilled,Existing paid
+1,38,Male,Yes,6,285,No checking,Unknown/None,1-4 yrs,Rent,Skilled,Critical/Other
+0,28,Female,Yes,24,4441,No checking,Unknown/None,4-7 yrs,Rent,Skilled,Existing paid
+0,21,Female,Yes,6,2964,>=200 DM,100-500 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,38,Female,Yes,24,2071,0-200 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,26,Male,Yes,12,686,No checking,<100 DM,Unemployed,Own,Skilled,Existing paid
+1,30,Male,Yes,12,1933,<0 DM,<100 DM,Unemployed,Own,Unskilled Resident,Critical/Other
+0,21,Male,Yes,24,1650,0-200 DM,<100 DM,Unemployed,Own,Unskilled Resident,Existing paid
+0,46,Male,Yes,60,1404,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,42,Male,Yes,30,4450,<0 DM,100-500 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,65,Male,Yes,12,4110,0-200 DM,Unknown/None,4-7 yrs,Free,Skilled,Existing paid
+1,58,Female,Yes,12,3095,<0 DM,<100 DM,1-4 yrs,Own,Skilled,No credit
+1,32,Male,Yes,36,9182,<0 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,41,Male,Yes,18,1627,0-200 DM,<100 DM,<1 yr,Free,Skilled,Existing paid
+0,38,Male,Yes,12,1144,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,36,Male,Yes,36,3663,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,22,Male,Yes,30,959,No checking,500-1000 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+1,24,Female,Yes,60,1460,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Non-resident,Critical/Other
+0,21,Female,Yes,36,1064,>=200 DM,500-1000 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,69,Male,Yes,36,479,No checking,<100 DM,Unemployed,Own,Unskilled Resident,Existing paid
+0,42,Male,Yes,6,5873,No checking,Unknown/None,<1 yr,Rent,Unskilled Resident,Existing paid
+1,49,Female,Yes,12,1190,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Non-resident,Critical/Other
+0,31,Male,Yes,24,2299,0-200 DM,Unknown/None,Unemployed,Own,Skilled,Existing paid
+1,33,Male,Yes,18,391,No checking,Unknown/None,>=7 yrs,Own,Skilled,All paid
+1,38,Male,Yes,18,4095,No checking,Unknown/None,<1 yr,Rent,Skilled,Existing paid
+0,21,Male,Yes,18,1534,No checking,Unknown/None,>=7 yrs,Rent,Skilled,Existing paid
+0,42,Male,Yes,18,4619,0-200 DM,100-500 DM,>=7 yrs,Own,Skilled,No credit
+1,28,Male,Yes,24,1951,No checking,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,33,Male,Yes,6,947,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,26,Female,Yes,12,2553,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+1,45,Male,Yes,18,697,0-200 DM,100-500 DM,1-4 yrs,Own,Skilled,No credit
+0,38,Female,No,24,2108,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,29,Female,Yes,12,1471,No checking,Unknown/None,<1 yr,Own,Unskilled Resident,Critical/Other
+0,59,Male,Yes,18,8025,<0 DM,Unknown/None,Unemployed,Own,Skilled,Existing paid
+0,36,Male,Yes,24,451,>=200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,37,Male,Yes,18,4039,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,No credit
+1,27,Male,Yes,6,895,>=200 DM,Unknown/None,4-7 yrs,Rent,Management/Self-employed,Delay in past
+0,33,Female,Yes,18,1479,0-200 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+0,44,Male,Yes,12,1968,No checking,>=1000 DM,4-7 yrs,Rent,Skilled,Existing paid
+0,42,Female,Yes,36,7885,<0 DM,<100 DM,4-7 yrs,Own,Management/Self-employed,Delay in past
+1,31,Male,Yes,12,1139,No checking,100-500 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,52,Male,Yes,24,556,<0 DM,<100 DM,<1 yr,Own,Unskilled Resident,All paid
+1,69,Male,Yes,6,1477,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,33,Male,Yes,18,603,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,61,Male,Yes,24,690,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,33,Male,Yes,12,2979,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,56,Male,Yes,18,451,0-200 DM,<100 DM,1-4 yrs,Rent,Unskilled Resident,All paid
+1,61,Male,Yes,12,350,No checking,Unknown/None,>=7 yrs,Own,Skilled,Delay in past
+1,28,Female,Yes,12,4260,No checking,>=1000 DM,Unemployed,Own,Skilled,Existing paid
+0,46,Male,Yes,24,1686,0-200 DM,<100 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+0,29,Female,Yes,12,678,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+1,38,Female,Yes,36,1186,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,23,Female,Yes,24,3537,No checking,500-1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,36,Male,Yes,18,1281,<0 DM,>=1000 DM,1-4 yrs,Own,Unskilled Resident,All paid
+0,36,Female,Yes,6,2433,0-200 DM,<100 DM,<1 yr,Free,Skilled,Existing paid
+1,37,Male,Yes,18,665,<0 DM,500-1000 DM,1-4 yrs,Own,Skilled,Existing paid
+0,47,Male,Yes,30,3088,<0 DM,100-500 DM,>=7 yrs,Free,Management/Self-employed,Existing paid
+0,42,Male,Yes,12,1465,>=200 DM,Unknown/None,4-7 yrs,Rent,Skilled,Existing paid
+1,63,Female,Yes,30,3405,0-200 DM,Unknown/None,<1 yr,Rent,Skilled,Existing paid
+0,19,Male,Yes,12,5537,0-200 DM,>=1000 DM,1-4 yrs,Own,Skilled,Delay in past
+0,39,Female,Yes,30,3276,0-200 DM,500-1000 DM,4-7 yrs,Own,Skilled,Delay in past
+0,38,Male,No,6,1371,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+1,20,Female,Yes,36,1195,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,44,Female,Yes,18,1519,No checking,<100 DM,4-7 yrs,Own,Skilled,No credit
+1,45,Male,Yes,12,825,0-200 DM,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+0,22,Female,Yes,12,889,No checking,<100 DM,<1 yr,Own,Management/Self-employed,Critical/Other
+1,32,Male,Yes,18,5254,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,40,Male,Yes,60,1804,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,23,Male,Yes,12,2082,No checking,<100 DM,4-7 yrs,Own,Skilled,Delay in past
+1,52,Male,Yes,12,3134,0-200 DM,<100 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+1,40,Male,Yes,24,3100,0-200 DM,<100 DM,<1 yr,Own,Skilled,Delay in past
+0,46,Male,Yes,18,473,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,62,Male,Yes,18,5949,No checking,Unknown/None,>=7 yrs,Free,Skilled,Existing paid
+1,23,Female,Yes,24,874,0-200 DM,Unknown/None,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,44,Female,No,12,4358,<0 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Delay in past
+0,46,Female,Yes,36,4990,>=200 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Existing paid
+0,38,Female,Yes,18,4265,<0 DM,>=1000 DM,<1 yr,Rent,Skilled,Critical/Other
+0,23,Female,Yes,12,3018,No checking,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+1,22,Male,Yes,24,297,<0 DM,500-1000 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,74,Male,No,24,1679,>=200 DM,Unknown/None,1-4 yrs,Own,Unskilled Resident,Delay in past
+0,26,Female,Yes,12,3221,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,58,Male,Yes,24,1818,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,23,Male,Yes,12,6622,No checking,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+1,22,Male,Yes,18,1431,0-200 DM,100-500 DM,<1 yr,Own,Skilled,Existing paid
+0,37,Male,Yes,36,1361,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Existing paid
+1,34,Male,Yes,12,1239,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,26,Male,Yes,18,1544,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,44,Male,Yes,30,2858,No checking,Unknown/None,<1 yr,Rent,Skilled,Existing paid
+0,59,Female,Yes,48,4178,No checking,<100 DM,<1 yr,Own,Management/Self-employed,Existing paid
+0,21,Male,Yes,18,3726,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,59,Male,Yes,18,5526,No checking,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,36,Female,Yes,24,7196,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,30,Male,Yes,48,5668,No checking,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,41,Male,Yes,36,311,No checking,<100 DM,1-4 yrs,Own,Skilled,Delay in past
+0,49,Female,No,12,4510,0-200 DM,Unknown/None,4-7 yrs,Own,Management/Self-employed,Delay in past
+1,52,Male,Yes,18,997,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,Delay in past
+1,28,Male,Yes,18,706,<0 DM,100-500 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,31,Male,Yes,30,3505,<0 DM,<100 DM,4-7 yrs,Free,Skilled,Critical/Other
+0,68,Female,Yes,24,1482,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,40,Male,Yes,24,438,No checking,<100 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,54,Male,Yes,60,723,0-200 DM,<100 DM,<1 yr,Own,Unskilled Non-resident,Delay in past
+1,69,Female,Yes,6,252,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,40,Male,No,12,7723,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,21,Male,Yes,18,329,No checking,500-1000 DM,<1 yr,Own,Skilled,Existing paid
+0,22,Male,Yes,12,1002,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,27,Male,Yes,6,1972,<0 DM,Unknown/None,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,56,Male,Yes,6,1661,<0 DM,100-500 DM,<1 yr,Own,Unskilled Resident,Existing paid
+0,22,Male,Yes,24,8017,No checking,500-1000 DM,<1 yr,Own,Unskilled Resident,Delay in past
+0,36,Female,Yes,36,381,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,69,Male,Yes,18,2547,>=200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,39,Male,Yes,18,3900,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,31,Male,Yes,12,8838,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,All paid
+0,38,Male,Yes,30,3349,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,68,Male,Yes,30,5460,0-200 DM,100-500 DM,1-4 yrs,Own,Unskilled Resident,Delay in past
+1,25,Female,Yes,24,529,<0 DM,500-1000 DM,<1 yr,Own,Management/Self-employed,Existing paid
+1,56,Male,Yes,12,1810,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,60,Female,Yes,6,1748,0-200 DM,500-1000 DM,1-4 yrs,Free,Skilled,Critical/Other
+0,21,Female,Yes,6,7207,0-200 DM,100-500 DM,<1 yr,Rent,Unskilled Non-resident,Delay in past
+0,35,Male,Yes,24,775,<0 DM,500-1000 DM,Unemployed,Own,Unskilled Resident,Existing paid
+1,22,Female,Yes,30,777,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,30,Male,Yes,36,1524,No checking,<100 DM,<1 yr,Rent,Unskilled Resident,Critical/Other
+0,41,Male,Yes,18,429,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+1,65,Male,Yes,30,894,No checking,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,58,Male,Yes,48,10996,No checking,100-500 DM,1-4 yrs,Own,Skilled,Existing paid
+1,65,Male,Yes,12,2038,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,31,Male,Yes,18,3449,No checking,Unknown/None,<1 yr,Own,Skilled,No credit
+0,23,Male,Yes,48,4394,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Delay in past
+1,47,Male,Yes,12,1713,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,22,Male,Yes,36,759,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+1,67,Female,Yes,60,990,No checking,Unknown/None,Unemployed,Rent,Unskilled Resident,Existing paid
+1,22,Female,Yes,24,1452,0-200 DM,Unknown/None,>=7 yrs,Own,Management/Self-employed,Critical/Other
+0,38,Male,No,30,3484,No checking,<100 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+0,21,Male,Yes,24,1875,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,28,Female,Yes,24,271,0-200 DM,500-1000 DM,1-4 yrs,Rent,Unskilled Resident,Critical/Other
+0,24,Female,Yes,12,2621,<0 DM,<100 DM,Unemployed,Own,Management/Self-employed,All paid
+0,35,Female,Yes,6,8393,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,42,Male,Yes,12,5599,>=200 DM,>=1000 DM,>=7 yrs,Free,Skilled,Delay in past
+1,64,Male,Yes,24,5831,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,24,Male,Yes,12,5322,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+1,37,Male,Yes,6,1501,<0 DM,Unknown/None,1-4 yrs,Free,Skilled,Existing paid
+1,60,Female,Yes,12,4886,No checking,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+1,59,Female,Yes,24,744,0-200 DM,>=1000 DM,<1 yr,Free,Unskilled Resident,All paid
+0,40,Male,Yes,48,3680,0-200 DM,Unknown/None,1-4 yrs,Rent,Skilled,Critical/Other
+0,33,Female,Yes,60,3533,0-200 DM,>=1000 DM,<1 yr,Own,Unskilled Resident,Critical/Other
+1,21,Male,Yes,18,332,No checking,100-500 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,63,Male,Yes,36,5213,No checking,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,22,Male,Yes,24,7723,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,46,Female,Yes,18,1245,No checking,Unknown/None,4-7 yrs,Free,Skilled,Existing paid
+0,21,Male,Yes,24,5604,0-200 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Delay in past
+0,24,Female,Yes,12,525,<0 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+0,37,Female,Yes,48,3181,<0 DM,100-500 DM,>=7 yrs,Own,Skilled,All paid
+0,42,Male,Yes,18,2377,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Delay in past
+0,36,Male,Yes,18,2776,<0 DM,Unknown/None,1-4 yrs,Free,Unskilled Resident,Existing paid
+0,42,Female,Yes,24,8590,No checking,Unknown/None,4-7 yrs,Free,Management/Self-employed,Existing paid
+0,42,Male,No,12,6811,No checking,<100 DM,<1 yr,Own,Skilled,Delay in past
+0,61,Female,Yes,12,5170,<0 DM,100-500 DM,>=7 yrs,Rent,Skilled,Existing paid
+0,36,Female,Yes,24,1273,<0 DM,<100 DM,4-7 yrs,Rent,Skilled,Critical/Other
+0,34,Male,Yes,6,8020,0-200 DM,500-1000 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,51,Male,Yes,24,578,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Existing paid
+1,33,Female,Yes,18,6392,>=200 DM,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+1,37,Male,Yes,24,1522,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,41,Male,Yes,24,426,No checking,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,54,Male,Yes,18,3791,No checking,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,59,Male,Yes,24,1091,0-200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,24,Female,Yes,24,1143,<0 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,32,Female,Yes,30,1419,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,37,Male,Yes,24,460,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,57,Male,Yes,36,873,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+1,25,Male,Yes,12,266,>=200 DM,Unknown/None,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,62,Female,Yes,18,2136,No checking,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+1,23,Male,Yes,48,531,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,24,Male,Yes,18,3922,<0 DM,<100 DM,>=7 yrs,Free,Management/Self-employed,Existing paid
+1,42,Male,Yes,12,1109,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,21,Male,Yes,18,9449,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,19,Female,Yes,12,6809,0-200 DM,Unknown/None,1-4 yrs,Rent,Skilled,Critical/Other
+0,31,Male,Yes,12,1343,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,59,Male,Yes,60,5142,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,18,Male,Yes,18,5452,0-200 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,19,Female,Yes,12,14041,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,47,Male,Yes,60,3164,<0 DM,500-1000 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,37,Male,Yes,48,523,No checking,100-500 DM,1-4 yrs,Own,Skilled,Existing paid
+1,23,Male,Yes,18,3580,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,44,Female,Yes,12,3388,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Existing paid
+0,33,Male,Yes,30,3504,0-200 DM,100-500 DM,1-4 yrs,Free,Skilled,Critical/Other
+1,57,Male,Yes,24,1424,<0 DM,>=1000 DM,4-7 yrs,Own,Skilled,Critical/Other
+1,36,Male,Yes,24,6534,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,42,Female,Yes,36,10508,<0 DM,Unknown/None,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,20,Male,Yes,24,1035,<0 DM,<100 DM,1-4 yrs,Free,Skilled,All paid
+0,40,Female,Yes,12,545,<0 DM,Unknown/None,<1 yr,Own,Skilled,Existing paid
+0,31,Male,Yes,24,942,<0 DM,>=1000 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+0,67,Male,Yes,12,5747,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,56,Male,Yes,30,3862,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Critical/Other
+1,67,Female,Yes,24,3484,No checking,500-1000 DM,1-4 yrs,Own,Management/Self-employed,Existing paid
+1,38,Male,Yes,6,1894,0-200 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+0,20,Female,Yes,18,3009,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,52,Female,Yes,12,1427,No checking,500-1000 DM,>=7 yrs,Own,Skilled,Existing paid
+0,32,Male,Yes,12,2325,0-200 DM,Unknown/None,Unemployed,Own,Management/Self-employed,Existing paid
+0,41,Female,Yes,24,5291,No checking,<100 DM,>=7 yrs,Own,Skilled,All paid
+0,20,Female,Yes,12,12973,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,31,Male,Yes,30,8875,No checking,100-500 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,36,Male,Yes,6,8941,No checking,<100 DM,Unemployed,Own,Unskilled Resident,Delay in past
+0,32,Female,No,24,1896,0-200 DM,500-1000 DM,<1 yr,Own,Skilled,Existing paid
+1,36,Male,Yes,30,2274,No checking,Unknown/None,4-7 yrs,Rent,Skilled,All paid
+0,52,Female,Yes,24,4163,0-200 DM,<100 DM,Unemployed,Own,Skilled,Critical/Other
+1,25,Female,Yes,18,8421,No checking,>=1000 DM,<1 yr,Own,Skilled,Critical/Other
+0,38,Male,Yes,48,740,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,23,Male,Yes,12,1410,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,24,Male,Yes,6,729,No checking,Unknown/None,1-4 yrs,Rent,Skilled,No credit
+0,64,Male,Yes,18,3279,0-200 DM,Unknown/None,Unemployed,Own,Skilled,Existing paid
+0,23,Male,Yes,6,1420,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,33,Male,Yes,48,1512,<0 DM,Unknown/None,1-4 yrs,Own,Unskilled Resident,Critical/Other
+1,23,Male,Yes,12,485,<0 DM,<100 DM,4-7 yrs,Own,Skilled,Critical/Other
+0,30,Female,Yes,30,1627,0-200 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+1,36,Female,Yes,30,6599,No checking,<100 DM,1-4 yrs,Free,Skilled,Delay in past
+1,31,Male,Yes,12,1099,No checking,Unknown/None,>=7 yrs,Own,Skilled,Critical/Other
+1,20,Male,Yes,24,4051,0-200 DM,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,39,Male,Yes,6,3428,0-200 DM,<100 DM,>=7 yrs,Own,Unskilled Resident,Critical/Other
+0,36,Male,Yes,18,6622,No checking,<100 DM,>=7 yrs,Rent,Management/Self-employed,Existing paid
+1,39,Female,Yes,6,704,<0 DM,500-1000 DM,1-4 yrs,Free,Unskilled Resident,Critical/Other
+0,34,Female,Yes,36,12404,<0 DM,<100 DM,4-7 yrs,Rent,Management/Self-employed,Existing paid
+0,35,Female,Yes,48,3046,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,27,Female,Yes,12,17523,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+0,38,Male,Yes,12,8009,0-200 DM,100-500 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,33,Female,Yes,30,1051,No checking,500-1000 DM,4-7 yrs,Own,Unskilled Non-resident,Existing paid
+0,43,Male,Yes,12,434,0-200 DM,<100 DM,1-4 yrs,Free,Skilled,Existing paid
+1,35,Female,Yes,36,1194,0-200 DM,500-1000 DM,Unemployed,Rent,Unskilled Resident,Critical/Other
+0,69,Male,Yes,24,2649,<0 DM,<100 DM,>=7 yrs,Rent,Skilled,Critical/Other
+1,60,Female,Yes,18,852,No checking,Unknown/None,Unemployed,Own,Skilled,Existing paid
+0,36,Female,Yes,30,836,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,63,Male,Yes,18,2237,<0 DM,<100 DM,Unemployed,Own,Unskilled Resident,Critical/Other
+1,24,Male,Yes,36,358,0-200 DM,<100 DM,1-4 yrs,Rent,Management/Self-employed,Critical/Other
+1,23,Female,Yes,36,665,No checking,Unknown/None,<1 yr,Rent,Skilled,Critical/Other
+1,45,Male,Yes,12,1970,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,Critical/Other
+1,56,Male,Yes,6,458,No checking,<100 DM,1-4 yrs,Rent,Skilled,No credit
+0,37,Male,Yes,60,1867,No checking,500-1000 DM,1-4 yrs,Rent,Unskilled Resident,Existing paid
+1,38,Male,Yes,36,2305,No checking,<100 DM,1-4 yrs,Rent,Unskilled Resident,Existing paid
+0,45,Female,Yes,6,2170,No checking,<100 DM,4-7 yrs,Rent,Skilled,No credit
+1,29,Male,Yes,30,6758,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,35,Male,Yes,18,2666,<0 DM,100-500 DM,4-7 yrs,Rent,Management/Self-employed,Existing paid
+1,70,Male,Yes,12,2269,0-200 DM,>=1000 DM,>=7 yrs,Own,Skilled,Delay in past
+0,22,Male,Yes,36,1942,0-200 DM,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+0,21,Male,Yes,12,5695,No checking,<100 DM,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,21,Male,Yes,48,7463,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Critical/Other
+0,37,Male,Yes,12,6390,No checking,<100 DM,<1 yr,Rent,Skilled,Critical/Other
+1,56,Male,Yes,24,3832,No checking,<100 DM,4-7 yrs,Own,Unskilled Resident,Critical/Other
+1,29,Female,Yes,12,722,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,36,Male,Yes,18,1287,<0 DM,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,47,Male,Yes,24,400,No checking,<100 DM,>=7 yrs,Rent,Skilled,Existing paid
+1,32,Male,Yes,12,8797,No checking,<100 DM,>=7 yrs,Free,Unskilled Resident,Existing paid
+0,65,Male,Yes,18,3709,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,33,Male,Yes,18,4639,No checking,<100 DM,<1 yr,Own,Unskilled Non-resident,Existing paid
+1,52,Male,Yes,6,1444,0-200 DM,100-500 DM,Unemployed,Free,Skilled,Critical/Other
+0,20,Female,Yes,30,6229,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+1,38,Male,Yes,12,1211,<0 DM,100-500 DM,>=7 yrs,Own,Skilled,Existing paid
+0,27,Male,Yes,24,255,<0 DM,<100 DM,>=7 yrs,Free,Skilled,Critical/Other
+0,31,Female,No,18,1761,0-200 DM,<100 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+1,52,Male,Yes,18,2956,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Existing paid
+1,31,Male,No,12,2334,0-200 DM,<100 DM,4-7 yrs,Free,Skilled,Critical/Other
+1,35,Male,Yes,18,6589,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+1,48,Male,Yes,18,606,<0 DM,Unknown/None,>=7 yrs,Own,Unskilled Resident,No credit
+0,37,Female,Yes,24,2832,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Critical/Other
+1,40,Female,Yes,30,2552,No checking,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,38,Female,Yes,18,1307,<0 DM,500-1000 DM,<1 yr,Own,Skilled,Existing paid
+1,38,Male,Yes,6,5777,0-200 DM,<100 DM,4-7 yrs,Free,Unskilled Resident,Critical/Other
+1,42,Male,Yes,12,4722,<0 DM,>=1000 DM,1-4 yrs,Own,Skilled,Critical/Other
+1,41,Male,Yes,12,4473,No checking,<100 DM,<1 yr,Rent,Skilled,Existing paid
+0,38,Male,Yes,12,6934,No checking,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,67,Male,Yes,18,4355,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,52,Female,Yes,12,1094,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,40,Male,Yes,12,4162,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,25,Male,Yes,6,1426,0-200 DM,<100 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,40,Male,Yes,6,1137,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,24,Male,Yes,12,492,0-200 DM,500-1000 DM,<1 yr,Rent,Skilled,Existing paid
+1,50,Male,Yes,12,4610,<0 DM,<100 DM,1-4 yrs,Own,Skilled,All paid
+1,22,Female,Yes,18,4222,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,24,Male,Yes,18,1105,0-200 DM,100-500 DM,<1 yr,Own,Skilled,Existing paid
+0,20,Female,Yes,12,4678,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Existing paid
+0,24,Male,Yes,18,8247,<0 DM,>=1000 DM,1-4 yrs,Own,Skilled,Delay in past
+1,27,Female,Yes,12,615,0-200 DM,Unknown/None,4-7 yrs,Rent,Skilled,No credit
+1,43,Female,Yes,12,1097,0-200 DM,<100 DM,Unemployed,Own,Skilled,Critical/Other
+0,23,Male,Yes,6,4689,0-200 DM,<100 DM,4-7 yrs,Rent,Skilled,Critical/Other
+1,21,Male,Yes,18,1276,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,51,Female,Yes,24,3385,0-200 DM,<100 DM,1-4 yrs,Rent,Skilled,Critical/Other
+1,34,Male,Yes,12,520,>=200 DM,Unknown/None,>=7 yrs,Own,Management/Self-employed,Existing paid
+1,21,Female,Yes,12,2175,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+0,23,Male,Yes,36,4549,No checking,<100 DM,>=7 yrs,Own,Skilled,Critical/Other
+0,24,Male,Yes,12,3962,<0 DM,Unknown/None,<1 yr,Own,Skilled,Existing paid
+0,37,Female,Yes,12,5650,<0 DM,Unknown/None,>=7 yrs,Own,Skilled,Existing paid
+0,69,Female,Yes,36,6967,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,67,Male,Yes,30,4997,>=200 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,All paid
+0,39,Female,Yes,18,3813,No checking,100-500 DM,<1 yr,Rent,Skilled,Existing paid
+1,37,Male,Yes,18,353,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Delay in past
+0,28,Male,Yes,12,2700,0-200 DM,100-500 DM,4-7 yrs,Own,Unskilled Resident,Critical/Other
+0,37,Male,Yes,6,372,<0 DM,<100 DM,1-4 yrs,Rent,Skilled,All paid
+0,31,Female,Yes,24,5531,No checking,<100 DM,4-7 yrs,Own,Management/Self-employed,Existing paid
+0,59,Female,Yes,6,1487,<0 DM,<100 DM,<1 yr,Free,Unskilled Non-resident,Critical/Other
+0,25,Male,Yes,18,2894,<0 DM,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+1,61,Male,Yes,48,1298,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,36,Male,Yes,48,5131,>=200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,20,Male,Yes,12,7213,<0 DM,Unknown/None,4-7 yrs,Own,Skilled,Existing paid
+0,71,Male,Yes,24,1877,<0 DM,<100 DM,<1 yr,Own,Skilled,Existing paid
+0,23,Female,Yes,18,6609,<0 DM,>=1000 DM,Unemployed,Rent,Unskilled Resident,Existing paid
+1,63,Male,Yes,36,1244,<0 DM,Unknown/None,1-4 yrs,Free,Skilled,Existing paid
+1,67,Female,Yes,12,2697,No checking,100-500 DM,1-4 yrs,Own,Skilled,All paid
+0,69,Female,Yes,6,6513,No checking,<100 DM,>=7 yrs,Free,Skilled,Existing paid
+1,59,Male,Yes,12,1511,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,22,Female,Yes,12,10106,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,No credit
+0,42,Female,Yes,12,665,No checking,<100 DM,Unemployed,Rent,Unskilled Resident,Critical/Other
+1,40,Male,Yes,30,309,<0 DM,Unknown/None,1-4 yrs,Own,Skilled,Critical/Other
+1,32,Male,Yes,24,7753,0-200 DM,<100 DM,4-7 yrs,Own,Skilled,Existing paid
+1,59,Male,Yes,12,477,No checking,500-1000 DM,1-4 yrs,Own,Skilled,Critical/Other
+0,33,Male,Yes,18,15656,No checking,100-500 DM,<1 yr,Own,Skilled,Critical/Other
+0,24,Female,Yes,6,9927,No checking,500-1000 DM,1-4 yrs,Rent,Unskilled Resident,Critical/Other
+1,20,Male,Yes,36,721,<0 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,24,Female,Yes,48,2718,No checking,Unknown/None,1-4 yrs,Own,Unskilled Resident,Critical/Other
+1,62,Male,Yes,48,904,<0 DM,100-500 DM,>=7 yrs,Own,Management/Self-employed,Delay in past
+0,20,Male,Yes,36,2038,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,No credit
+1,32,Female,Yes,12,452,<0 DM,100-500 DM,<1 yr,Own,Skilled,Existing paid
+1,24,Male,Yes,6,1061,No checking,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,22,Male,Yes,24,1694,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Critical/Other
+0,31,Male,Yes,36,2097,0-200 DM,<100 DM,Unemployed,Own,Skilled,Existing paid
+0,31,Male,Yes,12,12391,>=200 DM,Unknown/None,<1 yr,Own,Skilled,Existing paid
+1,50,Male,Yes,6,5528,0-200 DM,<100 DM,<1 yr,Free,Unskilled Resident,Existing paid
+0,36,Male,Yes,30,4528,<0 DM,100-500 DM,<1 yr,Own,Unskilled Non-resident,Critical/Other
+0,25,Male,Yes,6,2714,<0 DM,<100 DM,1-4 yrs,Own,Unskilled Resident,Existing paid
+0,33,Female,Yes,18,6114,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,20,Male,Yes,24,1576,No checking,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+0,36,Male,Yes,12,4199,No checking,100-500 DM,4-7 yrs,Own,Unskilled Resident,Existing paid
+0,20,Male,Yes,6,16507,0-200 DM,Unknown/None,1-4 yrs,Own,Skilled,Existing paid
+1,39,Female,Yes,30,1458,No checking,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+0,39,Male,Yes,24,3836,No checking,<100 DM,Unemployed,Own,Management/Self-employed,Existing paid
+1,69,Male,Yes,60,6201,>=200 DM,Unknown/None,1-4 yrs,Own,Management/Self-employed,Critical/Other
+1,59,Male,Yes,12,8168,No checking,100-500 DM,1-4 yrs,Rent,Skilled,Existing paid
+1,34,Male,Yes,6,4299,No checking,<100 DM,<1 yr,Own,Unskilled Resident,No credit
+1,29,Female,Yes,24,1317,No checking,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+1,52,Female,Yes,18,1513,<0 DM,>=1000 DM,1-4 yrs,Own,Skilled,Delay in past
+1,38,Male,Yes,12,317,<0 DM,<100 DM,1-4 yrs,Own,Management/Self-employed,Critical/Other
+0,37,Female,Yes,30,4828,No checking,100-500 DM,<1 yr,Free,Skilled,Existing paid
+0,42,Male,Yes,12,389,<0 DM,<100 DM,1-4 yrs,Own,Skilled,Existing paid
+1,30,Female,Yes,12,6649,0-200 DM,<100 DM,>=7 yrs,Own,Skilled,Existing paid
+0,30,Female,Yes,6,654,0-200 DM,Unknown/None,1-4 yrs,Rent,Skilled,Existing paid
+0,33,Male,Yes,18,853,>=200 DM,<100 DM,<1 yr,Rent,Skilled,Critical/Other

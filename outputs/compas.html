@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Model Card: Model_compas_surrogate | AutoAudit-360</title>
+  <style>
+    @page { size: A4; margin: 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      line-height: 1.45;
+      font-size: 12px;
+      background: #f8fafc;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+    }
+    .title-area h1 {
+      margin: 0 0 4px 0;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-green { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .badge-amber { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+    .badge-red { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+    .stamp {
+      border: 2px dashed #0f172a;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stamp-green { border-color: #166534; color: #166534; background: #f0fdf4; }
+    .stamp-amber { border-color: #92400e; color: #92400e; background: #fffbeb; }
+    .stamp-red { border-color: #991b1b; color: #991b1b; background: #fef2f2; }
+
+    .cap-alert {
+      background: #fff1f2;
+      border-left: 4px solid #e11d48;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: #9f1239;
+    }
+    .disclaimer-banner {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #1e40af;
+    }
+    .exec-summary {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+    .exec-summary h3 {
+      margin: 0 0 6px 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px;
+      background: #f8fafc;
+    }
+    .card h3 {
+      margin: 0 0 6px 0;
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .metric-value {
+      font-size: 18px;
+      font-weight: 800;
+      font-family: monospace;
+      color: #0f172a;
+    }
+    .metric-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px 0;
+      font-size: 11px;
+    }
+    th, td {
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    th {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+    }
+    section {
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .footer {
+      border-top: 2px solid #0f172a;
+      padding-top: 12px;
+      margin-top: 24px;
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+    .print-hide {
+      margin-bottom: 14px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { background: #334155; }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0;
+      }
+      .container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .print-hide { display: none !important; }
+      .badge, .stamp {
+        border: 1px solid #000000 !important;
+        background: transparent !important;
+        color: #000000 !important;
+      }
+      .cap-alert, .disclaimer-banner {
+        border-left: 2px solid #000000 !important;
+        background: #f8fafc !important;
+        color: #000000 !important;
+      }
+      table, th, td {
+        border-color: #94a3b8 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="print-hide">
+      <button onclick="window.print()">Print / Save as PDF</button>
+      <button onclick="downloadJson()">Download Full Audit JSON</button>
+    </div>
+
+    <!-- Header & Verdict -->
+    <div class="header-bar">
+      <div class="title-area">
+        <h1>AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite</h1>
+        <div style="font-size: 13px; font-weight: 700; color: #334155;">AI MODEL CARD & DIAGNOSTIC FINDINGS &bull; Model_compas_surrogate</div>
+        <div style="margin-top: 4px;">
+          <span class="badge badge-red">
+            RAG Status: RED (Trust Score: 49.9/100)
+          </span>
+          <span style="margin-left: 8px; font-size: 11px; color: #64748b; font-family: monospace;">Audit ID: compas_surrogate</span>
+          <span style="margin-left: 8px; font-size: 11px; color: #64748b;">Timestamp: 2026-10-29T14:29:28.905338+00:00</span>
+        </div>
+      </div>
+      <div class="stamp stamp-red">
+        READINESS: ACTION REQUIRED
+      </div>
+    </div>
+
+    <!-- Cap Reason Alert if present -->
+    
+    <div class="cap-alert">
+      <strong>WEAKEST-LINK SCORE CAP APPLIED:</strong> Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).
+      <div style="font-size: 11px; margin-top: 3px; color: #881337;">
+        Raw axis mean: 50.4/100 &rarr; Enforced readiness ceiling: 49.9/100.
+      </div>
+    </div>
+    
+
+    <!-- Executive Summary -->
+    <div class="exec-summary">
+      <h3>Executive Forensic Audit Summary</h3>
+      <div>Deficiencies detected in: EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure. Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).</div>
+      <div style="font-size: 11px; color: #475569; margin-top: 6px;">
+        <strong>Audit Mode:</strong> Surrogate Model Evaluation &bull;
+        <strong>Evaluated Test Set:</strong> Held-out test split (N=1200) &bull;
+        <strong>Regulatory Context:</strong> Law Enforcement & Recidivism Assessment (High-Risk AI System (Annex III))
+      </div>
+    </div>
+
+    <!-- Statutory Notice -->
+    <div class="disclaimer-banner">
+      <strong>Statutory Transparency Notice:</strong> Diagnostic audit based on the four-fifths rule and EU AI Act / DPDP Act checklists. Not legal certification. Findings reflect statistical bounds, empirical stress tests, and self-declared governance disclosures.
+    </div>
+
+    <!-- Section 1: Scope & Dataset -->
+    <section>
+      <h2>1. Model Details & Scope of Application</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Architecture & Algorithm</h3>
+          <div><strong>Model Framework:</strong> scikit-learn / PyTorch compatible</div>
+          <div><strong>Model Class:</strong> RandomForestClassifier (Auto-trained baseline)</div>
+          <div><strong>Target Objective:</strong> Low_Risk_Outcome (Binary Classification)</div>
+          <div><strong>Evaluation Split:</strong> N/A train / N/A test</div>
+        </div>
+        <div class="card">
+          <h3>Intended & Out-of-Scope Use</h3>
+          <div><strong>Intended Domain:</strong> Law Enforcement & Recidivism Assessment</div>
+          <div><strong>EU AI Act Tier:</strong> High-Risk AI System (Annex III)</div>
+          <div><strong>Prohibited Use:</strong> Fully autonomous adverse action without human-in-the-loop oversight.</div>
+          <div><strong>Audit Engine:</strong> AutoAudit-360 Forensic Harness v2.0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Quantitative Performance -->
+    <section>
+      <h2>2. Quantitative Performance (Repeated 5-Seed Stratified CV)</h2>
+      <div class="grid-4">
+        <div class="card">
+          <h3>Accuracy</h3>
+          <div class="metric-value">1.0</div>
+          <div class="metric-sub">Hold-out test</div>
+        </div>
+        <div class="card">
+          <h3>F1-Score</h3>
+          <div class="metric-value">1.0</div>
+          <div class="metric-sub">Balanced: 1.0</div>
+        </div>
+        <div class="card">
+          <h3>Precision / Recall</h3>
+          <div class="metric-value">1.0 / 1.0</div>
+          <div class="metric-sub">Decision Threshold: 0.50</div>
+        </div>
+        <div class="card">
+          <h3>ROC-AUC</h3>
+          <div class="metric-value">1.0</div>
+          <div class="metric-sub">Discrimination index</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Fairness & Intersectional Metrics -->
+    <section>
+      <h2>3. Algorithmic Fairness Assessment (Held-out Test Split, 500 Bootstrap Replications)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Protected Attribute</th>
+            <th>Groups (Privileged Group)</th>
+            <th>Test Subgroup Samples</th>
+            <th>Disparate Impact (DI) [95% CI]</th>
+            <th>Demographic Parity Diff [95% CI]</th>
+            <th>Equal Opportunity Diff [95% CI]</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          
+          <tr>
+            <td><strong>race</strong></td>
+            <td>Priv: Caucasian</td>
+            <td style="font-family: monospace; font-size: 11px;">
+              
+                
+                  African-American: n=134<br>
+                
+                  Caucasian: n=66<br>
+                
+                  Hispanic: n=24<br>
+                
+                  Other: n=16
+                
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.7987
+              
+                <br><small style="color: #64748b;">[0.5588, 1.0555]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              11.3%
+              
+                <br><small style="color: #64748b;">[6.6%, 36.8%]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.0%
+              
+                <br><small style="color: #64748b;">[0.0%, 0.0%]</small>
+              
+            </td>
+            <td>
+              <span class="badge badge-amber">
+                WARN
+              </span>
+            </td>
+          </tr>
+          
+          
+          
+          <tr>
+            <td><strong>sex</strong></td>
+            <td>Priv: Female</td>
+            <td style="font-family: monospace; font-size: 11px;">
+              
+                
+                  Female: n=46<br>
+                
+                  Male: n=194
+                
+              
+            </td>
+            <td style="font-family: monospace;">
+              1.0103
+              
+                <br><small style="color: #64748b;">[0.7514, 1.4477]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.5%
+              
+                <br><small style="color: #64748b;">[0.2%, 17.2%]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.0%
+              
+                <br><small style="color: #64748b;">[0.0%, 0.0%]</small>
+              
+            </td>
+            <td>
+              <span class="badge badge-green">
+                PASS
+              </span>
+            </td>
+          </tr>
+          
+          
+          
+          <tr>
+            <td><strong>age</strong></td>
+            <td>Priv: Senior (>60)</td>
+            <td style="font-family: monospace; font-size: 11px;">
+              
+                
+                  Prime (25-60): n=180<br>
+                
+                  Senior (>60): n=20<br>
+                
+                  Young (<25): n=40
+                
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.7083
+              
+                <br><small style="color: #64748b;">[0.3992, 1.2057]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              17.5%
+              
+                <br><small style="color: #64748b;">[3.0%, 43.3%]</small>
+              
+            </td>
+            <td style="font-family: monospace;">
+              0.0%
+              
+                <br><small style="color: #64748b;">[0.0%, 0.0%]</small>
+              
+            </td>
+            <td>
+              <span class="badge badge-amber">
+                WARN
+              </span>
+            </td>
+          </tr>
+          
+          
+          
+          
+        </tbody>
+      </table>
+
+      <!-- Intersectional Cohorts if available -->
+      
+      
+      
+      
+      
+      
+      
+      
+      <h3 style="margin-top: 12px; font-size: 11px; font-weight: 700; color: #334155;">
+        INTERSECTIONAL COHORTS: race x sex
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Intersectional Subgroup</th>
+            <th>Sample N</th>
+            <th>Selection Rate (Fav Outcome)</th>
+            <th>Sample Sufficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>African-American / Female</strong></td>
+            <td style="font-family: monospace;">22</td>
+            <td style="font-family: monospace;">36.4%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>African-American / Male</strong></td>
+            <td style="font-family: monospace;">112</td>
+            <td style="font-family: monospace;">46.4%</td>
+            <td>
+              
+                <span class="badge badge-green">SUFFICIENT SAMPLE (N&ge;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Caucasian / Female</strong></td>
+            <td style="font-family: monospace;">15</td>
+            <td style="font-family: monospace;">60.0%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Caucasian / Male</strong></td>
+            <td style="font-family: monospace;">51</td>
+            <td style="font-family: monospace;">54.9%</td>
+            <td>
+              
+                <span class="badge badge-green">SUFFICIENT SAMPLE (N&ge;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Hispanic / Female</strong></td>
+            <td style="font-family: monospace;">7</td>
+            <td style="font-family: monospace;">57.1%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Hispanic / Male</strong></td>
+            <td style="font-family: monospace;">17</td>
+            <td style="font-family: monospace;">58.8%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Other / Female</strong></td>
+            <td style="font-family: monospace;">2</td>
+            <td style="font-family: monospace;">100.0%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Other / Male</strong></td>
+            <td style="font-family: monospace;">14</td>
+            <td style="font-family: monospace;">57.1%</td>
+            <td>
+              
+                <span class="badge badge-amber">INSUFFICIENT SAMPLE (N&lt;30)</span>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+      
+
+      <!-- Mitigation summary if available -->
+      
+      <div class="card" style="margin-top: 10px;">
+        <h3>Fairness Mitigation (Kamiran & Calders Reweighing Intervention)</h3>
+        <div>
+          Sensitive Attribute: <strong>race</strong> &bull;
+          Baseline Disparate Impact: <strong>0.7164</strong> &rarr;
+          Post-Reweighing Disparate Impact: <strong>0.7164</strong>
+          (Baseline Acc: 100.0% &rarr; Reweighed Acc: 100.0%)
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Section 4: Explainability & Proxy Leakage -->
+    <section>
+      <h2>4. Explainability & Proxy Leakage Analysis (SHAP Attribution)</h2>
+      <div class="card" style="margin-bottom: 10px;">
+        <div><strong>Explainer Engine:</strong> TreeExplainer &bull; <strong>Attribution Success:</strong> FAIL</div>
+        <div style="margin-top: 4px;">Critical Bias Risk: 3 sensitive attributes or high-correlation proxies appear among top 5 most influential features. Protected features in top 5: cat__race_African-American, num__age, cat__age_cat_Greater than 45. Causality Disclaimer: SHAP values quantify predictive attribution within the mathematical manifold, not causal mechanisms.</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Feature Name</th>
+            <th>Attribution Score (|SHAP|)</th>
+            <th>Protected / Proxy Leakage Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>#1</td>
+            <td><strong>num__two_year_recid</strong></td>
+            <td style="font-family: monospace;">0.4145</td>
+            <td>
+              
+                <span class="badge badge-green">STANDARD COVARIATE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#2</td>
+            <td><strong>num__priors_count</strong></td>
+            <td style="font-family: monospace;">0.0313</td>
+            <td>
+              
+                <span class="badge badge-green">STANDARD COVARIATE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#3</td>
+            <td><strong>cat__race_African-American</strong></td>
+            <td style="font-family: monospace;">0.0156</td>
+            <td>
+              
+                <span class="badge badge-red">PROTECTED ATTRIBUTE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#4</td>
+            <td><strong>num__age</strong></td>
+            <td style="font-family: monospace;">0.0145</td>
+            <td>
+              
+                <span class="badge badge-red">PROTECTED ATTRIBUTE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#5</td>
+            <td><strong>cat__age_cat_Greater than 45</strong></td>
+            <td style="font-family: monospace;">0.0098</td>
+            <td>
+              
+                <span class="badge badge-red">PROTECTED ATTRIBUTE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#6</td>
+            <td><strong>num__juv_fel_count</strong></td>
+            <td style="font-family: monospace;">0.005</td>
+            <td>
+              
+                <span class="badge badge-green">STANDARD COVARIATE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#7</td>
+            <td><strong>cat__age_cat_25 - 45</strong></td>
+            <td style="font-family: monospace;">0.0041</td>
+            <td>
+              
+                <span class="badge badge-red">PROTECTED ATTRIBUTE</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td>#8</td>
+            <td><strong>num__juv_misd_count</strong></td>
+            <td style="font-family: monospace;">0.0033</td>
+            <td>
+              
+                <span class="badge badge-green">STANDARD COVARIATE</span>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 5: Adversarial Robustness -->
+    <section>
+      <h2>5. Adversarial Robustness & Perturbation Stress Testing</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Counterfactual Sensitivity</h3>
+          <div class="metric-value">
+            
+              0.0%
+            
+          </div>
+          <div class="metric-sub">Prediction flip on sensitive flip</div>
+        </div>
+        <div class="card">
+          <h3>Worst-Case Perturbation (&epsilon;=0.10)</h3>
+          <div class="metric-value">
+            
+              -0.0%
+            
+          </div>
+          <div class="metric-sub">Targeted coordinate search</div>
+        </div>
+        <div class="card">
+          <h3>Fairness Stability (&Delta; DI)</h3>
+          <div class="metric-value">
+            
+              &plusmn;0.0319
+            
+          </div>
+          <div class="metric-sub">Max DI drift under noise</div>
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #475569;">Robust model boundary: resilient against label poisoning, bounded perturbations, and counterfactual flips.</div>
+    </section>
+
+    <!-- Section 6: Regulatory Compliance Readiness -->
+    <section>
+      <h2>6. Regulatory Compliance & Governance Readiness</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>EU AI Act (Annex III)</h3>
+          <div class="metric-value">45.5 / 100</div>
+          <div class="metric-sub">5.0 / 11.0 Points Verified</div>
+        </div>
+        <div class="card">
+          <h3>India DPDP Act 2023</h3>
+          <div class="metric-value">40.0 / 100</div>
+          <div class="metric-sub">4.0 / 10.0 Points Verified</div>
+        </div>
+        <div class="card">
+          <h3>Governance Disclosure</h3>
+          <div class="metric-value">0.0 / 100</div>
+          <div class="metric-sub">Unanswered declared items = 0 credit</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Dimension Breakdown Table -->
+    <section>
+      <h2>7. AutoAudit-360 Trust Index Breakdown & Capping Rules</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Audit Dimension</th>
+            <th>Score</th>
+            <th>Passing Benchmark</th>
+            <th>Assessment Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>Fairness</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>67.2 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-amber">CONDITIONAL</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Explainability</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>50.0 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-amber">CONDITIONAL</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Robustness</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>99.5 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-green">COMPLIANT</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>EU AI Act Readiness</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>45.5 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-red">CRITICAL RISK (&lt;50)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>DPDP Act 2023 Readiness</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>40.0 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-red">CRITICAL RISK (&lt;50)</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Governance Disclosure</strong></td>
+            <td style="font-family: monospace; font-size: 13px;">
+              <strong>0.0 / 100</strong>
+            </td>
+            <td>&ge; 75.0 (Pass)</td>
+            <td>
+              
+                <span class="badge badge-red">CRITICAL RISK (&lt;50)</span>
+              
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 8: Limitations & Appendix -->
+    <section>
+      <h2>8. Limitations & Methodology Appendix</h2>
+      <div class="card">
+        <div><strong>Scoring Integrity Rule:</strong> Overall Trust Score is computed as the mean of valid axes, subject to strict weakest-link capping:</div>
+        <ul style="padding-left: 18px; font-size: 11px; margin-top: 6px;">
+          <li>Any single axis &lt; 50.0 &rarr; Overall score capped at 74.9 (READINESS: NEEDS REVIEW / Amber).</li>
+          <li>Fairness &lt; 50.0 on a High-Risk use case OR two or more axes &lt; 50.0 &rarr; Overall score capped at 49.9 (READINESS: ACTION REQUIRED / Red).</li>
+          <li>Missing or uncomputed results yield score = None ("N/A"), are excluded from the mean, and are logged in limitations.</li>
+        </ul>
+      </div>
+      
+      <h3 style="margin-top: 10px; font-size: 11px; font-weight: 700; color: #b91c1c;">Identified Audit Limitations & Flags:</h3>
+      <ul style="padding-left: 18px; font-size: 11px; color: #b91c1c;">
+        
+        <li>Diagnostic audit based on the four-fifths rule and EU AI Act / DPDP Act checklists. Not legal certification.</li>
+        
+        <li>Audit findings reflect sample distribution characteristics and do not guarantee out-of-distribution parity.</li>
+        
+        <li>SHAP values measure empirical correlation in the trained estimator manifold, not causal necessity.</li>
+        
+        <li>Note: Model was trained automatically using a standard baseline RandomForest pipeline as no external model file was supplied.</li>
+        
+        <li>Score Cap: Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).</li>
+        
+      </ul>
+      
+    </section>
+
+    <!-- Neutral Footer -->
+    <div class="footer">
+      <div>
+        <strong>AutoAudit-360 | Academic prototype | Diagnostic findings, not legal certification.</strong><br>
+        Domain: AI Governance, Policy &amp; Risk Management &bull; Modules 1–4
+      </div>
+      <div style="text-align: right;">
+        Verification Stamp: 805bd8314af7bfab...<br>
+        Format: Self-contained Dossier &bull; ISO 8601 UTC
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const auditData = {"meta": {"audit_id": "compas_surrogate", "timestamp": "2026-10-29T14:29:28.905338+00:00", "model_name": "Model_compas_surrogate", "algorithm": "RandomForestClassifier (Auto-trained baseline)", "is_default_trained": true, "is_pred_col_mode": false, "framework": "scikit-learn / PyTorch compatible", "random_seed": 42, "dataset_hash": "805bd8314af7bfab7cff8800c196beac7a98db62b343896102fb8db0bf97075b", "system": "AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite"}, "data_summary": {"total_rows": 1200, "test_split_rows": 240, "total_features": 9, "target_column": "Low_Risk_Outcome", "positive_label": "1", "positive_rate": 50.33, "sensitive_attributes": ["race", "sex", "age"], "missing_percentage": 0.0, "is_pred_col_mode": false}, "performance": {"accuracy": 1.0, "balanced_accuracy": 1.0, "precision": 1.0, "recall": 1.0, "f1_score": 1.0, "roc_auc": 1.0, "repeated_cross_validation": {"accuracy": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "balanced_accuracy": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "precision": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "recall": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "f1_score": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "roc_auc": {"mean": 1.0, "std": 0.0, "formatted": "1.000 \u00b1 0.000"}, "seeds_evaluated": 5}}, "fairness": [{"attribute": "race", "is_intersectional": false, "privileged_group": "Caucasian", "status": "warn", "severity": "medium", "finding": "Disparate Impact (0.80) is in caution band [0.70, 0.80). Demographic Parity gap (11.3%) exceeds 10% target. Small-sample notice: 2 group(s) have <30 observations in test split (marked insufficient sample).", "test_sample_size": 240, "metrics": {"disparate_impact_ratio": 0.7987, "demographic_parity_difference": 0.1128, "equal_opportunity_difference": 0.0, "equalized_odds_gap": 0.0, "worst_fpr_gap": 0.0}, "confidence_intervals_95": {"disparate_impact": [0.5588, 1.0555], "demographic_parity_difference": [0.0659, 0.368], "equal_opportunity_difference": [0.0, 0.0]}, "subgroup_breakdown": {"African-American": {"size": 134, "selection_rate": 0.4478, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 60, "fp": 0, "fn": 0, "tn": 74}, "Caucasian": {"size": 66, "selection_rate": 0.5606, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 37, "fp": 0, "fn": 0, "tn": 29}, "Hispanic": {"size": 24, "selection_rate": 0.5833, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 14, "fp": 0, "fn": 0, "tn": 10}, "Other": {"size": 16, "selection_rate": 0.625, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 10, "fp": 0, "fn": 0, "tn": 6}}, "di_per_subgroup": {"African-American": 0.7987, "Hispanic": 1.0405, "Other": 1.1149}, "small_group_warnings": [{"group": "Hispanic", "size": 24, "warning": "insufficient sample (<30)"}, {"group": "Other", "size": 16, "warning": "insufficient sample (<30)"}], "chart_data": {"labels": ["African-American", "Caucasian", "Hispanic", "Other"], "selection_rates_pct": [44.78, 56.06, 58.33, 62.5], "ci_whiskers_pct": [[36.2, 53.3], [43.4, 68.9], [39.1, 77.8], [35.3, 85.7]], "eighty_percent_line_pct": 44.85, "privileged_rate_pct": 56.06}}, {"attribute": "sex", "is_intersectional": false, "privileged_group": "Female", "status": "pass", "severity": "none", "finding": "Disparate impact (DI 1.01) and parity metrics satisfy test thresholds.", "test_sample_size": 240, "metrics": {"disparate_impact_ratio": 1.0103, "demographic_parity_difference": 0.0052, "equal_opportunity_difference": 0.0, "equalized_odds_gap": 0.0, "worst_fpr_gap": 0.0}, "confidence_intervals_95": {"disparate_impact": [0.7514, 1.4477], "demographic_parity_difference": [0.0022, 0.1718], "equal_opportunity_difference": [0.0, 0.0]}, "subgroup_breakdown": {"Female": {"size": 46, "selection_rate": 0.5, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 23, "fp": 0, "fn": 0, "tn": 23}, "Male": {"size": 194, "selection_rate": 0.5052, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 98, "fp": 0, "fn": 0, "tn": 96}}, "di_per_subgroup": {"Male": 1.0103}, "small_group_warnings": [], "chart_data": {"labels": ["Female", "Male"], "selection_rates_pct": [50.0, 50.52], "ci_whiskers_pct": [[35.5, 64.2], [43.7, 58.4]], "eighty_percent_line_pct": 40.0, "privileged_rate_pct": 50.0}}, {"attribute": "age", "is_intersectional": false, "privileged_group": "Senior (>60)", "status": "warn", "severity": "medium", "finding": "Disparate Impact (0.71) is in caution band [0.70, 0.80). Demographic Parity gap (17.5%) exceeds 10% target. Small-sample notice: 1 group(s) have <30 observations in test split (marked insufficient sample).", "test_sample_size": 240, "metrics": {"disparate_impact_ratio": 0.7083, "demographic_parity_difference": 0.175, "equal_opportunity_difference": 0.0, "equalized_odds_gap": 0.0, "worst_fpr_gap": 0.0}, "confidence_intervals_95": {"disparate_impact": [0.3992, 1.2057], "demographic_parity_difference": [0.0297, 0.4329], "equal_opportunity_difference": [0.0, 0.0]}, "subgroup_breakdown": {"Prime (25-60)": {"size": 180, "selection_rate": 0.5111, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 92, "fp": 0, "fn": 0, "tn": 88}, "Senior (>60)": {"size": 20, "selection_rate": 0.6, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 12, "fp": 0, "fn": 0, "tn": 8}, "Young (<25)": {"size": 40, "selection_rate": 0.425, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 17, "fp": 0, "fn": 0, "tn": 23}}, "di_per_subgroup": {"Prime (25-60)": 0.8519, "Young (<25)": 0.7083}, "small_group_warnings": [{"group": "Senior (>60)", "size": 20, "warning": "insufficient sample (<30)"}], "chart_data": {"labels": ["Prime (25-60)", "Senior (>60)", "Young (<25)"], "selection_rates_pct": [51.11, 60.0, 42.5], "ci_whiskers_pct": [[44.2, 58.9], [36.8, 81.5], [27.8, 57.3]], "eighty_percent_line_pct": 48.0, "privileged_rate_pct": 60.0}}, {"attribute": "race x sex", "is_intersectional": true, "privileged_group": "Other / Female", "status": "fail", "severity": "high", "finding": "Disparate Impact (0.36) violates EEOC four-fifths rule (<0.7). Demographic Parity Difference (63.6%) exceeds 20% tolerance. Small-sample notice: 6 group(s) have <30 observations in test split (marked insufficient sample).", "test_sample_size": 240, "metrics": {"disparate_impact_ratio": 0.3636, "demographic_parity_difference": 0.6364, "equal_opportunity_difference": 0.0, "equalized_odds_gap": 0.0, "worst_fpr_gap": 0.0}, "confidence_intervals_95": {"disparate_impact": [0.0, 0.4707], "demographic_parity_difference": [0.5293, 0.9286], "equal_opportunity_difference": [0.0, 1.0]}, "subgroup_breakdown": {"African-American / Female": {"size": 22, "selection_rate": 0.3636, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 8, "fp": 0, "fn": 0, "tn": 14}, "African-American / Male": {"size": 112, "selection_rate": 0.4643, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 52, "fp": 0, "fn": 0, "tn": 60}, "Caucasian / Female": {"size": 15, "selection_rate": 0.6, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 9, "fp": 0, "fn": 0, "tn": 6}, "Caucasian / Male": {"size": 51, "selection_rate": 0.549, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 28, "fp": 0, "fn": 0, "tn": 23}, "Hispanic / Female": {"size": 7, "selection_rate": 0.5714, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 4, "fp": 0, "fn": 0, "tn": 3}, "Hispanic / Male": {"size": 17, "selection_rate": 0.5882, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 10, "fp": 0, "fn": 0, "tn": 7}, "Other / Female": {"size": 2, "selection_rate": 1.0, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 0.0, "tp": 2, "fp": 0, "fn": 0, "tn": 0}, "Other / Male": {"size": 14, "selection_rate": 0.5714, "tpr": 1.0, "fpr": 0.0, "fnr": 0.0, "tnr": 1.0, "tp": 8, "fp": 0, "fn": 0, "tn": 6}}, "di_per_subgroup": {"African-American / Female": 0.3636, "African-American / Male": 0.4643, "Caucasian / Female": 0.6, "Caucasian / Male": 0.549, "Hispanic / Female": 0.5714, "Hispanic / Male": 0.5882, "Other / Male": 0.5714}, "small_group_warnings": [{"group": "African-American / Female", "size": 22, "warning": "insufficient sample (<30)"}, {"group": "Caucasian / Female", "size": 15, "warning": "insufficient sample (<30)"}, {"group": "Hispanic / Female", "size": 7, "warning": "insufficient sample (<30)"}, {"group": "Hispanic / Male", "size": 17, "warning": "insufficient sample (<30)"}, {"group": "Other / Female", "size": 2, "warning": "insufficient sample (<30)"}, {"group": "Other / Male", "size": 14, "warning": "insufficient sample (<30)"}], "chart_data": {"labels": ["African-American / Female", "African-American / Male", "Caucasian / Female", "Caucasian / Male", "Hispanic / Female", "Hispanic / Male", "Other / Female", "Other / Male"], "selection_rates_pct": [36.36, 46.43, 60.0, 54.9, 57.14, 58.82, 100.0, 57.14], "ci_whiskers_pct": [[17.0, 55.1], [37.4, 55.9], [33.3, 83.8], [40.8, 69.2], [17.4, 100.0], [35.3, 81.2], [100.0, 100.0], [27.5, 84.4]], "eighty_percent_line_pct": 80.0, "privileged_rate_pct": 100.0}}], "explain": {"status": "fail", "severity": "high", "explainer_type": "TreeExplainer", "shap_success": true, "finding": "Critical Bias Risk: 3 sensitive attributes or high-correlation proxies appear among top 5 most influential features. Protected features in top 5: cat__race_African-American, num__age, cat__age_cat_Greater than 45. Causality Disclaimer: SHAP values quantify predictive attribution within the mathematical manifold, not causal mechanisms.", "disclaimer": "SHAP feature importances reflect marginal predictive contribution to the model's scoring manifold. They do NOT establish legal or real-world causality.", "top_features": [{"feature": "num__two_year_recid", "importance": 0.4145, "is_sensitive": false, "is_proxy": false}, {"feature": "num__priors_count", "importance": 0.0313, "is_sensitive": false, "is_proxy": false}, {"feature": "cat__race_African-American", "importance": 0.0156, "is_sensitive": true, "is_proxy": false}, {"feature": "num__age", "importance": 0.0145, "is_sensitive": true, "is_proxy": false}, {"feature": "cat__age_cat_Greater than 45", "importance": 0.0098, "is_sensitive": true, "is_proxy": false}, {"feature": "num__juv_fel_count", "importance": 0.005, "is_sensitive": false, "is_proxy": false}, {"feature": "cat__age_cat_25 - 45", "importance": 0.0041, "is_sensitive": true, "is_proxy": false}, {"feature": "num__juv_misd_count", "importance": 0.0033, "is_sensitive": false, "is_proxy": false}, {"feature": "cat__race_Hispanic", "importance": 0.0029, "is_sensitive": true, "is_proxy": false}, {"feature": "cat__sex_Female", "importance": 0.0027, "is_sensitive": true, "is_proxy": false}], "sensitive_in_top_5": ["cat__race_African-American", "num__age", "cat__age_cat_Greater than 45"], "proxies_in_top_5": [], "flagged_count": 3, "chart_data": {"labels": ["num__two_year_recid", "num__priors_count", "cat__race_African-American", "num__age", "cat__age_cat_Greater than 45", "num__juv_fel_count", "cat__age_cat_25 - 45", "num__juv_misd_count", "cat__race_Hispanic", "cat__sex_Female"], "values": [0.4145, 0.0313, 0.0156, 0.0145, 0.0098, 0.005, 0.0041, 0.0033, 0.0029, 0.0027]}}, "robustness": {"status": "pass", "severity": "none", "finding": "Robust model boundary: resilient against label poisoning, bounded perturbations, and counterfactual flips.", "robustness_score": 99.5, "baseline_metrics": {"accuracy": 1.0, "f1": 1.0, "roc_auc": 1.0}, "metric_drop_10pct": 0.0041, "prediction_flip_rate_5pct": 0.0, "counterfactual_flip_rate": 0.0, "counterfactual_results": {"race": {"counterfactual_flip_rate": 0.0, "swapped_groups": {"Hispanic": "African-American", "African-American": "Caucasian", "Caucasian": "Other", "Other": "Hispanic"}}, "sex": {"counterfactual_flip_rate": 0.0, "swapped_groups": {"Female": "Male", "Male": "Female"}}}, "worst_case_drop_eps10": 0.0, "bounded_attack_tests": [{"epsilon": 0.05, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0}, {"epsilon": 0.1, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0}, {"epsilon": 0.2, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0}], "categorical_swap_flips": 0.0, "fairness_stability_delta": 0.0319, "fairness_stability_deltas": {"race": 0.0, "sex": 0.0, "age": 0.0319}, "label_flip_tests": [{"flip_rate_pct": 5, "accuracy": 0.9958, "f1": 0.9959, "roc_auc": 0.5, "accuracy_drop": 0.0042, "relative_metric_drop": 0.0041}, {"flip_rate_pct": 10, "accuracy": 0.9958, "f1": 0.9959, "roc_auc": 0.5, "accuracy_drop": 0.0042, "relative_metric_drop": 0.0041}, {"flip_rate_pct": 20, "accuracy": 0.9708, "f1": 0.9717, "roc_auc": 0.5, "accuracy_drop": 0.0292, "relative_metric_drop": 0.0287}], "perturbation_tests": [{"noise_level_pct": 1, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0, "di_shifts": {"race": 0.0, "sex": 0.0, "age": 0.0087}}, {"noise_level_pct": 5, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0, "di_shifts": {"race": 0.0, "sex": 0.0, "age": 0.0319}}, {"noise_level_pct": 10, "prediction_flip_rate": 0.0, "accuracy": 1.0, "accuracy_drop": 0.0, "di_shifts": {"race": 0.0, "sex": 0.0, "age": 0.009}}], "chart_data": {"label_flips": {"x_labels": ["5%", "10%", "20%"], "accuracy": [0.9958, 0.9958, 0.9708], "f1": [0.9959, 0.9959, 0.9717], "roc_auc": [0.5, 0.5, 0.5]}, "perturbation": {"x_labels": ["1% Noise", "5% Noise", "10% Noise"], "flip_rates": [0.0, 0.0, 0.0]}, "bounded_attacks": {"x_labels": ["eps=0.05", "eps=0.1", "eps=0.2"], "flip_rates": [0.0, 0.0, 0.0], "drops": [0.0, 0.0, 0.0]}}}, "compliance": {"use_case": {"title": "Law Enforcement & Recidivism Assessment", "annex_ref": "Annex III, Point 6", "is_high_risk": true, "description": "AI systems used by authorities to assess the risk of a natural person offending or reoffending."}, "is_high_risk": true, "pii_and_sensitive_signals": {"detected_pii_columns": [], "has_aadhaar_pattern": false, "has_minors": false, "minors_count": 0, "age_column": "age"}, "governance_disclosure": {"score": 0.0, "earned_points": 0.0, "total_questions": 15, "answered_count": 0, "unanswered_count": 15, "breakdown": {"q1_risk_mgmt": {"status": "unanswered", "points": 0.0}, "q2_data_prep": {"status": "unanswered", "points": 0.0}, "q3_human_oversight": {"status": "unanswered", "points": 0.0}, "q4_logging": {"status": "unanswered", "points": 0.0}, "q5_transparency": {"status": "unanswered", "points": 0.0}, "q6_cybersecurity": {"status": "unanswered", "points": 0.0}, "q7_dpdp_notice": {"status": "unanswered", "points": 0.0}, "q8_dpdp_consent": {"status": "unanswered", "points": 0.0}, "q9_dpdp_erasure": {"status": "unanswered", "points": 0.0}, "q10_dpdp_grievance": {"status": "unanswered", "points": 0.0}, "q11_dpdp_breach": {"status": "unanswered", "points": 0.0}, "q12_dpdp_dpo": {"status": "unanswered", "points": 0.0}, "q13_dpdp_dpia": {"status": "unanswered", "points": 0.0}, "q14_dpdp_minors": {"status": "unanswered", "points": 0.0}, "q15_human_training": {"status": "unanswered", "points": 0.0}}}, "eu_ai_act": {"classification": "High-Risk AI System (Annex III)", "score": 45.5, "earned_points": 5.0, "max_points": 11.0, "checklist": [{"article": "Art. 9", "title": "Risk Management System", "type": "self_declared", "requirement": "Establish, implement, document and maintain a continuous risk management system.", "status": "unanswered", "evidence": "No response provided (unanswered / 0 credit)."}, {"article": "Art. 10", "title": "Data Governance & Bias Examination", "type": "auto_verified", "requirement": "Training, validation and testing data sets shall be relevant, representative, and examined for biases.", "status": "partial", "evidence": "Auto-verified: Disparate impact ratio or parity gaps in caution band on test split."}, {"article": "Art. 11", "title": "Technical Documentation", "type": "auto_verified", "requirement": "Draw up comprehensive technical documentation demonstrating regulatory conformity before deployment.", "status": "yes", "evidence": "Auto-verified: Automated AI Model Card and diagnostic specifications compiled by AutoAudit-360."}, {"article": "Art. 12", "title": "Automatic Logging & Audit Trails", "type": "self_declared", "requirement": "High-risk AI systems shall technically allow for the automatic recording of events (logging).", "status": "unanswered", "evidence": "No event logging affirmation provided (unanswered / 0 credit)."}, {"article": "Art. 13", "title": "Transparency & Provision of Information", "type": "auto_verified", "requirement": "AI systems shall be accompanied by instructions for use and interpretable explanations.", "status": "no", "evidence": "Auto-verified: Sensitive attributes directly dominate top predictive feature weights."}, {"article": "Art. 14", "title": "Human Oversight Measures", "type": "self_declared", "requirement": "Enable natural persons to oversee the system, prevent risks, or stop the system.", "status": "unanswered", "evidence": "No human oversight mechanism declared (unanswered / 0 credit)."}, {"article": "Art. 15", "title": "Accuracy, Robustness & Cybersecurity", "type": "auto_verified", "requirement": "High-risk AI systems shall achieve appropriate levels of accuracy, robustness and cybersecurity.", "status": "yes", "evidence": "Auto-verified: Resilient against 10% label flips (<5% metric drop), bounded noise, and counterfactual flips."}], "gaps": ["Unanswered: Art. 9 (Risk Management System) has no disclosure response (0 credit).", "Conditional: Art. 10 (Data Governance & Bias Examination) is only partially fulfilled.", "Unanswered: Art. 12 (Automatic Logging & Audit Trails) has no disclosure response (0 credit).", "Deficiency: Art. 13 (Transparency & Provision of Information) failed or unaddressed.", "Unanswered: Art. 14 (Human Oversight Measures) has no disclosure response (0 credit)."], "remediations": ["Complete disclosure for Art. 9: Establish, implement, document and maintain a continuous risk management system.", "Provide complete operational evidence for Art. 10: Training, validation and testing data sets shall be relevant, representative, and examined for biases.", "Complete disclosure for Art. 12: High-risk AI systems shall technically allow for the automatic recording of events (logging).", "Immediate remediation required for Art. 13: AI systems shall be accompanied by instructions for use and interpretable explanations.", "Complete disclosure for Art. 14: Enable natural persons to oversee the system, prevent risks, or stop the system."]}, "dpdp_act_2023": {"score": 40.0, "earned_points": 4.0, "max_points": 10.0, "checklist": [{"section": "Sec 5", "principle": "Notice Requirement", "type": "self_declared", "requirement": "Clear notice provided to Data Principal describing personal data collected and processing purpose.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}, {"section": "Sec 6", "principle": "Consent Architecture", "type": "self_declared", "requirement": "Consent must be free, specific, informed, unconditional and unambiguous with clear affirmative action.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}, {"section": "Sec 8(3)", "principle": "Data Accuracy & Completeness", "type": "auto_verified", "requirement": "Ensure data used to make decisions affecting Data Principals is accurate and complete.", "status": "yes", "evidence": "Auto-verified: Dataset is complete with 0.0% missing cells across feature dimensions."}, {"section": "Sec 8(5)", "principle": "Security Safeguards & Encryption", "type": "self_declared", "requirement": "Protect personal data in possession or custody under reasonable security safeguards.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}, {"section": "Sec 8(6)", "principle": "Incident & Breach Notification", "type": "self_declared", "requirement": "Mandatory breach reporting to Data Protection Board of India and affected Principals.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}, {"section": "Sec 9", "principle": "Processing of Children's Data", "type": "auto_verified", "requirement": "Obtain verifiable parental consent; strictly ban tracking, behavioral monitoring, or targeted ads directed at minors.", "status": "yes", "evidence": "Auto-verified: No records of minors (<18 years) detected in audit sample."}, {"section": "Sec 10", "principle": "Significant Data Fiduciary Obligations", "type": "self_declared", "requirement": "Appoint India-resident DPO, conduct periodic Data Protection Impact Assessments (DPIA), and retain independent data auditor.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}, {"section": "Sec 11-13", "principle": "Data Principal Rights & Redressal", "type": "self_declared", "requirement": "Provide rights of access, correction, erasure, and easily accessible grievance redressal mechanism.", "status": "unanswered", "evidence": "Unanswered disclosure (0 credit)."}], "gaps": ["Unanswered: Sec 5 (Notice Requirement) has no disclosure response (0 credit).", "Unanswered: Sec 6 (Consent Architecture) has no disclosure response (0 credit).", "Unanswered: Sec 8(5) (Security Safeguards & Encryption) has no disclosure response (0 credit).", "Unanswered: Sec 8(6) (Incident & Breach Notification) has no disclosure response (0 credit).", "Unanswered: Sec 10 (Significant Data Fiduciary Obligations) has no disclosure response (0 credit).", "Unanswered: Sec 11-13 (Data Principal Rights & Redressal) has no disclosure response (0 credit)."], "remediations": ["Complete disclosure for Sec 5: Clear notice provided to Data Principal describing personal data collected and processing purpose.", "Complete disclosure for Sec 6: Consent must be free, specific, informed, unconditional and unambiguous with clear affirmative action.", "Complete disclosure for Sec 8(5): Protect personal data in possession or custody under reasonable security safeguards.", "Complete disclosure for Sec 8(6): Mandatory breach reporting to Data Protection Board of India and affected Principals.", "Complete disclosure for Sec 10: Appoint India-resident DPO, conduct periodic Data Protection Impact Assessments (DPIA), and retain independent data auditor.", "Complete disclosure for Sec 11-13: Provide rights of access, correction, erasure, and easily accessible grievance redressal mechanism."]}}, "mitigation": {"sensitive_attribute": "race", "privileged_group": "Other", "baseline": {"disparate_impact": 0.7164, "demographic_parity_diff": 0.1772, "equal_opportunity_diff": 0.0, "accuracy": 1.0, "recall": 1.0}, "reweighed": {"disparate_impact": 0.7164, "demographic_parity_diff": 0.1772, "equal_opportunity_diff": 0.0, "accuracy": 1.0, "recall": 1.0, "di_improvement": 0.0}, "threshold_adjustments": [{"threshold": 0.3, "disparate_impact": 0.716, "demographic_parity_diff": 0.177, "accuracy": 1.0, "recall": 1.0}, {"threshold": 0.4, "disparate_impact": 0.716, "demographic_parity_diff": 0.177, "accuracy": 1.0, "recall": 1.0}, {"threshold": 0.5, "disparate_impact": 0.716, "demographic_parity_diff": 0.177, "accuracy": 1.0, "recall": 1.0}, {"threshold": 0.6, "disparate_impact": 0.716, "demographic_parity_diff": 0.177, "accuracy": 1.0, "recall": 1.0}, {"threshold": 0.7, "disparate_impact": 0.716, "demographic_parity_diff": 0.177, "accuracy": 1.0, "recall": 1.0}]}, "scores": {"overall_trust_score": 49.9, "raw_mean_score": 50.4, "rag_status": "red", "readiness_verdict": "READINESS: ACTION REQUIRED", "stamp": "READINESS: ACTION REQUIRED", "verdict_statement": "Deficiencies detected in: EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure. Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).", "verdict_summary": "Deficiencies detected in: EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure. Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).", "cap_reason": "Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure).", "axes_under_50": ["EU AI Act Readiness", "DPDP Act 2023 Readiness", "Governance Disclosure"], "dimension_scores": {"Fairness": 67.2, "Explainability": 50.0, "Robustness": 99.5, "EU AI Act Readiness": 45.5, "DPDP Act 2023 Readiness": 40.0, "Governance Disclosure": 0.0}}, "limitations": ["Diagnostic audit based on the four-fifths rule and EU AI Act / DPDP Act checklists. Not legal certification.", "Audit findings reflect sample distribution characteristics and do not guarantee out-of-distribution parity.", "SHAP values measure empirical correlation in the trained estimator manifold, not causal necessity.", "Note: Model was trained automatically using a standard baseline RandomForest pipeline as no external model file was supplied.", "Score Cap: Weakest-Link Cap applied (Red / <=49.9): Multiple axes fell below 50.0 (EU AI Act Readiness, DPDP Act 2023 Readiness, Governance Disclosure)."]};
+    function downloadJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(auditData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "autoaudit360_" + (auditData.meta ? auditData.meta.audit_id : "audit") + ".json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/*
+  Theme: AI Inspection Checkpoint
+  Concept: AI model inspected like a vehicle at a fitness-check station passing through 4 checkpoints, then receives a report card.
+  Palette: paper #F6F1E7, ink #1B1B1F, inspection orange #FF6B2C, pass #1F9D6B, warn #F2B01E, fail #D6334A, charcoal #16161A.
+*/
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    
+    --color-paper: #F6F1E7;
+    --color-ink: #1B1B1F;
+    --color-orange: #FF6B2C;
+    --color-pass: #1F9D6B;
+    --color-warn: #F2B01E;
+    --color-fail: #D6334A;
+    --color-charcoal: #16161A;
+  }
+  
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .dark body {
+    color: #F6F1E7;
+    background-color: var(--color-charcoal);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Inspection Perforated Ticket Card Style */
+.ticket-card {
+  background-color: #FFFFFF;
+  border: 1.5px solid rgba(27, 27, 31, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(27, 27, 31, 0.05);
+  position: relative;
+}
+
+.dark .ticket-card {
+  background-color: #202026;
+  border-color: rgba(246, 241, 231, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Rubber Stamp for Official Inspection Findings */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  border-width: 2.5px;
+  border-style: solid;
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
+}
+
+.stamp-pass {
+  border-color: #1F9D6B;
+  color: #1F9D6B;
+  background-color: rgba(31, 157, 107, 0.08);
+}
+
+.stamp-warn {
+  border-color: #F2B01E;
+  color: #B27B0A;
+  background-color: rgba(242, 176, 30, 0.10);
+}
+
+.dark .stamp-warn {
+  color: #F2B01E;
+}
+
+.stamp-fail {
+  border-color: #D6334A;
+  color: #D6334A;
+  background-color: rgba(214, 51, 74, 0.08);
+}
+
+/* Technical Term Dotted Underline with Tooltip Support */
+.term-tooltip {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* Inspection Conveyor Animation */
+@keyframes conveyor-slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+.conveyor-belt {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(27, 27, 31, 0.08) 0,
+    rgba(27, 27, 31, 0.08) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: conveyor-slide 2s linear infinite;
+}
+
+.dark .conveyor-belt {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(246, 241, 231, 0.06) 0,
+    rgba(246, 241, 231, 0.06) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Clean Print Styling for Model Card Report */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+  header, nav, footer, .no-print, button {
+    display: none !important;
+  }
+  .ticket-card {
+    border: 1px solid #333333 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .stamp-badge {
+    transform: none !important;
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+    background: transparent !important;
+  }
+}
