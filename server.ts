@@ -10,7 +10,7 @@ import {
   generateModelCardHtml
 } from './src/server/auditEngine.ts';
 import { GERMAN_CREDIT_AUDIT, COMPAS_AUDIT } from './src/data/preloadedAudits.ts';
-import { FullAuditResult } from './src/types.ts';
+import type { FullAuditResult } from './src/types.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

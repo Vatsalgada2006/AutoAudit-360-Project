@@ -8,7 +8,7 @@
  * - Weakest-Link Cap Scoring Rule & Neutral Readiness Verdicts
  */
 
-import { FullAuditResult } from '../types.ts';
+import type { FullAuditResult } from '../types.ts';
 import { GERMAN_CREDIT_AUDIT, COMPAS_AUDIT } from '../data/preloadedAudits.ts';
 
 export const HIGH_RISK_USE_CASES: Record<string, { title: string; annex_ref: string; is_high_risk: boolean; description: string }> = {
