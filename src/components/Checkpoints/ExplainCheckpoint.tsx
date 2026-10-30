@@ -1,253 +1,201 @@
-import React, { useState } from 'react';
-import { Search, ChevronDown, ChevronUp, AlertTriangle, ShieldCheck, Link2, Info, ArrowRight } from 'lucide-react';
+import React from 'react';
+import {
+  Search,
+  CheckCircle2,
+  AlertTriangle,
+  Info,
+  Link2
+} from 'lucide-react';
 import { ExplainabilityAudit } from '../../types';
-import { StatusBadge } from '../Common/StatusBadge';
-import { Tooltip } from '../Common/Tooltip';
 
 interface ExplainCheckpointProps {
   explain: ExplainabilityAudit;
-  isExpertMode: boolean;
+  isExpertMode?: boolean;
 }
 
-export const ExplainCheckpoint: React.FC<ExplainCheckpointProps> = ({
-  explain,
-  isExpertMode,
-}) => {
-  const [showExpertDetails, setShowExpertDetails] = useState(isExpertMode);
-
+export const ExplainCheckpoint: React.FC<ExplainCheckpointProps> = ({ explain }) => {
   if (!explain || !explain.shap_success) {
     return (
-      <div className="observatory-card p-8 text-center space-y-3">
-        <Search className="w-10 h-10 text-stone-400 mx-auto" />
-        <h3 className="font-display font-bold text-lg text-[#201823] dark:text-[#FAF2E8]">No Feature Attribution Data Available</h3>
-        <p className="text-sm text-stone-500">
-          SHAP attribution was not calculated or is excluded from precomputed predictions mode.
+      <div className="content-card p-8 text-center space-y-3 max-w-xl mx-auto my-6 bg-white border border-[#DCE5EB]">
+        <Search className="w-10 h-10 text-[#38A9DB] mx-auto" />
+        <h3 className="font-bold text-lg text-[#111111]">
+          No SHAP Feature Attribution Data Available
+        </h3>
+        <p className="text-sm text-[#555555]">
+          SHAP explanations require a model training run or precomputed feature importance. Run an audit on German Credit, COMPAS, or your own CSV to inspect feature contributions.
         </p>
       </div>
     );
   }
 
   const topFeatures = explain.top_features || [];
-  const maxImportance = topFeatures.length > 0 ? Math.max(...topFeatures.map(f => f.importance)) : 1.0;
+  const topFive = topFeatures.slice(0, 5);
+  const maxImportance = topFive.length > 0 ? Math.max(...topFive.map((f) => f.importance)) : 1.0;
   const proxies = explain.proxies_in_top_5 || [];
   const directSensitive = explain.sensitive_in_top_5 || [];
 
-  const isPass = explain.status === 'pass';
-  const isWarn = explain.status === 'warn';
-
-  const answerText = isPass
-    ? `The model bases decisions primarily on legitimate behavioral and operational signals with zero detected proxy leakage.`
-    : isWarn
-    ? `Inspection alert: ${proxies.length} proxy feature(s) strongly correlate with protected identity attributes (|r| > 0.40).`
-    : `Severe bias risk: Protected demographic attributes directly dominate top prediction weights.`;
-
   return (
-    <div className="space-y-6 max-w-5xl mx-auto py-2">
-      
-      {/* 1. Header & Station Identifier */}
-      <div className="space-y-1">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-full bg-[#332A37] text-[#D5F36A] font-mono font-bold text-xs flex items-center justify-center">
-            2
-          </span>
-          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#FF705D]">
-            Checkpoint 2: Explainability Station
-          </span>
+    <div className="space-y-6 max-w-5xl mx-auto">
+      {/* 1. Header Card */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-2">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 text-[#38A9DB] border border-[#DCE5EB] text-xs font-semibold">
+          <Search className="w-3.5 h-3.5 text-[#38A9DB]" />
+          <span>Checkpoint 2: Explainability</span>
         </div>
-        <h2 className="font-display font-black text-2xl sm:text-4xl text-[#201823] dark:text-[#FAF2E8]">
-          Which factors drive the decisions?
+        <h2 className="text-xl sm:text-2xl font-bold text-[#111111]">
+          Global SHAP Feature Attribution &amp; Proxy Detection
         </h2>
+        <p className="text-sm text-[#555555]">
+          Understand which features dominate model predictions using Shapley Additive Explanations (SHAP), and inspect whether covert proxies leak sensitive information.
+        </p>
       </div>
 
-      {/* 2. Structured 4-Question Framing: What, Why */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="observatory-card p-4 space-y-1 border-l-4 border-l-[#C5B6C9]">
-          <span className="font-mono text-[10px] uppercase font-bold text-[#FF705D]">What is this?</span>
-          <p className="text-xs text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
-            Global feature attribution calculated via Shapley values (SHAP). It measures how much each feature pushes predictions toward favourable or adverse outcomes, coupled with proxy correlation screening (|r| &gt; 0.40).
-          </p>
-        </div>
-
-        <div className="observatory-card p-4 space-y-1 border-l-4 border-l-[#C5B6C9]">
-          <span className="font-mono text-[10px] uppercase font-bold text-[#D5F36A]">Why does it matter?</span>
-          <p className="text-xs text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
-            EU AI Act Article 13 mandates transparency and interpretability for high-risk systems. It ensures algorithms do not rely on hidden proxies (like postal code or civil status) that recreate prohibited discrimination.
+      {/* 2. Critical Causation Disclaimer Banner */}
+      <div className="content-card p-4 bg-sky-50 border border-[#DCE5EB] flex items-start gap-3">
+        <Info className="w-5 h-5 text-[#38A9DB] shrink-0 mt-0.5" />
+        <div className="space-y-1 text-xs text-[#555555]">
+          <strong className="text-[#111111] block text-sm">
+            Core Interpretability Principle: Contribution vs. Causation
+          </strong>
+          <p className="leading-relaxed">
+            SHAP (Shapley Additive Explanations) measures the mathematical contribution of each feature to the model's predictions based on cooperative game theory.
+            <strong> A high SHAP value indicates statistical influence within this specific trained model, NOT a real-world causal relationship.</strong> Do not infer that altering a feature will directly alter real-world applicant risk.
           </p>
         </div>
       </div>
 
-      {/* 3. One-sentence answer with Status Badge */}
-      <div className="observatory-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#FF705D]">
-        <div className="space-y-1">
-          <div className="text-sm sm:text-base font-body font-semibold text-[#201823] dark:text-[#FAF2E8]">
-            {answerText}
-          </div>
-          <p className="text-xs text-[#201823]/60 dark:text-[#FAF2E8]/60">
-            Explainer: <strong>{explain.explainer_type}</strong> | {explain.flagged_count} flagged proxy/sensitive attributes detected.
-          </p>
-        </div>
-        <StatusBadge
-          status={explain.status}
-          label={explain.status === 'pass' ? 'Good' : explain.status === 'warn' ? 'Needs attention' : 'Problem'}
-          size="lg"
-        />
-      </div>
-
-      {/* 4. The Evidence: Charts + "What this means" Box */}
-      <div className="space-y-6">
-        
-        {/* Global SHAP Feature Importance */}
-        <div className="observatory-card p-5 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-                Global Feature Attributions (Mean |SHAP Value|)
-              </h4>
-              <p className="text-xs text-[#201823]/60 dark:text-[#FAF2E8]/60">
-                Ranking of the highest-impact decision drivers on the held-out evaluation sample.
+      {/* 3. Proxy and Direct Sensitive Attribute Warnings */}
+      {proxies.length > 0 || directSensitive.length > 0 ? (
+        <div className="content-card p-4 bg-amber-50/70 border border-amber-200 flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+          <div className="space-y-1 text-xs">
+            <span className="font-bold text-[#111111] block">
+              Sensitive Information Leakage Alert:
+            </span>
+            {directSensitive.length > 0 && (
+              <p className="text-amber-900">
+                Direct sensitive attributes ({directSensitive.join(', ')}) rank among the top 5 most influential features, creating severe disparate treatment liability.
               </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px]">
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#332A37] dark:bg-[#FAF2E8]" />Standard Signal</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#FF705D]" />Proxy Risk (|r|&gt;0.4)</span>
-              <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-red-600" />Protected Sensitive</span>
-            </div>
+            )}
+            {proxies.length > 0 && (
+              <p className="text-amber-900">
+                Covert proxy features detected: <strong>{proxies.map(p => p.feature).join(', ')}</strong> strongly correlate with sensitive attributes (|r| &gt; 0.40), acting as indirect discriminators.
+              </p>
+            )}
           </div>
+        </div>
+      ) : (
+        <div className="content-card p-4 bg-emerald-50/70 border border-emerald-200 flex items-center gap-3">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+          <div className="text-xs text-emerald-900">
+            <strong className="text-emerald-950">Clean Feature Hygiene:</strong> No direct protected attributes or high-correlation proxy variables (|r| &gt; 0.40) appear in the top 5 decision drivers.
+          </div>
+        </div>
+      )}
 
-          {/* Bar Chart Representation */}
-          <div className="space-y-3 pt-2">
-            {topFeatures.map((f, i) => {
-              const widthPct = maxImportance > 0 ? (f.importance / maxImportance) * 100 : 0;
-              const isSensitive = f.is_sensitive;
-              const isProxy = f.is_proxy;
+      {/* 4. Top 5 Most Influential Features (Simple Feature-Importance Chart) */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-4">
+        <div className="flex items-center justify-between border-b border-[#DCE5EB] pb-3">
+          <div>
+            <h3 className="font-bold text-base text-[#111111]">
+              Top 5 Most Influential Features (Mean |SHAP| Value)
+            </h3>
+            <p className="text-xs text-[#555555]">
+              Ranked by their average absolute impact on model probability outputs
+            </p>
+          </div>
+          <span className="text-xs font-semibold px-2 py-0.5 rounded bg-gray-100 text-[#555555]">
+            Global Importance
+          </span>
+        </div>
 
-              const barColor = isSensitive
-                ? 'bg-red-600'
-                : isProxy
-                ? 'bg-[#FF705D]'
-                : 'bg-[#332A37] dark:bg-[#C5B6C9]';
-
-              return (
-                <div key={f.feature} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="font-semibold text-[#201823] dark:text-[#FAF2E8] flex items-center gap-1.5">
-                      <span className="text-stone-400">#{i + 1}</span>
-                      <span className="font-bold">{f.feature}</span>
-                      {isSensitive && (
-                        <span className="px-1.5 py-0.5 bg-red-100 text-red-700 dark:bg-red-950/80 dark:text-red-300 rounded text-[9px] font-bold">
-                          PROTECTED IDENTITY
-                        </span>
-                      )}
-                      {isProxy && (
-                        <span className="px-1.5 py-0.5 bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-[#FF705D] rounded text-[9px] font-bold">
-                          PROXY (r={f.proxy_correlation?.toFixed(2)})
-                        </span>
-                      )}
+        {/* Feature Bars */}
+        <div className="space-y-3 pt-1">
+          {topFive.map((feat, idx) => {
+            const widthPct = Math.max(8, (feat.importance / maxImportance) * 100);
+            return (
+              <div key={feat.feature} className="space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-slate-100 text-[#555555] font-bold text-[10px] flex items-center justify-center">
+                      #{idx + 1}
                     </span>
-                    <span className="font-bold text-[#201823] dark:text-[#FAF2E8]">{f.importance.toFixed(4)}</span>
+                    <span className="font-bold text-[#111111]">{feat.feature}</span>
+                    {feat.is_proxy && (
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 font-semibold">
+                        Proxy Variable
+                      </span>
+                    )}
+                    {feat.is_sensitive && (
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-red-100 text-red-800 font-semibold">
+                        Protected Attribute
+                      </span>
+                    )}
                   </div>
-
-                  <div className="h-3 w-full bg-[#FAF2E8]/40 dark:bg-[#332A37]/60 rounded-full relative overflow-hidden border border-[#DED3D8]/60 dark:border-stone-700">
-                    <div
-                      className={`h-full rounded-full transition-all duration-500 ${barColor}`}
-                      style={{ width: `${Math.min(widthPct, 100)}%` }}
-                    />
-                  </div>
+                  <span className="font-mono text-xs font-semibold text-[#111111]">
+                    |SHAP|: {feat.importance.toFixed(4)}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Scientific rigor note: Attribution vs Causation */}
-          <div className="p-3 bg-[#FAF2E8] dark:bg-[#332A37]/40 rounded-lg border border-[#DED3D8] dark:border-[#332A37] text-xs font-body text-[#201823]/80 dark:text-[#FAF2E8]/80 space-y-1">
-            <div className="font-bold flex items-center gap-1.5 text-[#201823] dark:text-[#FAF2E8]">
-              <Info className="w-3.5 h-3.5 text-[#FF705D]" />
-              Scientific Clarification: Statistical Attribution vs. Real-World Causation
-            </div>
-            <p className="text-[11px] leading-relaxed">
-              SHAP values measure empirical correlation and statistical influence within the trained model weights. A high SHAP attribution does <strong>not</strong> establish that a feature causes real-world creditworthiness or recidivism risk. Features with zero SHAP value may still be causal mechanisms masked by collinearity.
-            </p>
-          </div>
-        </div>
-
-        {/* Evidence 2: Flagged Proxy Risk Breakdown */}
-        {proxies.length > 0 && (
-          <div className="observatory-card p-5 space-y-3 border-l-4 border-l-[#FF705D]">
-            <div className="flex items-center gap-2">
-              <Link2 className="w-4 h-4 text-[#FF705D]" />
-              <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-                Hidden Proxy Detection (Correlation with Protected Attributes)
-              </h4>
-            </div>
-
-            <p className="text-xs text-[#201823]/70 dark:text-[#FAF2E8]/70">
-              Features that seem neutral on the surface can act as backdoor stand-ins for protected groups if their Pearson or Cramer's V correlation exceeds 0.40.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 font-mono text-xs">
-              {proxies.map(p => (
-                <div key={p.feature} className="p-3 rounded bg-[#FAF2E8] dark:bg-[#332A37]/60 border border-[#DED3D8] dark:border-[#332A37]">
-                  <div className="font-bold text-[#201823] dark:text-[#FAF2E8]">{p.feature}</div>
-                  <div className="text-[11px] text-[#FF705D] font-bold mt-1">
-                    Correlates with: <strong>{p.sensitive_attribute}</strong> (|r| = {p.correlation.toFixed(2)})
-                  </div>
+                <div className="w-full bg-gray-100 rounded-full h-3">
+                  <div
+                    className={`h-3 rounded-full transition-all ${
+                      feat.is_sensitive
+                        ? 'bg-red-500'
+                        : feat.is_proxy
+                        ? 'bg-amber-500'
+                        : 'bg-[#38A9DB]'
+                    }`}
+                    style={{ width: `${widthPct}%` }}
+                  />
                 </div>
-              ))}
-            </div>
-
-            <div className="p-3 bg-[#FAF2E8] dark:bg-[#332A37]/40 rounded-lg border border-[#DED3D8] dark:border-[#332A37] text-xs font-body text-[#201823]/80 dark:text-[#FAF2E8]/80">
-              <strong>Audit finding:</strong> Even if protected identity columns are dropped prior to training, the model can reconstruct demographic identity through high-correlation proxies like account duration or co-applicant status.
-            </div>
-          </div>
-        )}
-
-        {/* 5. What should you investigate next? */}
-        <div className="observatory-card p-5 space-y-3 border-l-4 border-l-[#D5F36A]">
-          <div className="flex items-center gap-2">
-            <ArrowRight className="w-4 h-4 text-[#201823] dark:text-[#D5F36A]" />
-            <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-              What should you investigate next?
-            </h4>
-          </div>
-          <ul className="text-xs space-y-2 text-[#201823]/80 dark:text-[#FAF2E8]/80 list-disc pl-4">
-            <li>
-              <strong>Proxy regularization:</strong> If features like housing or co-borrower status have high proxy correlations (|r| &gt; 0.40), consider adversarial debiasing or feature de-correlation techniques.
-            </li>
-            <li>
-              <strong>Causal domain review:</strong> Convene subject-matter experts to verify whether the top 3 features represent fair, legally permissible evaluation criteria.
-            </li>
-            <li>
-              <strong>Local explanations:</strong> Test individual applicant edge cases to ensure borderline scores are not pushed over denial thresholds by unexplainable feature interactions.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* 6. Collapsible "Expert Details" Section */}
-      <div className="observatory-card p-4 space-y-3">
-        <button
-          onClick={() => setShowExpertDetails(!showExpertDetails)}
-          className="w-full flex items-center justify-between text-left font-display font-bold text-sm text-[#201823] dark:text-[#FAF2E8]"
-        >
-          <span>Expert Details: Shapley Values &amp; Proxy Screening Methodology</span>
-          {showExpertDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-        </button>
-
-        {showExpertDetails && (
-          <div className="pt-3 border-t border-[#DED3D8] dark:border-[#332A37] space-y-4 font-mono text-xs">
-            <div className="space-y-2">
-              <div className="font-bold text-[#FF705D]">Shapley Attribution Mathematics:</div>
-              <div className="p-3 bg-[#FAF2E8] dark:bg-[#201823] rounded-lg border border-[#DED3D8] dark:border-[#332A37] space-y-1.5 text-[11px] leading-relaxed">
-                <div>• ϕ_i(x) = ∑ [|S|! (|F| - |S| - 1)! / |F|!] * [f_x(S ∪ &#123;i&#125;) - f_x(S)]</div>
-                <div>• Evaluated across background reference sample (max 80 samples) and evaluation test split (200 instances).</div>
-                <div>• Proxy correlation threshold: Pearson / Cramer's V |r| &gt; 0.40 against protected identity vectors.</div>
-                <div>• Strict fallback: When model type or environment prevents SHAP calculation, attribution is recorded as N/A rather than fabricated.</div>
               </div>
-            </div>
-          </div>
-        )}
+            );
+          })}
+        </div>
       </div>
 
+      {/* 5. Short Explanations of Feature Influence */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-4">
+        <h3 className="font-bold text-base text-[#111111] border-b border-[#DCE5EB] pb-3">
+          How These Top Features Influence Model Predictions
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          {topFive.map((feat, idx) => {
+            const isHighInfluence = idx < 2;
+            return (
+              <div
+                key={feat.feature}
+                className="p-3.5 rounded-lg border border-[#DCE5EB] bg-gray-50/60 space-y-1.5"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-[#111111]">{feat.feature}</span>
+                  <span
+                    className={`px-1.5 py-0.5 rounded text-[10px] font-semibold ${
+                      isHighInfluence
+                        ? 'bg-emerald-100 text-emerald-800'
+                        : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {isHighInfluence ? 'High Predictive Weight' : 'Secondary Influence'}
+                  </span>
+                </div>
+                <p className="text-[#555555] leading-relaxed">
+                  The model evaluates {feat.feature} as one of the primary quantitative drivers of prediction outcome probability.
+                </p>
+                {feat.proxy_correlation !== undefined && (
+                  <div className="text-[11px] text-amber-700 flex items-center gap-1 pt-0.5">
+                    <Link2 className="w-3.5 h-3.5" />
+                    <span>
+                      Correlated with protected attribute: r = {feat.proxy_correlation.toFixed(2)}
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

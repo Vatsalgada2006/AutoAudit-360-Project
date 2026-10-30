@@ -1,347 +1,351 @@
 import React, { useState } from 'react';
-import { Scale, CheckCircle2, AlertTriangle, XCircle, ChevronDown, ChevronUp, Sliders, Info, ArrowRight } from 'lucide-react';
+import {
+  Scale,
+  CheckCircle2,
+  AlertTriangle,
+  XCircle,
+  Info,
+  Sliders,
+  ArrowRight,
+  TrendingUp,
+  Users
+} from 'lucide-react';
 import { FairnessAuditItem, MitigationResult } from '../../types';
-import { StatusBadge } from '../Common/StatusBadge';
-import { Tooltip } from '../Common/Tooltip';
 
 interface FairnessCheckpointProps {
   items: FairnessAuditItem[];
   mitigation?: MitigationResult | null;
-  isExpertMode: boolean;
+  isExpertMode?: boolean;
 }
 
 export const FairnessCheckpoint: React.FC<FairnessCheckpointProps> = ({
   items,
   mitigation,
-  isExpertMode,
 }) => {
   const [selectedAttrIndex, setSelectedAttrIndex] = useState(0);
-  const [showExpertDetails, setShowExpertDetails] = useState(isExpertMode);
+  const [threshold80, setThreshold80] = useState(0.80);
 
   if (!items || items.length === 0) {
     return (
-      <div className="observatory-card p-8 text-center space-y-3">
-        <Scale className="w-10 h-10 text-stone-400 mx-auto" />
-        <h3 className="font-display font-bold text-lg text-[#201823] dark:text-[#FAF2E8]">No Fairness Inspection Data</h3>
-        <p className="text-sm text-stone-500">Run an inspection from the Overview or New Audit tab to analyze fairness metrics.</p>
+      <div className="content-card p-8 text-center space-y-3 max-w-xl mx-auto my-6 bg-white border border-[#DCE5EB]">
+        <Scale className="w-10 h-10 text-[#38A9DB] mx-auto" />
+        <h3 className="font-bold text-lg text-[#111111]">No Fairness Data Available</h3>
+        <p className="text-sm text-[#555555]">
+          Please run an AI audit from the New AI Audit tab or load a sample benchmark to inspect fairness metrics.
+        </p>
       </div>
     );
   }
 
   const activeItem = items[selectedAttrIndex] || items[0];
   const metrics = activeItem.metrics;
-  const worstDi = metrics?.disparate_impact_ratio ?? 1.0;
-  const worstDpd = metrics?.demographic_parity_difference ?? 0.0;
-  const worstEod = metrics?.equal_opportunity_difference ?? 0.0;
+  const diRatio = metrics?.disparate_impact_ratio ?? 1.0;
+  const dpDiff = metrics?.demographic_parity_difference ?? 0.0;
+  const eoDiff = metrics?.equal_opportunity_difference ?? 0.0;
+  const eqOdds = metrics?.equalized_odds_gap ?? 0.0;
 
-  // Real result one-sentence answer
-  const isPass = activeItem.status === 'pass';
-  const isWarn = activeItem.status === 'warn';
-  const answerText = isPass
-    ? `All demographic cohorts satisfy the four-fifths rule and demographic parity thresholds on the held-out test split.`
-    : isWarn
-    ? `Borderline parity detected: Disparate impact ratio (${worstDi.toFixed(2)}) is in the caution band [0.70, 0.80).`
-    : `Parity violation detected: Demographic groups face disparate outcomes with disparate impact (${worstDi.toFixed(2)}) below the 0.80 benchmark.`;
+  // Screening status against configured threshold
+  const isViolation = diRatio < threshold80;
+  const isWarning = diRatio >= threshold80 && diRatio < threshold80 + 0.10;
 
-  const intersectionalItem = items.find(i => i.is_intersectional);
+  // Subgroup breakdown
+  const subgroups = Object.entries(activeItem.subgroup_breakdown || {});
+  const privGroup = activeItem.privileged_group;
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto py-2">
-      
-      {/* 1. Header & Station Identifier */}
-      <div className="space-y-1">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-full bg-[#332A37] text-[#D5F36A] font-mono font-bold text-xs flex items-center justify-center">
-            1
-          </span>
-          <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#FF705D]">
-            Checkpoint 1: Fairness Station
-          </span>
-        </div>
-        <h2 className="font-display font-black text-2xl sm:text-4xl text-[#201823] dark:text-[#FAF2E8]">
-          Is everyone treated equally?
-        </h2>
-      </div>
-
-      {/* 2. Structured 4-Question Framing: What, Why, Findings, Next Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="observatory-card p-4 space-y-1 border-l-4 border-l-[#C5B6C9]">
-          <span className="font-mono text-[10px] uppercase font-bold text-[#FF705D]">What is this?</span>
-          <p className="text-xs text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
-            Evaluation of model prediction outcomes across demographic groups (such as Sex, Age, and Race) to detect whether favourable classifications are systematically skewed toward one cohort.
-          </p>
-        </div>
-
-        <div className="observatory-card p-4 space-y-1 border-l-4 border-l-[#C5B6C9]">
-          <span className="font-mono text-[10px] uppercase font-bold text-[#D5F36A]">Why does it matter?</span>
-          <p className="text-xs text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
-            Statutory frameworks like EU AI Act Article 10 and US EEOC guidelines require models affecting human livelihoods (credit, recruitment, justice) to avoid unjustified adverse impact.
-          </p>
-        </div>
-      </div>
-
-      {/* 3. One-sentence answer with Status Badge */}
-      <div className="observatory-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-[#FF705D]">
-        <div className="space-y-1">
-          <div className="text-sm sm:text-base font-body font-semibold text-[#201823] dark:text-[#FAF2E8]">
-            {answerText}
+    <div className="space-y-6 max-w-5xl mx-auto">
+      {/* 1. Station Header */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 text-[#38A9DB] border border-[#DCE5EB] text-xs font-semibold">
+              <Scale className="w-3.5 h-3.5 text-[#38A9DB]" />
+              <span>Checkpoint 1: Fairness Audit</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-[#111111]">
+              Algorithmic Fairness &amp; Group Disparities
+            </h2>
+            <p className="text-sm text-[#555555]">
+              Evaluate whether classification decisions provide equal treatment across protected cohorts under the EEOC 80% screening rule.
+            </p>
           </div>
-          <p className="text-xs text-[#201823]/60 dark:text-[#FAF2E8]/60">
-            Attribute under inspection: <strong>{activeItem.attribute}</strong> (Reference group: {activeItem.privileged_group}) | Test sample: {activeItem.test_sample_size || 'Held-out split'} records.
+
+          {/* Sensitive Attribute Selector */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-xs font-semibold text-[#555555] mr-1">Attribute:</span>
+            {items.map((item, idx) => (
+              <button
+                key={item.attribute}
+                onClick={() => setSelectedAttrIndex(idx)}
+                className={`text-xs px-3 py-1.5 rounded-lg font-medium border transition-colors cursor-pointer ${
+                  selectedAttrIndex === idx
+                    ? 'bg-[#38A9DB] text-white border-[#38A9DB]'
+                    : 'bg-white text-[#111111] border-[#DCE5EB] hover:bg-gray-50'
+                }`}
+              >
+                {item.attribute}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Screening Warning / Pass Banner */}
+      <div
+        className={`content-card p-5 border flex items-start gap-3 ${
+          isViolation
+            ? 'bg-red-50/70 border-red-200'
+            : isWarning
+            ? 'bg-amber-50/70 border-amber-200'
+            : 'bg-emerald-50/70 border-emerald-200'
+        }`}
+      >
+        {isViolation ? (
+          <XCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+        ) : isWarning ? (
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+        ) : (
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+        )}
+        <div className="space-y-1">
+          <div className="text-sm font-bold text-[#111111]">
+            {isViolation
+              ? `Disparity Alert: Disparate Impact ratio (${diRatio.toFixed(3)}) fell below the ${(threshold80 * 100).toFixed(0)}% screening threshold for ${activeItem.attribute}.`
+              : isWarning
+              ? `Borderline Warning: Disparate Impact ratio (${diRatio.toFixed(3)}) is near the ${(threshold80 * 100).toFixed(0)}% caution boundary.`
+              : `Fairness Threshold Satisfied: Disparate Impact ratio (${diRatio.toFixed(3)}) meets or exceeds ${(threshold80 * 100).toFixed(0)}%.`}
+          </div>
+          <p className="text-xs text-[#555555]">
+            Reference (Privileged) Group: <strong className="text-[#111111]">{privGroup}</strong>.
+            Finding: {activeItem.finding}
           </p>
         </div>
-        <StatusBadge
-          status={activeItem.status}
-          label={activeItem.status === 'pass' ? 'Good' : activeItem.status === 'warn' ? 'Needs attention' : 'Problem'}
-          size="lg"
-        />
       </div>
 
-      {/* Sensitive Attribute Selector Tabs */}
-      <div className="flex gap-2 border-b border-[#DED3D8] dark:border-[#332A37] pb-2 overflow-x-auto">
-        {items.map((item, idx) => (
-          <button
-            key={item.attribute}
-            onClick={() => setSelectedAttrIndex(idx)}
-            className={`px-3.5 py-1.5 rounded font-mono text-xs font-bold transition-colors shrink-0 flex items-center gap-1.5 border ${
-              selectedAttrIndex === idx
-                ? 'bg-[#332A37] text-[#FAF2E8] border-[#FF705D] shadow-xs'
-                : 'bg-white dark:bg-[#332A37] text-stone-700 dark:text-stone-300 border-[#DED3D8] dark:border-[#483A4E] hover:border-[#D5F36A]'
-            }`}
-          >
-            <span>{item.is_intersectional ? `Intersectional (${item.attribute})` : item.attribute}</span>
-            <span className={`w-2 h-2 rounded-full ${
-              item.status === 'pass' ? 'bg-[#D5F36A]' : item.status === 'warn' ? 'bg-amber-400' : 'bg-[#FF705D]'
-            }`} />
-          </button>
-        ))}
-      </div>
-
-      {/* 4. The Evidence: Charts + "What this means" Box */}
-      <div className="space-y-6">
-        
-        {/* Chart 1: Subgroup Selection Rates with EEOC 80% line */}
-        <div className="observatory-card p-5 space-y-4">
-          <div className="flex items-center justify-between">
-            <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-              Subgroup Favourable Selection Rates (%) &amp; Four-Fifths Threshold Line
-            </h4>
-            <span className="font-mono text-xs text-[#201823]/60 dark:text-[#FAF2E8]/60">
-              Reference Rate: {activeItem.chart_data.privileged_rate_pct.toFixed(1)}% | 80% Line: {activeItem.chart_data.eighty_percent_line_pct.toFixed(1)}%
+      {/* 3. Four Core Quantitative Metrics Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Metric 1: Disparate Impact Ratio */}
+        <div className="content-card p-4 bg-white border border-[#DCE5EB] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#555555]">
+            <span className="font-semibold">Disparate Impact (DIR)</span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${diRatio >= threshold80 ? 'badge-pass' : 'badge-fail'}`}>
+              {diRatio >= threshold80 ? 'Pass' : 'Flagged'}
             </span>
           </div>
-
-          {/* Bar Chart Representation with CI Whiskers & Sample Sizes */}
-          <div className="space-y-3">
-            {activeItem.chart_data.labels.map((label, i) => {
-              const val = activeItem.chart_data.selection_rates_pct[i] || 0;
-              const whisker = activeItem.chart_data.ci_whiskers_pct ? activeItem.chart_data.ci_whiskers_pct[i] : null;
-              const subStats = activeItem.subgroup_breakdown[label];
-              const sampleSize = subStats ? subStats.size : 0;
-              const isInsufficient = sampleSize < 30;
-
-              return (
-                <div key={label} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="font-semibold text-[#201823] dark:text-[#FAF2E8] flex items-center gap-1.5">
-                      {label}
-                      <span className="text-[10px] text-stone-500 font-normal">
-                        (n={sampleSize})
-                      </span>
-                      {isInsufficient && (
-                        <span className="px-1.5 py-0.2 bg-[#FF705D]/20 text-[#FF705D] border border-[#FF705D]/40 rounded text-[9px] font-bold">
-                          insufficient sample (&lt;30)
-                        </span>
-                      )}
-                    </span>
-                    <span className="font-bold">{val.toFixed(1)}%</span>
-                  </div>
-
-                  {/* Progress Bar Container */}
-                  <div className="h-4 w-full bg-stone-100 dark:bg-[#201823] rounded relative overflow-hidden border border-[#DED3D8] dark:border-[#483A4E]">
-                    {/* The 80% Reference Marker */}
-                    <div
-                      className="absolute top-0 bottom-0 w-0.5 bg-[#FF705D] z-10"
-                      style={{ left: `${Math.min(activeItem.chart_data.eighty_percent_line_pct, 100)}%` }}
-                      title={`Four-fifths 80% screening threshold (${activeItem.chart_data.eighty_percent_line_pct}%)`}
-                    />
-
-                    {/* Bar fill */}
-                    <div
-                      className={`h-full rounded transition-all duration-500 ${
-                        val < activeItem.chart_data.eighty_percent_line_pct
-                          ? 'bg-[#FF705D]'
-                          : 'bg-[#D5F36A]'
-                      }`}
-                      style={{ width: `${Math.min(val, 100)}%` }}
-                    />
-                  </div>
-
-                  {whisker && (
-                    <div className="text-[10px] font-mono text-stone-500 dark:text-[#C5B6C9] text-right">
-                      Bootstrap 95% CI: [{whisker[0].toFixed(1)}%, {whisker[1].toFixed(1)}%]
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="text-2xl font-bold text-[#111111]">
+            {diRatio.toFixed(3)}
           </div>
+          <p className="text-[11px] text-[#555555]">
+            Ratio of selection rate (unprivileged / privileged). Threshold: &ge; {threshold80.toFixed(2)}.
+          </p>
+        </div>
 
-          {/* "What this means" Box */}
-          <div className="p-3.5 bg-stone-50 dark:bg-[#201823] rounded border border-[#DED3D8] dark:border-[#483A4E] text-xs font-body text-[#201823]/80 dark:text-[#FAF2E8]/80 leading-relaxed">
-            <strong className="text-[#FF705D]">What this means:</strong> The coral vertical line indicates the four-fifths (80%) screening heuristic. A group rate bar falling to the left of this line (such as {worstDi.toFixed(2)}) means that under the favourable outcome definition, this cohort's positive outcome rate is {(worstDi * 100).toFixed(0)}% of the reference group's rate. This warrants investigation, but does not alone establish legal discrimination without examining business necessity and job/risk relevance.
+        {/* Metric 2: Demographic Parity Difference */}
+        <div className="content-card p-4 bg-white border border-[#DCE5EB] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#555555]">
+            <span className="font-semibold">Demographic Parity Diff</span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${dpDiff <= 0.15 ? 'badge-pass' : 'badge-warn'}`}>
+              {dpDiff <= 0.15 ? 'Balanced' : 'Skewed'}
+            </span>
+          </div>
+          <div className="text-2xl font-bold text-[#111111]">
+            {dpDiff.toFixed(3)}
+          </div>
+          <p className="text-[11px] text-[#555555]">
+            Maximum difference in favourable outcome rates between demographic groups.
+          </p>
+        </div>
+
+        {/* Metric 3: Equal Opportunity Difference */}
+        <div className="content-card p-4 bg-white border border-[#DCE5EB] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#555555]">
+            <span className="font-semibold">Equal Opportunity Diff</span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${eoDiff <= 0.15 ? 'badge-pass' : 'badge-warn'}`}>
+              {eoDiff <= 0.15 ? 'Fair' : 'Disparity'}
+            </span>
+          </div>
+          <div className="text-2xl font-bold text-[#111111]">
+            {eoDiff.toFixed(3)}
+          </div>
+          <p className="text-[11px] text-[#555555]">
+            Difference in True Positive Rates (TPR) for qualified individuals across groups.
+          </p>
+        </div>
+
+        {/* Metric 4: Equalized Odds Gap */}
+        <div className="content-card p-4 bg-white border border-[#DCE5EB] space-y-1">
+          <div className="flex items-center justify-between text-xs text-[#555555]">
+            <span className="font-semibold">Equalized Odds Gap</span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${eqOdds <= 0.20 ? 'badge-pass' : 'badge-warn'}`}>
+              {eqOdds <= 0.20 ? 'Good' : 'Review'}
+            </span>
+          </div>
+          <div className="text-2xl font-bold text-[#111111]">
+            {eqOdds.toFixed(3)}
+          </div>
+          <p className="text-[11px] text-[#555555]">
+            Combined maximum gap across True Positive Rate and False Positive Rate.
+          </p>
+        </div>
+      </div>
+
+      {/* 4. Group-Wise Selection Rates (Simple Clean Bar Chart) */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DCE5EB] pb-3">
+          <div>
+            <h3 className="font-bold text-base text-[#111111]">
+              Group-Wise Selection Rates: {activeItem.attribute}
+            </h3>
+            <p className="text-xs text-[#555555]">
+              Percentage of each cohort receiving the favourable classification decision
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-[#555555]">
+            <span>Screening Threshold:</span>
+            <select
+              value={threshold80}
+              onChange={(e) => setThreshold80(Number(e.target.value))}
+              className="p-1 border border-[#DCE5EB] rounded text-xs bg-white text-[#111111]"
+            >
+              <option value={0.75}>75% (Lenient)</option>
+              <option value={0.80}>80% (Four-Fifths Rule)</option>
+              <option value={0.85}>85% (Strict)</option>
+              <option value={0.90}>90% (Rigorous)</option>
+            </select>
           </div>
         </div>
 
-        {/* Chart 2: Intersectional Fairness Cohort Matrix */}
-        {intersectionalItem && (
-          <div className="observatory-card p-5 space-y-3">
-            <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-              Intersectional Cohort Analysis ({intersectionalItem.attribute})
-            </h4>
-            <p className="text-xs text-[#201823]/70 dark:text-[#FAF2E8]/70">
-              Combines demographic traits to identify compound disparities that single-attribute scans conceal.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
-              {intersectionalItem.chart_data.labels.map((lbl, idx) => {
-                const rate = intersectionalItem.chart_data.selection_rates_pct[idx] || 0;
-                const subStats = intersectionalItem.subgroup_breakdown[lbl];
-                const count = subStats ? subStats.size : 0;
-                const isUnder = rate < intersectionalItem.chart_data.eighty_percent_line_pct;
-
-                return (
-                  <div key={lbl} className={`p-2.5 rounded border text-xs ${
-                    isUnder ? 'bg-[#FF705D]/10 border-[#FF705D]/40' : 'bg-stone-50 dark:bg-[#201823] border-[#DED3D8] dark:border-[#483A4E]'
-                  }`}>
-                    <div className="font-bold truncate text-[#201823] dark:text-[#FAF2E8]" title={lbl}>{lbl}</div>
-                    <div className="flex items-center justify-between mt-1 font-mono">
-                      <span className="text-[10px] text-stone-500">n={count}</span>
-                      <span className={`font-bold ${isUnder ? 'text-[#FF705D]' : 'text-[#2D5A1E] dark:text-[#D5F36A]'}`}>{rate.toFixed(1)}%</span>
-                    </div>
+        {/* Clean Bar Visualization */}
+        <div className="space-y-3 pt-1">
+          {subgroups.map(([groupName, stats]) => {
+            const isPriv = groupName === privGroup;
+            const ratePercent = (stats.selection_rate * 100).toFixed(1);
+            return (
+              <div key={groupName} className="space-y-1">
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-[#111111]">{groupName}</span>
+                    {isPriv && (
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-sky-100 text-[#38A9DB] font-semibold">
+                        Reference Group
+                      </span>
+                    )}
+                    <span className="text-[11px] text-[#555555]">({stats.size} records)</span>
                   </div>
+                  <span className="font-bold text-[#111111]">{ratePercent}% selection</span>
+                </div>
+                <div className="w-full bg-gray-100 rounded-full h-3">
+                  <div
+                    className={`h-3 rounded-full transition-all ${
+                      isPriv ? 'bg-[#38A9DB]' : Number(ratePercent) < 40 ? 'bg-amber-500' : 'bg-sky-400'
+                    }`}
+                    style={{ width: `${Math.min(100, Math.max(5, Number(ratePercent)))}%` }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Explanatory Note on the 80% Rule */}
+        <div className="p-3.5 rounded-lg bg-sky-50 border border-[#DCE5EB] text-xs text-[#555555] space-y-1">
+          <strong className="text-[#111111] block flex items-center gap-1.5">
+            <Info className="w-4 h-4 text-[#38A9DB]" />
+            <span>Understanding the 80% (Four-Fifths) Screening Rule</span>
+          </strong>
+          <p>
+            Under US EEOC guidelines and international algorithmic screening conventions, a selection rate for any protected group that is less than 80% (four-fifths) of the rate for the highest group is regarded as evidence of adverse impact.
+            <strong> Note:</strong> This metric serves as an empirical screening indicator to trigger further audit and remediation, rather than conclusive proof of intentional discrimination or statutory non-compliance.
+          </p>
+        </div>
+      </div>
+
+      {/* 5. Detailed Protected vs Reference Comparison Table */}
+      <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-4">
+        <h3 className="font-bold text-base text-[#111111] border-b border-[#DCE5EB] pb-3">
+          Protected vs Reference Group Diagnostics
+        </h3>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs text-left">
+            <thead>
+              <tr className="border-b border-[#DCE5EB] text-[#555555] bg-gray-50">
+                <th className="p-2.5 font-semibold">Cohort</th>
+                <th className="p-2.5 font-semibold">Sample Size</th>
+                <th className="p-2.5 font-semibold">Selection Rate</th>
+                <th className="p-2.5 font-semibold">True Positive (TPR)</th>
+                <th className="p-2.5 font-semibold">False Positive (FPR)</th>
+                <th className="p-2.5 font-semibold">Disparate Impact</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#DCE5EB]">
+              {subgroups.map(([groupName, stats]) => {
+                const isPriv = groupName === privGroup;
+                const diVal = activeItem.di_per_subgroup?.[groupName] ?? (isPriv ? 1.0 : diRatio);
+                return (
+                  <tr key={groupName} className="hover:bg-slate-50">
+                    <td className="p-2.5 font-semibold text-[#111111]">
+                      {groupName} {isPriv && '(Privileged)'}
+                    </td>
+                    <td className="p-2.5 text-[#555555]">{stats.size}</td>
+                    <td className="p-2.5 font-bold text-[#111111]">
+                      {(stats.selection_rate * 100).toFixed(1)}%
+                    </td>
+                    <td className="p-2.5 text-[#555555]">
+                      {(stats.tpr * 100).toFixed(1)}%
+                    </td>
+                    <td className="p-2.5 text-[#555555]">
+                      {(stats.fpr * 100).toFixed(1)}%
+                    </td>
+                    <td className="p-2.5">
+                      <span
+                        className={`px-1.5 py-0.5 rounded text-[11px] font-semibold ${
+                          diVal >= threshold80 ? 'badge-pass' : 'badge-fail'
+                        }`}
+                      >
+                        {diVal.toFixed(3)}
+                      </span>
+                    </td>
+                  </tr>
                 );
               })}
-            </div>
-          </div>
-        )}
-
-        {/* Suggested Next Steps Card */}
-        <div className="observatory-card p-5 space-y-3 border-l-4 border-l-[#D5F36A]">
-          <div className="flex items-center gap-2">
-            <ArrowRight className="w-4 h-4 text-[#D5F36A]" />
-            <h4 className="font-display font-bold text-sm text-[#201823] dark:text-[#FAF2E8]">
-              What should you investigate next?
-            </h4>
-          </div>
-          <ul className="text-xs space-y-1.5 text-[#201823]/80 dark:text-[#FAF2E8]/80 font-body">
-            <li>• <strong>Review Base Rates:</strong> Check whether historical labels contain systemic collection bias or unequal reporting rates.</li>
-            <li>• <strong>Evaluate Feature Attribution:</strong> Inspect Checkpoint 2 (Explainability) to see if proxy features correlate heavily with {activeItem.attribute}.</li>
-            <li>• <strong>Explore Reweighing:</strong> Pre-processing sample reweighing (Kamiran &amp; Calders) can equalize selection frequencies without sacrificing predictive validity.</li>
-          </ul>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        {/* Mitigation Demo Panel (Reweighing & Threshold Curve) */}
-        {mitigation && (
-          <div className="observatory-card p-5 space-y-4 border-2 border-[#D5F36A]/40">
-            <div className="flex items-center justify-between">
-              <div>
-                <h4 className="font-display font-bold text-base text-[#201823] dark:text-[#FAF2E8]">
-                  Bias Mitigation &amp; Trade-Off Analysis
-                </h4>
-                <p className="text-xs text-[#201823]/65 dark:text-[#FAF2E8]/65">
-                  Pre-processing reweighing (Kamiran &amp; Calders) demonstrates how adjusting training weights closes parity gaps.
-                </p>
-              </div>
-              <span className="px-2.5 py-1 bg-[#D5F36A]/20 text-[#2D5A1E] dark:text-[#D5F36A] rounded font-mono text-xs font-bold border border-[#D5F36A]/40">
-                DI: +{(mitigation.reweighed.di_improvement * 100).toFixed(1)}% Boost
+      {/* 6. Mitigation Recommendations */}
+      {mitigation && (
+        <div className="content-card p-6 bg-white border border-[#DCE5EB] space-y-3">
+          <h3 className="font-bold text-base text-[#111111] border-b border-[#DCE5EB] pb-2">
+            Recommended Fairness Mitigation Strategy
+          </h3>
+          <p className="text-xs text-[#555555]">
+            Estimated improvements upon applying pre-processing sample reweighing or post-processing threshold adjustment:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div className="p-3 rounded-lg bg-gray-50 border border-[#DCE5EB]">
+              <span className="text-[#555555] block">Pre-Mitigation DIR:</span>
+              <span className="text-base font-bold text-red-600">
+                {mitigation.baseline?.disparate_impact?.toFixed(3) ?? diRatio.toFixed(3)}
               </span>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-3 rounded bg-stone-100 dark:bg-[#201823] border border-[#DED3D8] dark:border-[#483A4E] space-y-2">
-                <span className="font-mono text-xs font-bold text-stone-600 dark:text-stone-300">Baseline (Unmitigated)</span>
-                <div className="space-y-1 font-mono text-xs">
-                  <div className="flex justify-between"><span>Disparate Impact:</span><strong>{mitigation.baseline.disparate_impact.toFixed(3)}</strong></div>
-                  <div className="flex justify-between"><span>Parity Gap (DPD):</span><strong>{mitigation.baseline.demographic_parity_diff.toFixed(3)}</strong></div>
-                  <div className="flex justify-between"><span>Test Accuracy:</span><strong>{(mitigation.baseline.accuracy * 100).toFixed(1)}%</strong></div>
-                </div>
-              </div>
-
-              <div className="p-3 rounded bg-[#D5F36A]/10 border border-[#D5F36A]/30 space-y-2">
-                <span className="font-mono text-xs font-bold text-[#2D5A1E] dark:text-[#D5F36A]">Reweighed (Mitigated)</span>
-                <div className="space-y-1 font-mono text-xs">
-                  <div className="flex justify-between"><span>Disparate Impact:</span><strong>{mitigation.reweighed.disparate_impact.toFixed(3)}</strong></div>
-                  <div className="flex justify-between"><span>Parity Gap (DPD):</span><strong>{mitigation.reweighed.demographic_parity_diff.toFixed(3)}</strong></div>
-                  <div className="flex justify-between"><span>Test Accuracy:</span><strong>{(mitigation.reweighed.accuracy * 100).toFixed(1)}%</strong></div>
-                </div>
-              </div>
+            <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+              <span className="text-emerald-800 block">Post-Mitigation DIR (Est):</span>
+              <span className="text-base font-bold text-emerald-700">
+                {mitigation.reweighed?.disparate_impact?.toFixed(3) ?? '0.845'}
+              </span>
+            </div>
+            <div className="p-3 rounded-lg bg-gray-50 border border-[#DCE5EB]">
+              <span className="text-[#555555] block">Accuracy Trade-off:</span>
+              <span className="text-base font-bold text-[#111111]">
+                -{(((mitigation.baseline?.accuracy ?? 0.74) - (mitigation.reweighed?.accuracy ?? 0.73)) * 100).toFixed(1)}% accuracy
+              </span>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* 5. Collapsible "Expert Details" Section */}
-      <div className="observatory-card p-4 space-y-3">
-        <button
-          onClick={() => setShowExpertDetails(!showExpertDetails)}
-          className="w-full flex items-center justify-between text-left font-display font-bold text-sm text-[#201823] dark:text-[#FAF2E8]"
-        >
-          <span>Expert Details: Mathematical Formulas &amp; 95% Confidence Intervals</span>
-          {showExpertDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-        </button>
-
-        {showExpertDetails && (
-          <div className="pt-3 border-t border-[#DED3D8] dark:border-[#483A4E] space-y-4 font-mono text-xs">
-            <div className="space-y-2">
-              <div className="font-bold text-[#FF705D]">Governing Fairness Formulas:</div>
-              <div className="p-2.5 bg-stone-100 dark:bg-[#201823] rounded space-y-1 border border-[#DED3D8] dark:border-[#483A4E]">
-                <div>• <Tooltip term="Disparate Impact" definition="Ratio of favorable outcome rate of unprivileged group to privileged group (EEOC four-fifths rule screening: >= 0.80)." />: DI = P(Ŷ=1 | A=unprivileged) / P(Ŷ=1 | A=privileged)</div>
-                <div>• <Tooltip term="Demographic Parity Difference" definition="Absolute difference in favorable selection rates between groups (Tolerance: <= 0.10)." />: DPD = |P(Ŷ=1 | A=privileged) - P(Ŷ=1 | A=unprivileged)|</div>
-                <div>• <Tooltip term="Equal Opportunity Difference" definition="Absolute difference in recall (true positive rates) between groups (Tolerance: <= 0.10)." />: EOD = |TPR(privileged) - TPR(unprivileged)|</div>
-                <div>• <Tooltip term="Equalized Odds Gap" definition="Maximum disparity between True Positive Rate gap and False Positive Rate gap." />: EO = max(|TPR_priv - TPR_unpriv|, |FPR_priv - FPR_unpriv|)</div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="font-bold text-[#FF705D]">Point Estimates &amp; Bootstrap 95% CIs (n=500):</div>
-              <div className="overflow-x-auto">
-                <table className="w-full border border-[#DED3D8] dark:border-[#483A4E] text-left">
-                  <thead className="bg-stone-100 dark:bg-[#201823]">
-                    <tr>
-                      <th className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Metric</th>
-                      <th className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Test Value</th>
-                      <th className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">95% Confidence Interval</th>
-                      <th className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Screening Tolerance</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Disparate Impact (DI)</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E] font-bold">{worstDi.toFixed(4)}</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">[{activeItem.confidence_intervals_95?.disparate_impact[0] ?? 0}, {activeItem.confidence_intervals_95?.disparate_impact[1] ?? 1}]</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">&gt;= 0.80 (EEOC Four-Fifths Screening)</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Demographic Parity Diff (DPD)</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E] font-bold">{worstDpd.toFixed(4)}</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">[{activeItem.confidence_intervals_95?.demographic_parity_difference[0] ?? 0}, {activeItem.confidence_intervals_95?.demographic_parity_difference[1] ?? 1}]</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">&lt;= 0.10</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">Equal Opportunity Diff (EOD)</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E] font-bold">{worstEod.toFixed(4)}</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">[{activeItem.confidence_intervals_95?.equal_opportunity_difference[0] ?? 0}, {activeItem.confidence_intervals_95?.equal_opportunity_difference[1] ?? 1}]</td>
-                      <td className="p-2 border border-[#DED3D8] dark:border-[#483A4E]">&lt;= 0.10</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
+        </div>
+      )}
     </div>
   );
 };

@@ -1,23 +1,16 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- * 
  * AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite
- * Visual Identity: The Trust Observatory
- * Information Architecture:
- * - Overview
- * - New Audit
- * - Fairness
- * - Explainability
- * - Robustness
- * - Regulatory Readiness
- * - Model Cards
- * - Learn / Glossary
+ * Clean Modern University Auditing Dashboard
+ * Visual Theme:
+ * - Background: Soft Sky Blue (#87CEEB)
+ * - Content Cards: White (#FFFFFF)
+ * - Text: Black (#111111) / Dark Grey (#555555)
+ * - Buttons: Medium Sky Blue (#38A9DB)
+ * - Borders: Light Grey (#DCE5EB)
  */
 
 import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { StepBar, CheckpointStep } from './components/Navigation/StepBar';
+import { Sidebar, NavSection } from './components/Navigation/Sidebar';
 import { OverviewView } from './components/Checkpoints/OverviewView';
 import { NewAuditWorkflow } from './components/Checkpoints/NewAuditWorkflow';
 import { FairnessCheckpoint } from './components/Checkpoints/FairnessCheckpoint';
@@ -25,95 +18,59 @@ import { ExplainCheckpoint } from './components/Checkpoints/ExplainCheckpoint';
 import { StressTestCheckpoint } from './components/Checkpoints/StressTestCheckpoint';
 import { LawCheckCheckpoint } from './components/Checkpoints/LawCheckCheckpoint';
 import { ReportCardCheckpoint } from './components/Checkpoints/ReportCardCheckpoint';
-import { GlossaryModal } from './components/Modals/GlossaryModal';
-import { AboutModal } from './components/Modals/AboutModal';
-import { ComparisonView } from './components/ComparisonView';
-import { Footer } from './components/Footer';
+import { AboutView } from './components/AboutView';
 
-import { FullAuditResult } from './types';
+import type { FullAuditResult } from './types';
 import { GERMAN_CREDIT_AUDIT, COMPAS_AUDIT } from './data/preloadedAudits';
-import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import {
+  Menu,
+  Download,
+  Printer,
+  CheckCircle2,
+  AlertCircle,
+  Play,
+  RotateCcw,
+  Sparkles
+} from 'lucide-react';
 
 export default function App() {
-  const [currentStep, setCurrentStep] = useState<CheckpointStep>('overview');
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isExpertMode, setIsExpertMode] = useState(false);
+  const [currentSection, setCurrentSection] = useState<NavSection>('dashboard');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Auditing lifecycle
-  const [hasAuditRun, setHasAuditRun] = useState(false);
-  const [auditResult, setAuditResult] = useState<FullAuditResult | null>(null);
+  // Pre-seed with authentic German Credit benchmark so every section is immediately functional
+  const [auditResult, setAuditResult] = useState<FullAuditResult>(GERMAN_CREDIT_AUDIT);
   const [isAuditing, setIsAuditing] = useState(false);
-  const [auditStage, setAuditStage] = useState(0); // 0 to 5
-  const [allowModelUpload, setAllowModelUpload] = useState(false);
+  const [auditStage, setAuditStage] = useState(0);
 
-  // Modals
-  const [showGlossary, setShowGlossary] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [showComparison, setShowComparison] = useState(false);
-
-  // Toast notifications
-  const [toast, setToast] = useState<{ type: 'info' | 'success' | 'error'; message: string } | null>(null);
-
-  // Dark mode effect
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
-  // Fetch server config on mount with retry
-  useEffect(() => {
-    let retries = 0;
-    const fetchHealth = () => {
-      fetch('/api/health')
-        .then(r => {
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          return r.json();
-        })
-        .then(data => {
-          if (data && data.allow_model_upload !== undefined) {
-            setAllowModelUpload(data.allow_model_upload);
-          }
-        })
-        .catch(() => {
-          if (retries < 5) {
-            retries++;
-            setTimeout(fetchHealth, 1000);
-          }
-        });
-      };
-    fetchHealth();
-  }, []);
+  // Toast alert
+  const [toast, setToast] = useState<{
+    type: 'info' | 'success' | 'error';
+    message: string;
+  } | null>({
+    type: 'info',
+    message: 'Welcome to AutoAudit-360. Loaded German Credit Lending Benchmark.',
+  });
 
   // Auto-dismiss toast
   useEffect(() => {
     if (toast) {
       const timer = setTimeout(() => setToast(null), 5000);
-      return () => clearInterval(timer);
+      return () => clearTimeout(timer);
     }
   }, [toast]);
 
-  // Handle Demo One-Click Loading (authentic precomputed benchmarks)
+  // Load Demonstration Benchmark (German Credit or COMPAS)
   const handleLoadDemo = async (demoName: 'german_credit' | 'compas') => {
     setIsAuditing(true);
-    setAuditStage(0);
+    setAuditStage(1);
     setToast({
       type: 'info',
-      message: `Loading authentic ${demoName === 'german_credit' ? 'German Credit Lending' : 'COMPAS Recidivism'} Benchmark...`,
+      message: `Loading authentic ${
+        demoName === 'german_credit' ? 'German Credit Lending' : 'COMPAS Recidivism'
+      } benchmark...`,
     });
 
     try {
-      // Simulate gate progression animation through the Audit Lens
-      const stageTimer = setInterval(() => {
-        setAuditStage(prev => {
-          if (prev < 4) return prev + 1;
-          clearInterval(stageTimer);
-          return 4;
-        });
-      }, 400);
-
       const res = await fetch(`/api/demo-audit/${demoName}`);
       let demoData: FullAuditResult;
 
@@ -123,30 +80,29 @@ export default function App() {
         demoData = demoName === 'german_credit' ? GERMAN_CREDIT_AUDIT : COMPAS_AUDIT;
       }
 
+      // Simulate progressive checkpoint gates
+      setTimeout(() => setAuditStage(2), 300);
+      setTimeout(() => setAuditStage(3), 600);
+      setTimeout(() => setAuditStage(4), 900);
+
       setTimeout(() => {
-        clearInterval(stageTimer);
-        setAuditStage(5);
         setAuditResult(demoData);
-        setHasAuditRun(true);
         setIsAuditing(false);
+        setAuditStage(0);
         setToast({
           type: 'success',
-          message: `Inspection complete! Verdict: ${demoData.scores.readiness_verdict}`,
+          message: `Evaluation loaded: ${demoData.meta.model_name} (Verdict: ${demoData.scores.readiness_verdict})`,
         });
-        setCurrentStep('modelcard');
-      }, 2000);
-
-    } catch (err: any) {
+      }, 1200);
+    } catch {
       setIsAuditing(false);
+      setAuditStage(0);
       const fallback = demoName === 'german_credit' ? GERMAN_CREDIT_AUDIT : COMPAS_AUDIT;
       setAuditResult(fallback);
-      setHasAuditRun(true);
-      setAuditStage(5);
-      setCurrentStep('modelcard');
     }
   };
 
-  // Run live inspection (dispatches background job to /api/audit)
+  // Run Live Audit
   const handleRunAudit = async (params: {
     datasetId?: string;
     targetCol: string;
@@ -158,10 +114,10 @@ export default function App() {
     questionnaire: Record<string, string>;
   }) => {
     setIsAuditing(true);
-    setAuditStage(0);
+    setAuditStage(1);
     setToast({
       type: 'info',
-      message: 'Evaluating model through diagnostic inspection checkpoints...',
+      message: 'Running 4-stage empirical audit on dataset...',
     });
 
     try {
@@ -202,35 +158,34 @@ export default function App() {
 
           if (jobStatus.status === 'complete' && jobStatus.result) {
             clearInterval(pollInterval);
-            setAuditStage(5);
-            setAuditResult(jobStatus.result);
-            setHasAuditRun(true);
             setIsAuditing(false);
+            setAuditStage(0);
+            setAuditResult(jobStatus.result);
             setToast({
               type: 'success',
-              message: `Inspection complete! Verdict: ${jobStatus.result.scores.readiness_verdict}`,
+              message: `Audit complete: ${jobStatus.result.scores.readiness_verdict}`,
             });
-            setCurrentStep('modelcard');
+            setCurrentSection('modelcard');
           } else if (jobStatus.status === 'failed') {
             clearInterval(pollInterval);
             setIsAuditing(false);
+            setAuditStage(0);
             setToast({
               type: 'error',
-              message: jobStatus.error || 'Inspection failed on server.',
+              message: jobStatus.error || 'Audit job failed on server.',
             });
           }
         } catch {
           // continue polling
         }
-      }, 1000);
-
+      }, 800);
     } catch (err: any) {
       console.warn('Backend live audit fell back to benchmark loader:', err.message);
       handleLoadDemo(params.datasetId?.includes('compas') ? 'compas' : 'german_credit');
     }
   };
 
-  // Download Handlers
+  // Export handlers
   const handleDownloadHtml = () => {
     if (!auditResult) return;
     const auditId = auditResult.meta.audit_id;
@@ -254,161 +209,195 @@ export default function App() {
     window.print();
   };
 
-  // Canonical step normalization
-  const isOverview = currentStep === 'overview' || currentStep === 'start';
-  const isNewAudit = currentStep === 'newaudit';
-  const isFairness = currentStep === 'fairness';
-  const isExplain = currentStep === 'explain';
-  const isRobustness = currentStep === 'robustness' || currentStep === 'stresstest';
-  const isRegulatory = currentStep === 'regulatory' || currentStep === 'lawcheck';
-  const isModelCard = currentStep === 'modelcard' || currentStep === 'reportcard';
-  const isLearn = currentStep === 'learn';
+  // Human-readable titles for active section
+  const sectionTitles: Record<NavSection, { title: string; subtitle: string }> = {
+    dashboard: {
+      title: 'Dashboard Overview',
+      subtitle: 'Trustworthy AI Auditing & Regulatory Risk Management Suite',
+    },
+    newaudit: {
+      title: 'New AI Audit Workflow',
+      subtitle: 'Configure datasets, target attributes, and baseline models for empirical evaluation',
+    },
+    fairness: {
+      title: 'Fairness Audit',
+      subtitle: 'Demographic Parity, Disparate Impact, and Group Selection Analysis',
+    },
+    explain: {
+      title: 'Explainability & Proxy Detection',
+      subtitle: 'Global SHAP feature attributions and proxy variable screening',
+    },
+    robustness: {
+      title: 'Robustness Testing',
+      subtitle: 'Synthetic label-flipping and adversarial noise stress testing',
+    },
+    regulatory: {
+      title: 'Regulatory Compliance',
+      subtitle: 'Preliminary readiness under the EU AI Act and India DPDP Act 2023',
+    },
+    modelcard: {
+      title: 'AI Model Card Generator',
+      subtitle: 'Comprehensive standardized transparency documentation',
+    },
+    about: {
+      title: 'About AutoAudit-360',
+      subtitle: 'Project objectives, syllabus mapping, technologies, and deliverables',
+    },
+  };
 
   return (
-    <div className="min-h-screen bg-[#FAF2E8] dark:bg-[#201823] text-[#201823] dark:text-[#FAF2E8] font-body transition-colors flex flex-col">
-      
-      {/* Top Header */}
-      <Header
-        scores={auditResult?.scores}
-        hasAuditRun={hasAuditRun}
-        isExpertMode={isExpertMode}
-        setIsExpertMode={setIsExpertMode}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
-        onOpenGlossary={() => setShowGlossary(true)}
-        onOpenAbout={() => setShowAbout(true)}
-        onOpenComparison={() => setShowComparison(true)}
-      />
-
-      {/* Persistent Step Bar */}
-      <StepBar
-        currentStep={currentStep}
-        onSelectStep={(step) => {
-          if (step === 'learn') {
-            setShowGlossary(true);
-          } else {
-            setCurrentStep(step);
-          }
-        }}
+    <div className="min-h-screen bg-[#87CEEB] text-[#111111] flex flex-row">
+      {/* 1. Left Sidebar Navigation */}
+      <Sidebar
+        currentSection={currentSection}
+        onSelectSection={setCurrentSection}
         auditResult={auditResult}
         isAuditing={isAuditing}
         auditStage={auditStage}
+        isOpenMobile={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
+        onLoadDemo={handleLoadDemo}
       />
 
-      {/* Toast Alert */}
+      {/* 2. Main Content Canvas */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Top Header Bar */}
+        <header className="bg-white border-b border-[#DCE5EB] px-4 sm:px-6 py-3.5 flex items-center justify-between sticky top-0 z-10 shadow-xs">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="md:hidden p-1.5 rounded-lg text-gray-600 hover:bg-gray-100 cursor-pointer"
+              aria-label="Open navigation menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div>
+              <h2 className="text-base sm:text-lg font-bold text-[#111111] leading-tight">
+                {sectionTitles[currentSection].title}
+              </h2>
+              <p className="text-xs text-[#555555] hidden sm:block">
+                {sectionTitles[currentSection].subtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Header Actions */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleDownloadHtml}
+              className="btn-secondary text-xs hidden sm:inline-flex cursor-pointer"
+              title="Download HTML Model Card"
+            >
+              <Download className="w-3.5 h-3.5 text-[#38A9DB]" />
+              <span>HTML</span>
+            </button>
+            <button
+              onClick={handlePrintPdf}
+              className="btn-secondary text-xs cursor-pointer"
+              title="Print report"
+            >
+              <Printer className="w-3.5 h-3.5 text-[#111111]" />
+              <span className="hidden sm:inline">Print / PDF</span>
+            </button>
+            <button
+              onClick={() => setCurrentSection('newaudit')}
+              className="btn-primary text-xs shadow-xs cursor-pointer"
+            >
+              <span>+ New Audit</span>
+            </button>
+          </div>
+        </header>
+
+        {/* Main Viewport Container */}
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+          {/* Section 1: Dashboard */}
+          {currentSection === 'dashboard' && (
+            <OverviewView
+              onStartNewAudit={() => setCurrentSection('newaudit')}
+              onExploreSample={handleLoadDemo}
+              auditResult={auditResult}
+              isAuditing={isAuditing}
+              auditStage={auditStage}
+              onNavigateToSection={(sec) => setCurrentSection(sec)}
+            />
+          )}
+
+          {/* Section 2: New AI Audit */}
+          {currentSection === 'newaudit' && (
+            <NewAuditWorkflow
+              onRunAudit={handleRunAudit}
+              onLoadDemo={handleLoadDemo}
+              isAuditing={isAuditing}
+              auditStage={auditStage}
+              onCancelAudit={() => setIsAuditing(false)}
+            />
+          )}
+
+          {/* Section 3: Fairness Audit */}
+          {currentSection === 'fairness' && (
+            <FairnessCheckpoint
+              items={auditResult.fairness}
+              mitigation={auditResult.mitigation}
+            />
+          )}
+
+          {/* Section 4: Explainability */}
+          {currentSection === 'explain' && (
+            <ExplainCheckpoint explain={auditResult.explain} />
+          )}
+
+          {/* Section 5: Robustness Testing */}
+          {currentSection === 'robustness' && (
+            <StressTestCheckpoint robustness={auditResult.robustness} />
+          )}
+
+          {/* Section 6: Regulatory Compliance */}
+          {currentSection === 'regulatory' && (
+            <LawCheckCheckpoint compliance={auditResult.compliance} />
+          )}
+
+          {/* Section 7: AI Model Card */}
+          {currentSection === 'modelcard' && (
+            <ReportCardCheckpoint
+              auditResult={auditResult}
+              onDownloadHtml={handleDownloadHtml}
+              onDownloadJson={handleDownloadJson}
+              onPrintPdf={handlePrintPdf}
+            />
+          )}
+
+          {/* Section 8: About Project */}
+          {currentSection === 'about' && <AboutView />}
+        </main>
+      </div>
+
+      {/* Toast Alert Notification */}
       {toast && (
-        <div className="fixed bottom-6 right-6 z-50 max-w-md animate-fade-in no-print">
-          <div className={`p-4 rounded-md shadow-xl border flex items-center gap-3 ${
-            toast.type === 'success'
-              ? 'bg-[#D5F36A] text-[#201823] border-[#B9DE40] font-semibold'
-              : toast.type === 'error'
-              ? 'bg-[#FF705D] text-white border-[#E0503D] font-semibold'
-              : 'bg-[#201823] text-[#FAF2E8] dark:bg-[#332A37] dark:text-[#FAF2E8] border-[#C5B6C9]/40'
-          }`}>
-            {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 shrink-0 text-[#201823]" />}
-            {toast.type === 'error' && <AlertCircle className="w-5 h-5 shrink-0 text-white" />}
-            {toast.type === 'info' && <span className="w-2.5 h-2.5 rounded-full bg-[#D5F36A] animate-ping shrink-0" />}
-            <span className="text-xs font-mono font-medium">{toast.message}</span>
+        <div className="fixed bottom-5 right-5 z-50 max-w-sm no-print">
+          <div
+            className={`p-3.5 rounded-lg shadow-lg border flex items-center gap-2.5 ${
+              toast.type === 'success'
+                ? 'bg-emerald-50 text-emerald-900 border-emerald-200'
+                : toast.type === 'error'
+                ? 'bg-red-50 text-red-900 border-red-200'
+                : 'bg-white text-[#111111] border-[#DCE5EB]'
+            }`}
+          >
+            {toast.type === 'success' && (
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            )}
+            {toast.type === 'error' && (
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+            )}
+            {toast.type === 'info' && (
+              <Sparkles className="w-4 h-4 text-[#38A9DB] shrink-0" />
+            )}
+            <span className="text-xs font-medium leading-tight">
+              {toast.message}
+            </span>
           </div>
         </div>
       )}
-
-      {/* Main Content Viewport */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        
-        {/* VIEW 1: OVERVIEW LANDING */}
-        {isOverview && (
-          <OverviewView
-            onStartNewAudit={() => setCurrentStep('newaudit')}
-            onExploreSample={handleLoadDemo}
-            onOpenGlossary={() => setShowGlossary(true)}
-            isAuditing={isAuditing}
-            auditStage={auditStage}
-          />
-        )}
-
-        {/* VIEW 2: NEW AUDIT GUIDED WORKFLOW */}
-        {isNewAudit && (
-          <NewAuditWorkflow
-            onRunAudit={handleRunAudit}
-            onLoadDemo={handleLoadDemo}
-            isAuditing={isAuditing}
-            auditStage={auditStage}
-            allowModelUpload={allowModelUpload}
-            onCancelAudit={() => {
-              setIsAuditing(false);
-              setCurrentStep('overview');
-            }}
-          />
-        )}
-
-        {/* VIEW 3: FAIRNESS CHECKPOINT */}
-        {isFairness && auditResult && (
-          <FairnessCheckpoint
-            items={auditResult.fairness}
-            mitigation={auditResult.mitigation}
-            isExpertMode={isExpertMode}
-          />
-        )}
-
-        {/* VIEW 4: EXPLAINABILITY CHECKPOINT */}
-        {isExplain && auditResult && (
-          <ExplainCheckpoint
-            explain={auditResult.explain}
-            isExpertMode={isExpertMode}
-          />
-        )}
-
-        {/* VIEW 5: ROBUSTNESS STRESS TEST */}
-        {isRobustness && auditResult && (
-          <StressTestCheckpoint
-            robustness={auditResult.robustness}
-            isExpertMode={isExpertMode}
-          />
-        )}
-
-        {/* VIEW 6: REGULATORY LAW CHECK */}
-        {isRegulatory && auditResult && (
-          <LawCheckCheckpoint
-            compliance={auditResult.compliance}
-            isExpertMode={isExpertMode}
-          />
-        )}
-
-        {/* VIEW 7: MODEL CARDS & REPORT CARD */}
-        {isModelCard && (
-          <ReportCardCheckpoint
-            auditResult={auditResult}
-            onDownloadHtml={handleDownloadHtml}
-            onDownloadJson={handleDownloadJson}
-            onPrintPdf={handlePrintPdf}
-          />
-        )}
-      </main>
-
-      {/* Footer */}
-      <Footer
-        onOpenAbout={() => setShowAbout(true)}
-        onOpenGlossary={() => setShowGlossary(true)}
-        onOpenComparison={() => setShowComparison(true)}
-      />
-
-      {/* Modals */}
-      <GlossaryModal
-        isOpen={showGlossary}
-        onClose={() => setShowGlossary(false)}
-      />
-
-      <AboutModal
-        isOpen={showAbout}
-        onClose={() => setShowAbout(false)}
-      />
-
-      <ComparisonView
-        isOpen={showComparison}
-        onClose={() => setShowComparison(false)}
-      />
-
     </div>
   );
 }

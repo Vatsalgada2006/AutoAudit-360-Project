@@ -1,31 +1,25 @@
 /*
   AutoAudit-360: End-to-End Trustworthy AI Audit & Regulatory Compliance Suite
-  Visual Identity: The Trust Observatory — Signal Edition
   Design System Palette:
-    Obsidian Plum:   #201823 (Dark navigation shell, deep surfaces, high-contrast framing)
-    Deep Aubergine:  #332A37 (Elevated dark panels, instrumental housings)
-    Warm Ivory:      #FAF2E8 (Analytical readable workspace, reports, data tables)
-    Signal Coral:    #FF705D (Important highlights, risk warnings, critical deficiencies)
-    Acid Lime:       #D5F36A (Selected controls, active inspection states, verified passes)
-    Muted Lavender:  #C5B6C9 (Technical secondary labels, calm structural outlines)
-    Neutral Border:  #DED3D8 (Crisp, restrained analytical division lines)
+    Main background: Soft sky blue (#87CEEB)
+    Content cards:   White (#FFFFFF)
+    Primary text:    Black (#111111)
+    Secondary text:  Dark grey (#555555)
+    Primary buttons: Medium sky blue (#38A9DB)
+    Borders:         Light grey (#DCE5EB)
 */
 
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --font-display: 'Bricolage Grotesque', Georgia, serif;
-    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'IBM Plex Mono', Menlo, monospace;
-    
-    --color-obsidian: #201823;
-    --color-aubergine: #332A37;
-    --color-ivory: #FAF2E8;
-    --color-coral: #FF705D;
-    --color-lime: #D5F36A;
-    --color-lavender: #C5B6C9;
-    --color-neutral-border: #DED3D8;
+    --color-sky-bg: #87CEEB;
+    --color-sky-btn: #38A9DB;
+    --color-sky-btn-hover: #2C92C0;
+    --color-card-bg: #FFFFFF;
+    --color-text-main: #111111;
+    --color-text-muted: #555555;
+    --color-border: #DCE5EB;
   }
   
   html {
@@ -34,165 +28,102 @@
   }
 
   body {
-    font-family: var(--font-body);
-    color: #201823;
-    background-color: #FAF2E8;
-    line-height: 1.6;
+    color: #111111;
+    background-color: #87CEEB;
+    line-height: 1.5;
     letter-spacing: -0.01em;
   }
-
-  .dark body {
-    color: #FAF2E8;
-    background-color: #201823;
-  }
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
-
-.font-body {
-  font-family: var(--font-body);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-/* Observatory Precision Card Style */
-.observatory-card {
+/* Rounded White Card with Subtle Shadow */
+.content-card {
   background-color: #FFFFFF;
-  border: 1px solid #DED3D8;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(32, 24, 35, 0.04);
-  position: relative;
+  border: 1px solid #DCE5EB;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
 }
 
-.dark .observatory-card {
-  background-color: #332A37;
-  border-color: rgba(197, 182, 201, 0.22);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-}
-
-/* Neutral & Signal Accent Borders */
-.signal-border-coral {
-  border-color: #FF705D;
-}
-
-.signal-border-lime {
-  border-color: #D5F36A;
-}
-
-.border-observatory {
-  border-color: #DED3D8;
-}
-
-.dark .border-observatory {
-  border-color: rgba(197, 182, 201, 0.25);
-}
-
-/* Official Diagnostic Seal / Rubber Stamp */
-.stamp-badge {
+/* Primary Button Styling */
+.btn-primary {
+  background-color: #38A9DB;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  text-transform: uppercase;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 4px;
-  transform: rotate(-0.75deg);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
 }
 
-.stamp-pass {
-  border-color: #3B7A27;
-  color: #204E15;
-  background-color: rgba(213, 243, 106, 0.28);
+.btn-primary:hover {
+  background-color: #2C92C0;
 }
 
-.dark .stamp-pass {
-  border-color: #D5F36A;
-  color: #D5F36A;
-  background-color: rgba(213, 243, 106, 0.12);
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #111111;
+  border: 1px solid #DCE5EB;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
 }
 
-.stamp-warn {
-  border-color: #D97706;
+.btn-secondary:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+/* Badge System */
+.badge-pass {
+  background-color: #DCFCE7;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+.badge-warn {
+  background-color: #FEF3C7;
   color: #92400E;
-  background-color: rgba(254, 243, 199, 0.85);
+  border: 1px solid #FDE68A;
 }
 
-.dark .stamp-warn {
-  border-color: #F59E0B;
-  color: #FCD34D;
-  background-color: rgba(245, 158, 11, 0.15);
+.badge-fail {
+  background-color: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
 }
 
-.stamp-fail {
-  border-color: #FF705D;
-  color: #9F1239;
-  background-color: rgba(255, 112, 93, 0.15);
-}
-
-.dark .stamp-fail {
-  border-color: #FF705D;
-  color: #FFA599;
-  background-color: rgba(255, 112, 93, 0.20);
-}
-
-/* Technical Term Dotted Underline with Tooltip Support */
-.term-tooltip {
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  cursor: help;
-}
-
-/* Rotating Optical Reticle Animation */
-@keyframes slow-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-optical-rotate {
-  animation: slow-rotate 45s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-optical-rotate {
-    animation: none;
-  }
+.badge-info {
+  background-color: #E0F2FE;
+  color: #0369A1;
+  border: 1px solid #BAE6FD;
 }
 
 /* Clean Print Styling for Model Card Report */
 @media print {
   body {
     background: #FFFFFF !important;
-    color: #000000 !important;
+    color: #111111 !important;
     font-size: 10pt !important;
   }
-  header, nav, footer, .no-print, button {
+  aside, header, nav, footer, .no-print, button {
     display: none !important;
   }
-  .observatory-card {
-    border: 1px solid #333333 !important;
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .content-card {
+    border: 1px solid #E2E8F0 !important;
     box-shadow: none !important;
     break-inside: avoid;
-  }
-  .stamp-badge {
-    transform: none !important;
-    border: 2px solid #000000 !important;
-    color: #000000 !important;
-    background: transparent !important;
+    page-break-inside: avoid;
   }
 }
